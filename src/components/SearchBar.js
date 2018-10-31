@@ -4,17 +4,23 @@ class SearchBar extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
-        bill: {
+        results: {
           name: '',
           amount: '',
-          due: '1' // avoids issue when onChange doesn't register
+          due: '1' 
         }
       }
     }
 
 
     render() {
-        const {bill} = this.state
+        const {results} = this.state
+
+        const resultsList = this.state.results.map(result => {
+            return (
+                null
+            )
+        })
     
         return (
         <div>
