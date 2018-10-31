@@ -4,6 +4,10 @@ class SearchBar extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
+        terms: {
+            status: 'open',
+            language: 'javascript'
+        },
         results: {
           name: '',
           amount: '',
@@ -13,7 +17,9 @@ class SearchBar extends React.Component {
     }
 
     getIssues = async () => {
-        let url = `https://api.github.com/search/issues?q=+type:issue+language=javascript+state:open&sort=created&order=asc`
+        let status = this.state.terms.status        
+
+        let url = `https://api.github.com/search/issues?q=+type:issue+language=javascript+state:${status}&sort=created&order=asc`
 
         const response = await fetch(url)
         const json = await response.json()
