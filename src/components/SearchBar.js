@@ -18,8 +18,9 @@ class SearchBar extends React.Component {
 
     getIssues = async () => {
         let status = this.state.terms.status        
+        let language = this.state.terms.language        
 
-        let url = `https://api.github.com/search/issues?q=+type:issue+language=javascript+state:${status}&sort=created&order=asc`
+        let url = `https://api.github.com/search/issues?q=+type:issue+language=${language}+state:${status}&sort=created&order=desc&per_page=100`
 
         const response = await fetch(url)
         const json = await response.json()
