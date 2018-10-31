@@ -1,11 +1,20 @@
 import React from 'react'
 
-const SearchResults = () => {
+const SearchResults = (props) => {
+
 
     return (
-        <div>
+        <div className="results">
           <h3>Results:</h3>
-          <div className="results"></div>
+
+          
+          
+          {console.log('props', props.results.items)}
+          
+          
+
+
+
         </div>
     )
 }

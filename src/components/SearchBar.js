@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchResults from './SearchResults'
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -44,6 +45,8 @@ class SearchBar extends React.Component {
             <input type="text" name="search-input"></input>
 
             <button onClick={this.getIssues}>Get Results</button>
+
+            <SearchResults results={this.state.results} />
         </div>
     )
     }
