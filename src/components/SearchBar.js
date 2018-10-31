@@ -35,7 +35,7 @@ class SearchBar extends React.Component {
         <div>
             <h3 className="section-title">Enter Your Search</h3>
             
-            <input type="text" name="search-input"></input>
+            <input type="text" name="search-text"></input>
 
             <button onClick={this.getIssues}>Get Results</button>
 
