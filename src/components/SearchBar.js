@@ -9,10 +9,11 @@ class SearchBar extends React.Component {
             status: 'open',
             language: 'javascript'
         },
-        results: []
+        results: {items: []}
       }
     }
 
+    // When button is clicked, make API call
     getIssues = async () => {
         // Set variables for search URL
         let status = this.state.terms.status        
@@ -29,17 +30,18 @@ class SearchBar extends React.Component {
         console.log('items in state', this.state.results.items)
     }
 
-
     render() {    
         return (
         <div>
             <h3 className="section-title">Enter Your Search</h3>
+            
             <input type="text" name="search-input"></input>
 
             <button onClick={this.getIssues}>Get Results</button>
 
-            {/* If state contains results, pass to and display child component */}
+            {/* Pass search results to child component */}
             <SearchResults results={this.state.results} />
+
         </div>
     )
     }
