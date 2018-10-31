@@ -12,20 +12,31 @@ class SearchBar extends React.Component {
       }
     }
 
+    getIssues = async () => {
+        let url = `https://api.github.com/search/issues?q=+type:issue+language=javascript+state:open&sort=created&order=asc`
+
+        const response = await fetch(url)
+        const json = await response.json()
+
+        console.log(json)
+    }
+
 
     render() {
-        const {results} = this.state
+        // const {results} = this.state
 
-        const resultsList = this.state.results.map(result => {
-            return (
-                null
-            )
-        })
+        // const resultsList = this.state.results.map(result => {
+        //     return (
+        //         null
+        //     )
+        // })
     
         return (
         <div>
             <h3 className="section-title">Enter Your Search</h3>
             <input type="text" name="search-input"></input>
+
+            <button onClick={this.getIssues}>Get Results</button>
         </div>
     )
     }
