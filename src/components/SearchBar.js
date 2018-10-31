@@ -8,24 +8,27 @@ class SearchBar extends React.Component {
             status: 'open',
             language: 'javascript'
         },
-        results: {
-          name: '',
-          amount: '',
-          due: '1' 
-        }
+        results: []
       }
     }
 
     getIssues = async () => {
+        // Set variables for search URL
         let status = this.state.terms.status        
-        let language = this.state.terms.language        
-
+        let language = this.state.terms.language 
+        
         let url = `https://api.github.com/search/issues?q=+type:issue+language=${language}+state:${status}&sort=created&order=desc&per_page=100`
 
+        // Make GET request
         const response = await fetch(url)
         const json = await response.json()
-
         console.log(json)
+
+        // Update state with results
+        this.setState({results: json})
+        console.log('items are ', this.state.results.items)
+
+
     }
 
 
