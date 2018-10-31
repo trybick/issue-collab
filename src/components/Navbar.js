@@ -4,7 +4,7 @@ const Navbar = () => {
 
     return (
         <div>
-        <h3>GitHub Issue Search</h3>
+        <h2>GitHub Issue Search</h2>
         </div>
     )
 }
