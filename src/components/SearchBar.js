@@ -30,15 +30,7 @@ class SearchBar extends React.Component {
     }
 
 
-    render() {
-        // const {results} = this.state
-
-        // const resultsList = this.state.results.map(result => {
-        //     return (
-        //         null
-        //     )
-        // })
-    
+    render() {    
         return (
         <div>
             <h3 className="section-title">Enter Your Search</h3>
@@ -46,6 +38,7 @@ class SearchBar extends React.Component {
 
             <button onClick={this.getIssues}>Get Results</button>
 
+            {/* If state contains results, pass to and display child component */}
             <SearchResults results={this.state.results} />
         </div>
     )
