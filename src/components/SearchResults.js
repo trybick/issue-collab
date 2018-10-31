@@ -5,7 +5,7 @@ const SearchResults = (props) => {
     // If items is truthy, map over them
     const items = props.results.items && props.results.items.map(item => {
         return (
-            <div>{item.url}</div>
+            <div key={item.id}>{item.url}</div>
         )
     })
 
