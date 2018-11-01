@@ -17,7 +17,7 @@ class SearchBar extends React.Component {
     }
   }
 
-  // When button is clicked, make API call
+  // API call when button is clicked
   getIssues = async () => {
     // Variables for search URL
     let status = this.state.terms.status
@@ -25,28 +25,29 @@ class SearchBar extends React.Component {
     let text = this.state.terms.text
 
     // URL we are customizing then fetching
-    let url = `https://api.github.com/search/issues?q=${text}+
-      type:issue+
-      language=${language}+
-      state:${status}+
-      sort=created+
-      order=desc&
-      per_page=100`
+    // let url = `https://api.github.com/search/issues?q=${text}+
+    //   type:issue+
+    //   language=${language}+
+    //   state:${status}&
+    //   sort=created&order=desc&per_page=25`
+
+    let url = `https://api.github.com/search/issues?q=${text}+type:issue+language=${language}+state:${status}&sort=created&order=desc&per_page=25`
 
     // Make GET request
     const response = await fetch(url)
     const json = await response.json()
+    console.log('json response', json)
 
     // Update state with results
     this.setState({ results: json })
-    console.log("items in state", this.state.results.items)
+    console.log('items in state', this.state.results.items)
   }
 
   // Handle input change and update state
   handleChange = event => {
     const newTerms = { ...this.state.terms }
     newTerms.text = event.target.value
-    this.setState({ terms: newTerms })
+    this.setState({terms: newTerms}, () => console.log('state', this.state))
   }
 
   render() {
