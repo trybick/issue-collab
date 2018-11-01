@@ -6,11 +6,13 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      // Search terms to send to API
       terms: {
         text: "",
         status: "open",
         language: "javascript"
       },
+      // Results returned from API
       results: { items: [] }
     }
   }
@@ -22,6 +24,7 @@ class SearchBar extends React.Component {
     let language = this.state.terms.language
     let text = this.state.terms.text
 
+    // URL we are customizing then fetching
     let url = `https://api.github.com/search/issues?q=${text}+
       type:issue+
       language=${language}+
@@ -48,9 +51,11 @@ class SearchBar extends React.Component {
 
   render() {
     return (
+      // Main search section
       <div className="searchbar-wrapper">
         <h3 className="section-title">Enter Your Search</h3>
 
+        {/* Text box input */}
         <input
           type="text"
           name="search-text"
@@ -58,6 +63,7 @@ class SearchBar extends React.Component {
           onChange={this.handleChange}
         />
 
+        {/* GET button */}
         <button onClick={this.getIssues}>Get Results</button>
 
         {/* Pass search results to child component */}

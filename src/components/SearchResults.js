@@ -1,26 +1,26 @@
 import React from "react"
 
 const SearchResults = props => {
-  // If items is truthy, map over them
   const items =
+    // If items is truthy
     props.results.items &&
     props.results.items.map(item => {
       return (
         <div key={item.id}>
           <p>
-            {/* Issue title as hyperlink */}
+            {/* Title inside a link to issue */}
             <a href={item.html_url} target="_blank" rel="noopener noreferrer">
               {item.title}
             </a>
           </p>
 
-          {/* Issue created time */}
+          {/* Created date/time */}
           <p>
             Created at:
             {item.created_at}
           </p>
 
-          {/* Issue body */}
+          {/* Body text */}
           {/* <p>{item.body}</p> */}
 
           <br />
@@ -29,6 +29,7 @@ const SearchResults = props => {
     })
 
   return (
+    // Main results section
     <div className="results">
       <h3>Results:</h3>
 
