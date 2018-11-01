@@ -6,6 +6,7 @@ class SearchBar extends React.Component {
       super(props)
       this.state = {
         terms: {
+            text: '',
             status: 'open',
             language: 'javascript'
         },
@@ -30,12 +31,19 @@ class SearchBar extends React.Component {
         console.log('items in state', this.state.results.items)
     }
 
+    // Handle input change and update state
+    handleChange = (event) => {
+        const newTerms = {...this.state.terms}
+        newTerms.text = event.target.value
+        this.setState({terms: newTerms}, () => console.log('state', this.state))
+    }
+
     render() {    
         return (
         <div>
             <h3 className="section-title">Enter Your Search</h3>
             
-            <input type="text" name="search-text"></input>
+            <input type="text" name="search-text" value={this.state.terms.text} onChange={this.handleChange}></input>
 
             <button onClick={this.getIssues}>Get Results</button>
 
