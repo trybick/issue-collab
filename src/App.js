@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.css'
+import './App.scss'
 
 import Navbar from './components/Navbar'
 import SearchBar from './components/SearchBar'
@@ -7,7 +7,7 @@ import SearchBar from './components/SearchBar'
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="app-wrapper">
         <Navbar />
 
         <SearchBar />
