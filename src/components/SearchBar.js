@@ -1,10 +1,10 @@
-import React from "react";
-import SearchResults from "./SearchResults";
+import React from "react"
+import SearchResults from "./SearchResults"
 import './SearchBar.scss'
 
 class SearchBar extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       terms: {
         text: "",
@@ -12,15 +12,15 @@ class SearchBar extends React.Component {
         language: "javascript"
       },
       results: { items: [] }
-    };
+    }
   }
 
   // When button is clicked, make API call
   getIssues = async () => {
     // Variables for search URL
-    let status = this.state.terms.status;
-    let language = this.state.terms.language;
-    let text = this.state.terms.text;
+    let status = this.state.terms.status
+    let language = this.state.terms.language
+    let text = this.state.terms.text
 
     let url = `https://api.github.com/search/issues?q=${text}+
       type:issue+
@@ -31,20 +31,20 @@ class SearchBar extends React.Component {
       per_page=100`
 
     // Make GET request
-    const response = await fetch(url);
-    const json = await response.json();
+    const response = await fetch(url)
+    const json = await response.json()
 
     // Update state with results
-    this.setState({ results: json });
-    console.log("items in state", this.state.results.items);
-  };
+    this.setState({ results: json })
+    console.log("items in state", this.state.results.items)
+  }
 
   // Handle input change and update state
   handleChange = event => {
-    const newTerms = { ...this.state.terms };
-    newTerms.text = event.target.value;
-    this.setState({ terms: newTerms });
-  };
+    const newTerms = { ...this.state.terms }
+    newTerms.text = event.target.value
+    this.setState({ terms: newTerms })
+  }
 
   render() {
     return (
@@ -63,8 +63,8 @@ class SearchBar extends React.Component {
         {/* Pass search results to child component */}
         <SearchResults results={this.state.results} />
       </div>
-    );
+    )
   }
 }
 
-export default SearchBar;
+export default SearchBar

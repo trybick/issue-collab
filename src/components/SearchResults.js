@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const SearchResults = props => {
   // If items is truthy, map over them
@@ -25,8 +25,8 @@ const SearchResults = props => {
 
           <br />
         </div>
-      );
-    });
+      )
+    })
 
   return (
     <div className="results">
@@ -35,7 +35,7 @@ const SearchResults = props => {
       {/* Mapped items */}
       {items}
     </div>
-  );
-};
+  )
+}
 
-export default SearchResults;
+export default SearchResults
