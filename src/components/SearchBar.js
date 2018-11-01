@@ -25,12 +25,6 @@ class SearchBar extends React.Component {
     let text = this.state.terms.text
 
     // URL we are customizing then fetching
-    // let url = `https://api.github.com/search/issues?q=${text}+
-    //   type:issue+
-    //   language=${language}+
-    //   state:${status}&
-    //   sort=created&order=desc&per_page=25`
-
     let url = `https://api.github.com/search/issues?q=${text}+type:issue+language=${language}+state:${status}&sort=created&order=desc&per_page=25`
 
     // Make GET request
