@@ -1,31 +1,41 @@
-import React from 'react'
+import React from "react";
 
-const SearchResults = (props) => {
+const SearchResults = props => {
+  // If items is truthy, map over them
+  const items =
+    props.results.items &&
+    props.results.items.map(item => {
+      return (
+        <div key={item.id}>
+          <p>
+            {/* Issue title as hyperlink */}
+            <a href={item.html_url} target="_blank" rel="noopener noreferrer">
+              {item.title}
+            </a>
+          </p>
 
-    // If items is truthy, map over them
-    const items = props.results.items && props.results.items.map(item => {
-        return (
-            <div key={item.id}>
-                <p><a href={item.html_url} target="_blank" rel="noopener noreferrer">{item.title}</a></p>
-                <p>Created at:{item.created_at}</p>
-                {/* <p>URL: {item.html_url}</p> */}
-                
-                <br></br>
-                
-            </div>
-        )
-    })
+          {/* Issue created time */}
+          <p>
+            Created at:
+            {item.created_at}
+          </p>
 
-    return (
+          {/* Issue body */}
+          {/* <p>{item.body}</p> */}
 
-        <div className="results">
-          <h3>Results:</h3>
-          
-        {/* Mapped items */}
-        {items}
-
+          <br />
         </div>
-    )
-}
+      );
+    });
 
-export default SearchResults
+  return (
+    <div className="results">
+      <h3>Results:</h3>
+
+      {/* Mapped items */}
+      {items}
+    </div>
+  );
+};
+
+export default SearchResults;
