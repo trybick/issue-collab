@@ -1,5 +1,6 @@
 import React from "react";
 import SearchResults from "./SearchResults";
+import './SearchBar.scss'
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="searchbar-wrapper">
         <h3 className="section-title">Enter Your Search</h3>
 
         <input
