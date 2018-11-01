@@ -21,7 +21,13 @@ class SearchBar extends React.Component {
     let language = this.state.terms.language;
     let text = this.state.terms.text;
 
-    let url = `https://api.github.com/search/issues?q=${text}+type:issue+language=${language}+state:${status}&sort=created&order=desc&per_page=100`;
+    let url = `https://api.github.com/search/issues?q=${text}+
+      type:issue+
+      language=${language}+
+      state:${status}+
+      sort=created+
+      order=desc&
+      per_page=100`
 
     // Make GET request
     const response = await fetch(url);
