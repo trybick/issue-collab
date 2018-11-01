@@ -16,11 +16,12 @@ class SearchBar extends React.Component {
 
     // When button is clicked, make API call
     getIssues = async () => {
-        // Set variables for search URL
+        // Variables for search URL
         let status = this.state.terms.status        
         let language = this.state.terms.language 
+        let text = this.state.terms.text
 
-        let url = `https://api.github.com/search/issues?q=+type:issue+language=${language}+state:${status}&sort=created&order=desc&per_page=100`
+        let url = `https://api.github.com/search/issues?q=${text}+type:issue+language=${language}+state:${status}&sort=created&order=desc&per_page=100`
 
         // Make GET request
         const response = await fetch(url)
@@ -35,7 +36,7 @@ class SearchBar extends React.Component {
     handleChange = (event) => {
         const newTerms = {...this.state.terms}
         newTerms.text = event.target.value
-        this.setState({terms: newTerms}, () => console.log('state', this.state))
+        this.setState({terms: newTerms})
     }
 
     render() {    
