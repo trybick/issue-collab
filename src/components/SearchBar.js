@@ -1,6 +1,7 @@
 import React from "react"
 import SearchResults from "./SearchResults"
 import './SearchBar.scss'
+import ToggleButton from 'react-toggle-button'
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -60,6 +61,10 @@ class SearchBar extends React.Component {
 
         {/* GET button */}
         <button onClick={this.getIssues}>Get Results</button>
+
+        {/* Toggle buttons */}
+
+
 
         {/* Pass search results to child component */}
         <SearchResults results={this.state.results} />
