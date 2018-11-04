@@ -1,4 +1,5 @@
 import React from "react"
+import moment from "moment"
 
 const SearchResults = props => {
 
@@ -11,17 +12,16 @@ const SearchResults = props => {
     props.results.items.map(item => {
       return (
         <div key={item.id}>
+          {/* Title with hyperlink */}
           <p>
-            {/* Title inside a link to issue */}
             <a href={item.html_url} target="_blank" rel="noopener noreferrer">
               {item.title}
             </a>
           </p>
 
-          {/* Created date/time */}
+          {/* How long ago created */}
           <p>
-            Created at:
-            {item.created_at}
+            {moment(item.created_at).fromNow()}
           </p>
 
           {/* Body text */}
@@ -33,11 +33,10 @@ const SearchResults = props => {
     })
 
   return (
-    // Main results section
     <div className="results">
       <h3>Results:</h3>
 
-      {/* Mapped items */}
+      {/* MAPPED ITEMS */}
       {items}
     </div>
   )
