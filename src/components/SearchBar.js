@@ -35,6 +35,7 @@ class SearchBar extends React.Component {
     // Update state with results
     this.setState({ results: json })
     console.log('items in state', this.state.results.items)
+    console.log('everything in state', this.state)
   }
 
   // Handle input change and update state
