@@ -20,10 +20,9 @@ class SearchBar extends React.Component {
 
   // API call when button is clicked
   getIssues = async () => {
+
     // Variables for search URL
-    let status = this.state.terms.status
-    let language = this.state.terms.language
-    let text = this.state.terms.text
+    const { status, language, text } = this.state.terms
 
     // URL we are customizing then fetching
     let url = `https://api.github.com/search/issues?q=type:issue+${text}+language=${language}+state:${status}&sort=created&order=desc&per_page=30`
