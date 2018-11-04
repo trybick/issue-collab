@@ -1,6 +1,10 @@
 import React from "react"
 
 const SearchResults = props => {
+
+  const now = new Date().toISOString()
+  console.log(now)
+
   const items =
     // If items is truthy
     props.results.items &&
