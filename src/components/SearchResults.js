@@ -10,6 +10,7 @@ const SearchResults = props => {
     results.items.map(item => {
       return (
         <div key={item.id}>
+        
           {/* Title with hyperlink */}
           <p>
             <a href={item.html_url} target="_blank" rel="noopener noreferrer">
@@ -22,8 +23,10 @@ const SearchResults = props => {
             {moment(item.created_at).fromNow()}
           </p>
 
-          {/* Body text */}
-          {/* <p>{item.body}</p> */}
+          {/* First 300 characters of body */}
+          <p>
+            {item.body.substr(0,300)}...
+          </p>
 
           <br />
         </div>
