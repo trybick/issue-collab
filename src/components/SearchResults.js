@@ -10,7 +10,7 @@ const SearchResults = props => {
     results.items.map(item => {
       return (
         <div key={item.id}>
-        
+
           {/* Title with hyperlink */}
           <p>
             <a href={item.html_url} target="_blank" rel="noopener noreferrer">
@@ -18,9 +18,16 @@ const SearchResults = props => {
             </a>
           </p>
 
-          {/* How long ago created */}
+          
           <p>
+            {/* How long ago created */}
             {moment(item.created_at).fromNow()}
+
+            {/* Labels */}
+            {item.labels.map(label => {
+              return <span key={label.id} style={{color: label.color}}>{label.name}</span>
+              // console.log('label', label)
+            })}
           </p>
 
           {/* First 300 characters of body */}
@@ -32,8 +39,6 @@ const SearchResults = props => {
         </div>
       )
     })
-
-
 
   return (
     <div className="results">
