@@ -23,10 +23,14 @@ const SearchResults = props => {
             {/* How long ago created */}
             {moment(item.created_at).fromNow()}
 
-            {/* Labels */}
+            {/* Some issues have an array of labels */}
             {item.labels.map(label => {
-              return <span key={label.id} style={{color: label.color}}>{label.name}</span>
-              // console.log('label', label)
+              const labelColor = '#' + label.color
+              return (
+                <span key={label.id} style={{color: labelColor}}>
+                {label.name}
+              </span>
+              )
             })}
           </p>
 
