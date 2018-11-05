@@ -2,14 +2,12 @@ import React from "react"
 import moment from "moment"
 
 const SearchResults = props => {
-
-  const now = new Date().toISOString()
-  console.log(now)
+  const { results } = props
 
   const items =
-    // If items is truthy
-    props.results.items &&
-    props.results.items.map(item => {
+    // Check for truthy and map over items
+    results.items && 
+    results.items.map(item => {
       return (
         <div key={item.id}>
           {/* Title with hyperlink */}
@@ -32,12 +30,16 @@ const SearchResults = props => {
       )
     })
 
+
+
   return (
     <div className="results">
+
       {/* Total issues returned */}
-      {props.results.items !== 0 
-      ? <h4>Total amount: props.results.total_count</h4>
-      : ''}
+      {props.results.items[0] && 
+      <h4>
+        Total amount: {results.total_count}
+      </h4>}
 
       {/* MAPPED ITEMS */}
       {items}
