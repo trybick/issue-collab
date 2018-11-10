@@ -35,8 +35,11 @@ const SearchResults = props => {
           </p>
 
           {/* First 300 characters of body */}
+          {/* Check if body is empty */}
           <p>
-            {item.body.substr(0,300)}...
+            {item.body.length === 0
+              ? '(no text)'
+              : item.body.substr(0,300) + '...'}
           </p>
 
           <br />

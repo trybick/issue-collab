@@ -1,7 +1,7 @@
 import React from "react"
 import SearchResults from "./SearchResults"
 import './SearchBar.scss'
-import ToggleButton from 'react-toggle-button'
+// import ToggleButton from 'react-toggle-button'
 
 class SearchBar extends React.Component {
   constructor(props) {
