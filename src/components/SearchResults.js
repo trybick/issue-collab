@@ -29,23 +29,27 @@ const SearchResults = props => {
               : item.body.substr(0,300) + '...'}
           </div>
 
+          {/* User and Repo name */}
           <div>
-            {/* User and Repo name */}
             {htmlUrl[3] + '/' + htmlUrl[4]}
+          </div>
 
-            {/* How long ago created */}
+          {/* How long ago created */}
+          <div>
             {moment(item.created_at).fromNow()}
+          </div>
 
-            {/* Some issues have an array of labels */}
-            {/* {item.labels.map(label => {
+          {/* Some issues have an array of labels */}
+          {/* <div>
+            {item.labels.map(label => {
               const labelColor = '#' + label.color
               return (
                 <span key={label.id} style={{color: labelColor}}>
                 {label.name}
               </span>
               )
-            })} */}
-          </div>
+            })}
+          </div> */}
 
           <br />
           
