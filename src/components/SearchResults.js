@@ -16,21 +16,21 @@ const SearchResults = props => {
         <div key={item.id}>
 
           {/* Title with hyperlink */}
-          <p>
+          <div>
             <a href={item.html_url} target="_blank" rel="noopener noreferrer">
               {item.title}
             </a>
-          </p>
+          </div>
 
           {/* First 300 characters of body */}
-          <p>
+          <div>
             {item.body.length === 0
               ? '(no text)'
               : item.body.substr(0,300) + '...'}
-          </p>
+          </div>
 
-          <p>
-            {/* Use HTML URL to display 'user/repo' */}
+          <div>
+            {/* User and Repo name */}
             {htmlUrl[3] + '/' + htmlUrl[4]}
 
             {/* How long ago created */}
@@ -45,7 +45,7 @@ const SearchResults = props => {
               </span>
               )
             })} */}
-          </p>
+          </div>
 
           <br />
           
