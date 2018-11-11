@@ -18,31 +18,32 @@ const SearchResults = props => {
             </a>
           </p>
 
-          
-          <p>
-            {/* How long ago created */}
-            {moment(item.created_at).fromNow()}
-
-            {/* Some issues have an array of labels */}
-            {item.labels.map(label => {
-              const labelColor = '#' + label.color
-              return (
-                <span key={label.id} style={{color: labelColor}}>
-                {label.name}
-              </span>
-              )
-            })}
-          </p>
-
           {/* First 300 characters of body */}
-          {/* Check if body is empty */}
           <p>
             {item.body.length === 0
               ? '(no text)'
               : item.body.substr(0,300) + '...'}
           </p>
 
+          <p>
+            {/* How long ago created */}
+            {moment(item.created_at).fromNow()}
+
+            {/*  */}
+
+            {/* Some issues have an array of labels */}
+            {/* {item.labels.map(label => {
+              const labelColor = '#' + label.color
+              return (
+                <span key={label.id} style={{color: labelColor}}>
+                {label.name}
+              </span>
+              )
+            })} */}
+          </p>
+
           <br />
+          
         </div>
       )
     })
@@ -53,7 +54,7 @@ const SearchResults = props => {
       {/* Total issues returned */}
       {props.results.items[0] && 
       <h4>
-        Total amount: {results.total_count}
+        Total results: {results.total_count}
       </h4>}
 
       {/* MAPPED ITEMS */}
