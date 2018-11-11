@@ -8,6 +8,10 @@ const SearchResults = props => {
     // Check for truthy and map over items
     results.items && 
     results.items.map(item => {
+
+      // Split URL to get 'user/repo'
+      const htmlUrl = item.html_url.split('/')
+
       return (
         <div key={item.id}>
 
@@ -26,10 +30,11 @@ const SearchResults = props => {
           </p>
 
           <p>
+            {/* Use HTML URL to display 'user/repo' */}
+            {htmlUrl[3] + '/' + htmlUrl[4]}
+
             {/* How long ago created */}
             {moment(item.created_at).fromNow()}
-
-            {/*  */}
 
             {/* Some issues have an array of labels */}
             {/* {item.labels.map(label => {
