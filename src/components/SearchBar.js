@@ -11,7 +11,6 @@ class SearchBar extends React.Component {
       terms: {
         text: "",
         status: "open",
-        language: ""
       },
       // Results returned from API
       results: { items: [] }
@@ -25,7 +24,7 @@ class SearchBar extends React.Component {
     const { status, language, text } = this.state.terms
 
     // URL we are customizing then fetching
-    let url = `https://api.github.com/search/issues?q=type:issue+${text}+language=${language}+state:${status}&sort=created&order=desc&per_page=30`
+    let url = `https://api.github.com/search/issues?q=type:issue+${text}+state:${status}&sort=created&order=desc&per_page=30`
 
     // Make GET request
     const response = await fetch(url)
