@@ -26,7 +26,10 @@ const SearchResults = props => {
           <div>
             {item.body.length === 0
               ? '(no text)'
-              : item.body.substr(0,300) + '...'}
+              : item.body.substr(0,300)}
+            {item.body.length > 300 
+              ? '...'
+              : null}
           </div>
 
           {/* User and Repo name */}
