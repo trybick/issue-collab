@@ -1,5 +1,5 @@
-import React from "react"
-import SearchResults from "./SearchResults"
+import React from 'react'
+import SearchResults from './SearchResults'
 import './SearchBar.scss'
 // import ToggleButton from 'react-toggle-button'
 
@@ -9,8 +9,8 @@ class SearchBar extends React.Component {
     this.state = {
       // Search terms to send to API
       terms: {
-        text: "",
-        status: "open",
+        // text: '',/
+        status: 'open'
       },
       // Results returned from API
       results: { items: [] }
@@ -19,7 +19,6 @@ class SearchBar extends React.Component {
 
   // API call when button is clicked
   getIssues = async () => {
-
     // Variables for search URL
     const { status, language, text } = this.state.terms
 
@@ -41,7 +40,7 @@ class SearchBar extends React.Component {
   handleChange = event => {
     const newTerms = { ...this.state.terms }
     newTerms.text = event.target.value
-    this.setState({terms: newTerms}, () => console.log('state', this.state))
+    this.setState({ terms: newTerms }, () => console.log('state', this.state))
   }
 
   render() {
@@ -62,8 +61,6 @@ class SearchBar extends React.Component {
         <button onClick={this.getIssues}>Get Results</button>
 
         {/* Toggle buttons */}
-
-
 
         {/* Pass search results to child component */}
         <SearchResults results={this.state.results} />
