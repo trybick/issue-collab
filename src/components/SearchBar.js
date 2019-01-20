@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
     this.state = {
       // Search terms to send to API
       terms: {
-        text: '', // change to null if crashing
+        text: null, // change to null if crashing
         status: 'open'
       },
       // Results returned from API
@@ -44,10 +44,14 @@ class SearchBar extends React.Component {
   }
 
   render() {
+    const { results } = this.state
     return (
       // Main search section
       <div className="searchbar-wrapper">
         <h3 className="section-title">Enter Your Search</h3>
+
+        {/* Total issues returned */}
+        {results.items[0] && <h4>Total results: {results.total_count}</h4>}
 
         {/* Text box input */}
         <input
