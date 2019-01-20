@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
     this.state = {
       // Search terms to send to API
       terms: {
-        // text: '',/
+        text: '', // change to null if crashing
         status: 'open'
       },
       // Results returned from API
@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
   // API call when button is clicked
   getIssues = async () => {
     // Variables for search URL
-    const { status, language, text } = this.state.terms
+    const { status, text } = this.state.terms
 
     // URL we are customizing then fetching
     let url = `https://api.github.com/search/issues?q=type:issue+${text}+state:${status}&sort=created&order=desc&per_page=30`

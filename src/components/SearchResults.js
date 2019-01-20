@@ -12,7 +12,7 @@ const SearchResults = props => {
       const htmlUrl = item.html_url.split('/')
 
       return (
-        <div key={item.id}>
+        <div className="result" key={item.id}>
           {/* Title with hyperlink */}
           <div>
             <a href={item.html_url} target="_blank" rel="noopener noreferrer">
@@ -21,10 +21,10 @@ const SearchResults = props => {
           </div>
 
           {/* First 300 characters of body */}
-          <div>
+          <p>
             {item.body.length === 0 ? '(no text)' : item.body.substr(0, 300)}
             {item.body.length > 300 ? '...' : null}
-          </div>
+          </p>
 
           {/* User and Repo name */}
           <div>{htmlUrl[3] + '/' + htmlUrl[4]}</div>
@@ -44,6 +44,7 @@ const SearchResults = props => {
             })}
           </div> */}
 
+          <br />
           <br />
         </div>
       )
