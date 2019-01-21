@@ -53,7 +53,7 @@ const SearchResults = props => {
   return (
     <div className="results">
       {/* Total issues returned */}
-      {props.results.items[0] && <h4>Total results: {results.total_count}</h4>}
+      {/* {props.results.items[0] && <h4>Total results: {results.total_count}</h4>} */}
 
       {/* MAPPED ITEMS */}
       {items}

@@ -48,26 +48,25 @@ class SearchBar extends React.Component {
     return (
       // Main search section
       <div className="searchbar-wrapper">
-        <h3 className="section-title">Enter Your Search</h3>
+        {/* NEXT STEP - MOVE THIS DIV INTO CHILD COMPONENT */}
+        <div>
+          <h3 className="section-title">Enter Your Search</h3>
 
-        {/* Total issues returned */}
+          <input
+            type="text"
+            name="search-text"
+            value={this.state.terms.text}
+            onChange={this.handleChange}
+          />
+
+          <button onClick={this.getIssues}>Get Results</button>
+        </div>
+
+        {/* Number of results */}
         {results.items[0] && <h4>Total results: {results.total_count}</h4>}
 
-        {/* Text box input */}
-        <input
-          type="text"
-          name="search-text"
-          value={this.state.terms.text}
-          onChange={this.handleChange}
-        />
-
-        {/* GET button */}
-        <button onClick={this.getIssues}>Get Results</button>
-
-        {/* Toggle buttons */}
-
         {/* Pass search results to child component */}
-        <SearchResults results={this.state.results} />
+        <SearchResults results={results} />
       </div>
     )
   }
