@@ -48,8 +48,9 @@ class SearchBar extends React.Component {
     return (
       // Main search section
       <div className="searchbar-wrapper">
-        {/* NEXT STEP - MOVE THIS DIV INTO CHILD COMPONENT */}
         <div>
+          <h2>GitHub Issue Searcher</h2>
+
           <h3 className="section-title">Enter Your Search</h3>
 
           <input
