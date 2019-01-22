@@ -17,36 +17,27 @@ class SearchBar extends React.Component {
     }
   }
 
-  // API call when button is clicked
   getIssues = async () => {
-    // Variables for search URL
     const { status, text } = this.state.terms
 
-    // URL we are customizing then fetching
     let url = `https://api.github.com/search/issues?q=type:issue+${text}+state:${status}&sort=created&order=desc&per_page=30`
 
-    // Make GET request
     const response = await fetch(url)
     const json = await response.json()
-    console.log('json response', json)
 
-    // Update state with results
     this.setState({ results: json })
-    console.log('items in state', this.state.results.items)
-    console.log('everything in state', this.state)
   }
 
-  // Handle input change and update state
   handleChange = event => {
     const newTerms = { ...this.state.terms }
     newTerms.text = event.target.value
+    // useful log with state
     this.setState({ terms: newTerms }, () => console.log('state', this.state))
   }
 
   render() {
     const { results } = this.state
     return (
-      // Main search section
       <div className="searchbar-wrapper">
         <div>
           <h3 className="section-title">Enter Your Search</h3>
