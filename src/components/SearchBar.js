@@ -49,8 +49,6 @@ class SearchBar extends React.Component {
       // Main search section
       <div className="searchbar-wrapper">
         <div>
-          <h2>GitHub Issue Searcher</h2>
-
           <h3 className="section-title">Enter Your Search</h3>
 
           <input
