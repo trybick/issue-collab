@@ -7,13 +7,12 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // Search terms to send to API
       terms: {
+        // Search terms to send to API
         text: null, // change to null if crashing
         status: 'open'
       },
-      // Results returned from API
-      results: { items: [] }
+      results: { items: [] } // Results returned from API
     };
   }
 
@@ -36,7 +35,8 @@ class SearchBar extends React.Component {
   };
 
   render() {
-    const { results } = this.state;
+    const { results, terms } = this.state;
+
     return (
       <div className='searchbar-wrapper'>
         <div>
@@ -45,7 +45,7 @@ class SearchBar extends React.Component {
           <input
             type='text'
             name='search-text'
-            value={this.state.terms.text}
+            value={terms.text}
             onChange={this.handleChange}
           />
 
