@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
     this.state = {
       terms: {
         // Search terms to send to API
-        text: '', // change to null if crashing
+        text: '',
         status: 'open'
       },
       results: { items: [] } // Results returned from API

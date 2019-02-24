@@ -33,16 +33,16 @@ const SearchResults = props => {
           <div>{moment(item.created_at).fromNow()}</div>
 
           {/* Some issues have an array of labels */}
-          {/* <div>
+          <div>
             {item.labels.map(label => {
-              const labelColor = '#' + label.color
+              const labelColor = '#' + label.color;
               return (
-                <span key={label.id} style={{color: labelColor}}>
-                {label.name}
-              </span>
-              )
+                <span key={label.id} style={{ color: labelColor }}>
+                  {label.name}
+                </span>
+              );
             })}
-          </div> */}
+          </div>
 
           <br />
           <br />
