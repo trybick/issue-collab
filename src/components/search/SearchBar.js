@@ -36,6 +36,7 @@ class SearchBar extends React.Component {
 
   render() {
     const { results, terms } = this.state;
+    const totalItems = results.total_count;
 
     return (
       <div className='searchbar-wrapper'>
@@ -53,7 +54,9 @@ class SearchBar extends React.Component {
         </div>
 
         {/* Number of results */}
-        {results.items[0] && <h4>Total results: {results.total_count}</h4>}
+        {results.items[0] && (
+          <h4>Total results: {totalItems.toLocaleString()}</h4>
+        )}
 
         {/* Pass search results to child component */}
         <SearchResults results={results} />
