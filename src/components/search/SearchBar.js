@@ -1,11 +1,11 @@
-import React from 'react'
-import SearchResults from './SearchResults'
-import './SearchBar.scss'
+import React from 'react';
+import SearchResults from './SearchResults';
+import '../../style.scss';
 // import ToggleButton from 'react-toggle-button'
 
 class SearchBar extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       // Search terms to send to API
       terms: {
@@ -14,37 +14,37 @@ class SearchBar extends React.Component {
       },
       // Results returned from API
       results: { items: [] }
-    }
+    };
   }
 
   getIssues = async () => {
-    const { status, text } = this.state.terms
+    const { status, text } = this.state.terms;
 
-    let url = `https://api.github.com/search/issues?q=type:issue+${text}+state:${status}&sort=created&order=desc&per_page=30`
+    let url = `https://api.github.com/search/issues?q=type:issue+${text}+state:${status}&sort=created&order=desc&per_page=30`;
 
-    const response = await fetch(url)
-    const json = await response.json()
+    const response = await fetch(url);
+    const json = await response.json();
 
-    this.setState({ results: json })
-  }
+    this.setState({ results: json });
+  };
 
   handleChange = event => {
-    const newTerms = { ...this.state.terms }
-    newTerms.text = event.target.value
+    const newTerms = { ...this.state.terms };
+    newTerms.text = event.target.value;
     // useful log with state
-    this.setState({ terms: newTerms }, () => console.log('state', this.state))
-  }
+    this.setState({ terms: newTerms }, () => console.log('state', this.state));
+  };
 
   render() {
-    const { results } = this.state
+    const { results } = this.state;
     return (
-      <div className="searchbar-wrapper">
+      <div className='searchbar-wrapper'>
         <div>
-          <h3 className="section-title">Enter Your Search</h3>
+          <h3 className='section-title'>Enter Your Search</h3>
 
           <input
-            type="text"
-            name="search-text"
+            type='text'
+            name='search-text'
             value={this.state.terms.text}
             onChange={this.handleChange}
           />
@@ -58,8 +58,8 @@ class SearchBar extends React.Component {
         {/* Pass search results to child component */}
         <SearchResults results={results} />
       </div>
-    )
+    );
   }
 }
 
-export default SearchBar
+export default SearchBar;

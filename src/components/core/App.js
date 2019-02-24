@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+import '../../style.scss';
 
 import Title from './Title';
 
