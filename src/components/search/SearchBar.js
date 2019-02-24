@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchResults from './SearchResults';
 import '../../style.scss';
-// import ToggleButton from 'react-toggle-button'
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -39,26 +38,22 @@ class SearchBar extends React.Component {
     const totalItems = results.total_count;
 
     return (
-      <div className='searchbar-wrapper'>
-        <div>
-          <h3 className='section-title'>Enter Your Search</h3>
+      <div>
+        <h3 className='section-title'>Enter Your Search</h3>
 
-          <input
-            type='text'
-            name='search-text'
-            value={terms.text}
-            onChange={this.handleChange}
-          />
+        <input
+          type='text'
+          name='search-text'
+          value={terms.text}
+          onChange={this.handleChange}
+        />
 
-          <button onClick={this.getIssues}>Get Results</button>
-        </div>
+        <button onClick={this.getIssues}>Get Results</button>
 
-        {/* Number of results */}
         {results.items[0] && (
           <h4>Total results: {totalItems.toLocaleString()}</h4>
         )}
 
-        {/* Pass search results to child component */}
         <SearchResults results={results} />
       </div>
     );
