@@ -14,8 +14,7 @@ class SearchBar extends React.Component {
   }
 
   getIssues = async () => {
-    const { issueState, providedText } = this.state;
-    const { providedLabels } = this.state;
+    const { issueState, providedLabels, providedText } = this.state;
 
     let url = `https://api.github.com/search/issues?q=type:issue+${providedText}+state:${issueState}+label:${providedLabels}&sort=created&order=desc&per_page=30`;
 
@@ -26,15 +25,13 @@ class SearchBar extends React.Component {
   };
 
   handleChange = event => {
-    const newTerms = { ...this.state.terms };
-    newTerms.text = event.target.value;
-    // useful log with state
-    this.setState({ terms: newTerms }, () => console.log('state', this.state));
+    this.setState({ providedText: event.target.value }, () =>
+      console.log('state', this.state)
+    );
   };
 
   render() {
     const { results, providedText } = this.state;
-    const totalItems = results.total_count;
 
     return (
       <div>
@@ -50,7 +47,7 @@ class SearchBar extends React.Component {
         <button onClick={this.getIssues}>Get Results</button>
 
         {results.items[0] && (
-          <h4>Total results: {totalItems.toLocaleString()}</h4>
+          <h4>Total results: {results.total_count.toLocaleString()}</h4>
         )}
 
         <SearchResults results={results} />
