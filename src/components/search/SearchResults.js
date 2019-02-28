@@ -10,34 +10,40 @@ const SearchResults = props => {
       const htmlUrl = item.html_url.split('/');
       const userName = htmlUrl[3];
       const repoName = htmlUrl[4];
+      const issueAge = moment(item.created_at).fromNow();
+
+      let bodyText;
+      const bodyLength = item.body.length;
+
+      if (bodyLength === 0) {
+        bodyText = '(no text)';
+      } else if (bodyLength < 300) {
+        bodyText = item.body;
+      } else if (bodyLength > 300) {
+        bodyText = item.body.substr(0, 300) + '...';
+      }
+
+      const mappedLabels = item.labels.map(label => {
+        const labelColor = '#' + label.color;
+        return (
+          <span key={label.id} style={{ color: labelColor }}>
+            {label.name}
+          </span>
+        );
+      });
 
       return (
         <div className='result' key={item.id}>
-          {/* Hyperlinked title */}
           <a href={item.html_url} target='_blank' rel='noopener noreferrer'>
             {item.title}
           </a>
 
-          {/* First 300 characters of body */}
-          <p>
-            {item.body.length === 0 ? '(no text)' : item.body.substr(0, 300)}
-            {item.body.length > 300 ? '...' : null}
-          </p>
+          <p>{bodyText}</p>
 
           <div>{userName + '/' + repoName}</div>
-          <div>{moment(item.created_at).fromNow()}</div>
+          <div>{issueAge}</div>
 
-          {/* Some issues have an array of labels */}
-          <p>
-            {item.labels.map(label => {
-              const labelColor = '#' + label.color;
-              return (
-                <span key={label.id} style={{ color: labelColor }}>
-                  {label.name}
-                </span>
-              );
-            })}
-          </p>
+          <p>{mappedLabels}</p>
 
           <br />
           <br />
