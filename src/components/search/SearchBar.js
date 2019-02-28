@@ -6,19 +6,18 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      terms: {
-        // Search terms to send to API
-        text: '',
-        status: 'open'
-      },
-      results: { items: [] } // Results returned from API
+      providedLabels: 'javascript',
+      providedText: '',
+      issueState: 'open',
+      results: { items: [] }
     };
   }
 
   getIssues = async () => {
-    const { status, text } = this.state.terms;
+    const { issueState, providedText } = this.state;
+    const { providedLabels } = this.state;
 
-    let url = `https://api.github.com/search/issues?q=type:issue+${text}+state:${status}&sort=created&order=desc&per_page=30`;
+    let url = `https://api.github.com/search/issues?q=type:issue+${providedText}+state:${issueState}+label:${providedLabels}&sort=created&order=desc&per_page=30`;
 
     const response = await fetch(url);
     const json = await response.json();
@@ -34,7 +33,7 @@ class SearchBar extends React.Component {
   };
 
   render() {
-    const { results, terms } = this.state;
+    const { results, providedText } = this.state;
     const totalItems = results.total_count;
 
     return (
@@ -44,7 +43,7 @@ class SearchBar extends React.Component {
         <input
           type='text'
           name='search-text'
-          value={terms.text}
+          value={providedText}
           onChange={this.handleChange}
         />
 
