@@ -8,23 +8,12 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       activeLanguages: [],
-      providedLabels: 'javascript',
+      activeLabels: [],
       providedText: '',
       issueState: 'open',
       results: { items: [] }
     };
   }
-
-  getIssues = async () => {
-    const { issueState, providedLabels, providedText } = this.state;
-
-    let url = `https://api.github.com/search/issues?q=type:issue+${providedText}+state:${issueState}+label:${providedLabels}&sort=created&order=desc&per_page=30`;
-
-    const response = await fetch(url);
-    const json = await response.json();
-
-    this.setState({ results: json });
-  };
 
   handleChange = event => {
     this.setState({ providedText: event.target.value }, () =>
@@ -32,15 +21,32 @@ class SearchBar extends React.Component {
     );
   };
 
+  getIssues = async () => {
+    const { issueState, activeLabels, providedText } = this.state;
+
+    const baseUrl = 'https://api.github.com/search/issues?q=type:issue'
+    const sortOptions = '&sort=created&order=desc&per_page=30'
+
+    const labels = `+label:${activeLabels}`
+
+    let completeUrl = 
+      baseUrl + labels + `+${providedText}+state:${issueState}` + sortOptions;
+
+    const response = await fetch(completeUrl);
+    const json = await response.json();
+
+    this.setState({ results: json });
+  };
+
   onClick = event => {
     console.log('hi', event.target);
 
-    const languages = ['javascript', 'python'];
+    const availableLabels = ['javascript', 'python'];
     const name = event.target.name;
 
-    if (languages.includes(name)) {
+    if (availableLabels.includes(name)) {
       this.setState({
-        activeLanguages: name
+        activeLabels: name
       })
     }
 
