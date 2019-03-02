@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchResults from './SearchResults';
 import '../../style.scss';
+import Button from '../core/Button.js'
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -30,6 +31,10 @@ class SearchBar extends React.Component {
     );
   };
 
+  onClick = event => {
+    console.log('hi')
+  }
+
   render() {
     const { results, providedText } = this.state;
 
@@ -45,6 +50,13 @@ class SearchBar extends React.Component {
         />
 
         <button onClick={this.getIssues}>Get Results</button>
+
+        <div className="toggle-buttons">
+          <Button
+            onClick={this.onClick}
+            text="JavaScript"
+          />
+        </div>
 
         {results.items[0] && (
           <h4>Total results: {results.total_count.toLocaleString()}</h4>
