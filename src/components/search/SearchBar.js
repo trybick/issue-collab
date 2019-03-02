@@ -7,6 +7,7 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeLanguages: [],
       providedLabels: 'javascript',
       providedText: '',
       issueState: 'open',
@@ -32,7 +33,19 @@ class SearchBar extends React.Component {
   };
 
   onClick = event => {
-    console.log('hi')
+    console.log('hi', event.target);
+
+    const languages = ['javascript', 'python'];
+    const name = event.target.name;
+
+    if (languages.includes(name)) {
+      this.setState({
+        activeLanguages: name
+      })
+    }
+
+    console.log('2', this.state);
+
   }
 
   render() {
@@ -53,6 +66,7 @@ class SearchBar extends React.Component {
 
         <div className="toggle-buttons">
           <Button
+            name="javascript"
             onClick={this.onClick}
             text="JavaScript"
           />
