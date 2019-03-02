@@ -51,7 +51,7 @@ const SearchResults = props => {
       );
     });
 
-  return <div className='results'>{searchResults}</div>;
+  return <div className='results'>{results.items[0] && searchResults}</div>;
 };
 
 export default SearchResults;
