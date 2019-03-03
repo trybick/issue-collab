@@ -12,7 +12,9 @@ class SearchBar extends React.Component {
       enabledLabels: [],
       providedText: '',
       issueState: 'open',
-      results: { items: [] }
+      // results: { items: [] }
+      results: {},
+      totalResults: ''
     };
   }
 
@@ -33,13 +35,13 @@ class SearchBar extends React.Component {
     }
   };
 
-  getIssues = async () => {
+  formatUrl = () => {
     const { issueState, enabledLabels, providedText } = this.state;
 
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
-    let completeLabels = '';
 
+    let completeLabels = '';
     if (enabledLabels.length === 1) {
       completeLabels = `+label:${enabledLabels[0]}`;
     } else if (enabledLabels.length > 1) {
@@ -48,26 +50,42 @@ class SearchBar extends React.Component {
       };
     }
 
-    let completeUrl =
+    let textToSend = '';
+    if (providedText !== '') {
+      textToSend = providedText + '+';
+    }
+
+    const completeUrl =
       baseUrl +
       completeLabels +
-      `+${providedText}+state:${issueState}` +
+      textToSend +
+      `state:${issueState}` +
       sortOptions;
 
-    const response = await fetch(completeUrl);
+    return completeUrl;
+  };
+
+  getIssues = async () => {
+    const urlToSend = this.formatUrl();
+
+    const response = await fetch(urlToSend);
     const json = await response.json();
 
-    this.setState({ results: json }, () =>
-      console.log('results', this.state.results)
+    this.setState(
+      { results: json, totalResults: json.total_count.toLocaleString() },
+      () => console.log('results', this.state.results)
     );
+
+    console.log('url', urlToSend);
   };
 
   render() {
     const { results, providedText } = this.state;
 
-    const totalResults = results.items[0] && (
-      <h4>Total results: {results.total_count.toLocaleString()}</h4>
-    );
+    // if (results.items[0]) {
+    //   const totalResults = (
+    //   <h4>Total results: {results.total_count.toLocaleString()}</h4>
+    // );
 
     return (
       <div className='wrapper'>
@@ -84,12 +102,14 @@ class SearchBar extends React.Component {
           <button onClick={this.getIssues}>Get Results</button>
         </div>
 
-        <ToggleButtons onToggle={this.onToggle}/>
+        <ToggleButtons onToggle={this.onToggle} />
 
-        <div className='results'>
-          {totalResults}
-          <SearchResults results={results} />
-        </div>
+        {this.state.totalResults && (
+          <div className='results'>
+            <h4>Total results: {results.total_count.toLocaleString()}</h4>
+            <SearchResults results={results} />
+          </div>
+        )}
       </div>
     );
   }
