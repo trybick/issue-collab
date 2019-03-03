@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
     };
   }
 
-  handleChange = event => {
+  handleTextChange = event => {
     this.setState({ providedText: event.target.value }, () =>
       console.log('state', this.state)
     );
@@ -46,12 +46,12 @@ class SearchBar extends React.Component {
     const response = await fetch(completeUrl);
     const json = await response.json();
 
-    this.setState({ results: json });
+    this.setState({ results: json }, () =>
+      console.log('results', this.state.results)
+    );
   };
 
-  onClick = event => {
-    console.log('hi', event.target);
-
+  onToggle = event => {
     const availableLabels = ['javascript', 'python'];
     const name = event.target.name;
 
@@ -60,8 +60,6 @@ class SearchBar extends React.Component {
         activeLabels: [name]
       });
     }
-
-    console.log('2', this.state);
   };
 
   render() {
@@ -75,13 +73,13 @@ class SearchBar extends React.Component {
           type='text'
           name='search-text'
           value={providedText}
-          onChange={this.handleChange}
+          onChange={this.handleTextChange}
         />
 
         <button onClick={this.getIssues}>Get Results</button>
 
         <div className='toggle-buttons'>
-          <Button name='javascript' onClick={this.onClick} text='JavaScript' />
+          <Button name='javascript' onClick={this.onToggle} text='JavaScript' />
         </div>
 
         {results.items[0] && (
