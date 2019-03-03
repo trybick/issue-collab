@@ -13,12 +13,14 @@ const SearchResults = props => {
       const issueAge = moment(item.created_at).fromNow();
 
       let bodyText;
-      if (item.body.length === 0) {
-        bodyText = '(no text)';
-      } else if (item.body.length < 300) {
-        bodyText = item.body;
-      } else if (item.body.length > 300) {
-        bodyText = item.body.substr(0, 300) + '...';
+      if (item.body) {
+        if (item.body.length === 0) {
+          bodyText = '(no text)';
+        } else if (item.body.length < 300) {
+          bodyText = item.body;
+        } else if (item.body.length > 300) {
+          bodyText = item.body.substr(0, 300) + '...';
+        }
       }
 
       const mappedLabels = item.labels.map(label => {
@@ -49,7 +51,7 @@ const SearchResults = props => {
       );
     });
 
-  return <div className='results'>{results.items[0] && searchResults}</div>;
+  return <div className='results'>{searchResults}</div>;
 };
 
 export default SearchResults;
