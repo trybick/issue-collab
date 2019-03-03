@@ -21,19 +21,11 @@ class SearchBar extends React.Component {
     );
   };
 
-  // combineLabels = () => {
-  //   const amountLabels = activeLabels.length()
-
-  //   const labels = `+label:${activeLabels}`
-
-  // }
-
   getIssues = async () => {
     const { issueState, activeLabels, providedText } = this.state;
 
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue'
     const sortOptions = '&sort=created&order=desc&per_page=30'
-
 
     let completeLabels = ''
 
@@ -41,14 +33,13 @@ class SearchBar extends React.Component {
       completeLabels = `+label:${activeLabels[0]}`
     } else if (activeLabels.length > 1) {
       completeLabels = activeLabels.map = label => {
-        return `+label:${label}`
+        return '+label:$' + label
       }
-      return completeLabels
+      // return completeLabels
     }
 
 
-    let completeUrl = 
-      baseUrl + completeLabels + `+${providedText}+state:${issueState}` + sortOptions;
+    let completeUrl = baseUrl + completeLabels + `+${providedText}+state:${issueState}` + sortOptions;
 
     const response = await fetch(completeUrl);
     const json = await response.json();
@@ -64,7 +55,7 @@ class SearchBar extends React.Component {
 
     if (availableLabels.includes(name)) {
       this.setState({
-        activeLabels: name
+        activeLabels: [name]
       })
     }
 
