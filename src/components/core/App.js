@@ -8,8 +8,8 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeLanguages: [],
-      activeLabels: [],
+      enabledLanguages: [],
+      enabledLabels: [],
       providedText: '',
       issueState: 'open',
       results: { items: [] }
@@ -17,20 +17,20 @@ class SearchBar extends React.Component {
   }
 
   handleTextChange = event => {
-    this.setState({ providedText: event.target.value })
+    this.setState({ providedText: event.target.value });
   };
 
   getIssues = async () => {
-    const { issueState, activeLabels, providedText } = this.state;
+    const { issueState, enabledLabels, providedText } = this.state;
 
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
     let completeLabels = '';
 
-    if (activeLabels.length === 1) {
-      completeLabels = `+label:${activeLabels[0]}`;
-    } else if (activeLabels.length > 1) {
-      completeLabels = activeLabels.map = label => {
+    if (enabledLabels.length === 1) {
+      completeLabels = `+label:${enabledLabels[0]}`;
+    } else if (enabledLabels.length > 1) {
+      completeLabels = enabledLabels.map = label => {
         return '+label:$' + label;
       };
     }
@@ -50,13 +50,16 @@ class SearchBar extends React.Component {
   };
 
   onToggle = event => {
-    const availableLabels = ['javascript', 'python'];
-    const name = event.target.name;
+    const availableLabels = ['javascript', 'bug'];
+    const toggledName = event.target.name;
 
-    if (availableLabels.includes(name)) {
-      this.setState({
-        activeLabels: [name]
-      });
+    if (availableLabels.includes(toggledName)) {
+      this.setState(
+        {
+          enabledLabels: [...this.state.enabledLabels, toggledName]
+        },
+        () => console.log('results', this.state)
+      );
     }
   };
 
@@ -84,6 +87,7 @@ class SearchBar extends React.Component {
 
         <div className='toggle-buttons'>
           <Button name='javascript' onClick={this.onToggle} text='JavaScript' />
+          <Button name='bug' onClick={this.onToggle} text='Bug' />
         </div>
 
         <div className='results'>
