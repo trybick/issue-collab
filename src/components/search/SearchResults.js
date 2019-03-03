@@ -13,13 +13,11 @@ const SearchResults = props => {
       const issueAge = moment(item.created_at).fromNow();
 
       let bodyText;
-      const bodyLength = item.body.length;
-
-      if (bodyLength === 0) {
+      if (item.body.length === 0) {
         bodyText = '(no text)';
-      } else if (bodyLength < 300) {
+      } else if (item.body.length < 300) {
         bodyText = item.body;
-      } else if (bodyLength > 300) {
+      } else if (item.body.length > 300) {
         bodyText = item.body.substr(0, 300) + '...';
       }
 
