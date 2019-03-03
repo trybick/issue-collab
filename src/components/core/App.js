@@ -65,30 +65,33 @@ class SearchBar extends React.Component {
   render() {
     const { results, providedText } = this.state;
 
+    const totalResults = results.items[0] && (
+      <h4>Total results: {results.total_count.toLocaleString()}</h4>
+    );
+
     return (
-      <div className="app-wrapper">
+      <div className='wrapper'>
         <Title />
 
-        <h3 className='section-title'>Enter Your Search</h3>
-
-        <input
-          type='text'
-          name='search-text'
-          value={providedText}
-          onChange={this.handleTextChange}
-        />
-
-        <button onClick={this.getIssues}>Get Results</button>
+        <div className='searchbar'>
+          <h3>Enter Your Search</h3>
+          <input
+            type='text'
+            name='search-text'
+            value={providedText}
+            onChange={this.handleTextChange}
+          />
+          <button onClick={this.getIssues}>Get Results</button>
+        </div>
 
         <div className='toggle-buttons'>
           <Button name='javascript' onClick={this.onToggle} text='JavaScript' />
         </div>
 
-        {results.items[0] && (
-          <h4>Total results: {results.total_count.toLocaleString()}</h4>
-        )}
-
-        <SearchResults results={results} />
+        <div className='results'>
+          {totalResults}
+          <SearchResults results={results} />
+        </div>
       </div>
     );
   }
