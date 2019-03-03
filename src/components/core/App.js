@@ -17,9 +17,7 @@ class SearchBar extends React.Component {
   }
 
   handleTextChange = event => {
-    this.setState({ providedText: event.target.value }, () =>
-      console.log('state', this.state)
-    );
+    this.setState({ providedText: event.target.value })
   };
 
   getIssues = async () => {
