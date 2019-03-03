@@ -2,7 +2,7 @@ import React from 'react';
 import Title from './Title';
 import SearchResults from '../search/SearchResults';
 import '../../style.scss';
-import Button from '../core/Button.js';
+import ToggleButtons from '../search/ToggleButtons.js'
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -49,20 +49,6 @@ class SearchBar extends React.Component {
     );
   };
 
-  onToggle = event => {
-    const availableLabels = ['javascript', 'bug'];
-    const toggledName = event.target.name;
-
-    if (availableLabels.includes(toggledName)) {
-      this.setState(
-        {
-          enabledLabels: [...this.state.enabledLabels, toggledName]
-        },
-        () => console.log('results', this.state)
-      );
-    }
-  };
-
   render() {
     const { results, providedText } = this.state;
 
@@ -85,10 +71,7 @@ class SearchBar extends React.Component {
           <button onClick={this.getIssues}>Get Results</button>
         </div>
 
-        <div className='toggle-buttons'>
-          <Button name='javascript' onClick={this.onToggle} text='JavaScript' />
-          <Button name='bug' onClick={this.onToggle} text='Bug' />
-        </div>
+        <ToggleButtons />
 
         <div className='results'>
           {totalResults}
