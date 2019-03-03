@@ -34,7 +34,7 @@ const SearchResults = props => {
 
       return (
         <div className='result' key={item.id}>
-          <img src={item.user.avatar_url} width='90px' alt='avatar' />
+          <img src={item.user.avatar_url} width='75px' alt='avatar' />
 
           <a href={item.html_url} target='_blank' rel='noopener noreferrer'>
             {item.title}

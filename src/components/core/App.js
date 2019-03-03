@@ -2,7 +2,7 @@ import React from 'react';
 import Title from './Title';
 import SearchResults from '../search/SearchResults';
 import '../../style.scss';
-import ToggleButtons from '../search/ToggleButtons.js'
+import ToggleButtons from '../search/ToggleButtons.js';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -18,6 +18,19 @@ class SearchBar extends React.Component {
 
   handleTextChange = event => {
     this.setState({ providedText: event.target.value });
+  };
+
+  onToggle = event => {
+    const availableLabels = ['javascript', 'bug'];
+
+    if (availableLabels.includes(event.target.name)) {
+      this.setState(
+        {
+          enabledLabels: [...this.state.enabledLabels, event.target.name]
+        },
+        () => console.log('results', this.state)
+      );
+    }
   };
 
   getIssues = async () => {
@@ -71,7 +84,7 @@ class SearchBar extends React.Component {
           <button onClick={this.getIssues}>Get Results</button>
         </div>
 
-        <ToggleButtons />
+        <ToggleButtons onToggle={this.onToggle}/>
 
         <div className='results'>
           {totalResults}
