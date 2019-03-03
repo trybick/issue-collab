@@ -26,7 +26,6 @@ class SearchBar extends React.Component {
 
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
-
     let completeLabels = '';
 
     if (activeLabels.length === 1) {
