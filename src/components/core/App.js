@@ -23,28 +23,23 @@ class SearchBar extends React.Component {
 
   onToggle = event => {
     const { enabledLabels } = this.state;
-    // const availableLabels = ['javascript', 'bug'];
-    // Can this array be removed? The toggle buttons should have text we are expecting.
-
     const stateArray = [...enabledLabels];
     const index = stateArray.indexOf(event.target.name);
-    console.log('index', index)
-    if (index !== -1) { 
-      // remove item
+    
+    // Removes or adds item depending on index value
+    if (index !== -1) {
       stateArray.splice(index, 1);
       this.setState({ enabledLabels: stateArray }, () =>
-        console.log('labels', enabledLabels)
+        console.log("labels", enabledLabels)
       );
-    } else { 
-      // add item
+    } else {
       this.setState(
         {
           enabledLabels: [...enabledLabels, event.target.name]
         },
-        () => console.log('labels', enabledLabels)
+        () => console.log("labels", enabledLabels)
       );
     }
-    // TODO: create function shouldAdd - check if label has already been added and is in array
   };
 
   formatUrl = () => {
