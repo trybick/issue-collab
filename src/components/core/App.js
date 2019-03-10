@@ -30,8 +30,7 @@ class SearchBar extends React.Component {
       this.setState(
         {
           enabledLabels: [...this.state.enabledLabels, event.target.name]
-        },
-        () => console.log('results', this.state)
+        }
       );
     }
   };
@@ -39,13 +38,13 @@ class SearchBar extends React.Component {
   formatUrl = () => {
     const { issueState, enabledLabels, providedText } = this.state;
 
-    const baseUrl = 'https://api.github.com/search/issues?q=type:issue+';
+    const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
 
     // IDEA: can this work for creating URL from object?
     // var queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
 
-    let completeLabels = '';
+    let completeLabels = '+';
     if (enabledLabels.length === 1) {
       completeLabels = `+label:${enabledLabels[0]}`;
     } else if (enabledLabels.length > 1) {
@@ -76,9 +75,7 @@ class SearchBar extends React.Component {
     const json = await response.json();
 
     this.setState(
-      { results: json, 
-      totalResults: json.total_count.toLocaleString() 
-      },
+      { results: json, },
       () => console.log('results', this.state.results)
     );
 
@@ -87,12 +84,6 @@ class SearchBar extends React.Component {
 
   render() {
     const { results, providedText } = this.state;
-
-    // if (results.results[0]) {
-    //   const totalResults = (
-    //   <h4>Total results: {results.total_count.toLocaleString()}</h4>
-    // );
-    // }
 
     return (
       <div className='wrapper'>
@@ -111,7 +102,7 @@ class SearchBar extends React.Component {
 
         <ToggleButtons onToggle={this.onToggle} />
 
-        {this.state.totalResults && (
+        {results.items && (
           <div className='results'>
             <h4>Total results: {results.total_count.toLocaleString()}</h4>
             <SearchResults results={results} />
