@@ -12,7 +12,6 @@ class SearchBar extends React.Component {
       enabledLabels: [],
       providedText: '',
       issueState: 'open',
-      // results: { items: [] }
       results: {},
       totalResults: ''
     };
@@ -102,12 +101,8 @@ class SearchBar extends React.Component {
 
         <ToggleButtons onToggle={this.onToggle} />
 
-        {results.items && (
-          <div className='results'>
-            <h4>Total results: {results.total_count.toLocaleString()}</h4>
-            <SearchResults results={results} />
-          </div>
-        )}
+        {results.items && 
+          <SearchResults results={results} />}
       </div>
     );
   }

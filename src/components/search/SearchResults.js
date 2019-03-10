@@ -1,9 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-const SearchResults = props => {
-  const { results } = props;
-
+const SearchResults = ({ results }) => {
   const searchResults =
     results.items[0] &&
     results.items.map(item => {
@@ -34,7 +32,7 @@ const SearchResults = props => {
 
       return (
         <div className='result' key={item.id}>
-          <img src={item.user.avatar_url} width='75px' alt='avatar' />
+          <img src={item.user.avatar_url} width='50px' alt='avatar' />
 
           <a href={item.html_url} target='_blank' rel='noopener noreferrer'>
             {item.title}
@@ -53,7 +51,12 @@ const SearchResults = props => {
       );
     });
 
-  return <div className='results'>{searchResults}</div>;
+  return (
+    <div className='results'>
+      <h4>Total results: {results.total_count.toLocaleString()}</h4>
+      {searchResults}
+    </div>
+  )
 };
 
 export default SearchResults;
