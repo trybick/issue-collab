@@ -25,7 +25,7 @@ class SearchBar extends React.Component {
     const { enabledLabels } = this.state;
     const stateArray = [...enabledLabels];
     const index = stateArray.indexOf(event.target.name);
-    
+
     // Removes or adds item depending on index value
     if (index !== -1) {
       stateArray.splice(index, 1);
@@ -51,25 +51,25 @@ class SearchBar extends React.Component {
     // IDEA: can this work for creating URL from object?
     // var queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
 
-    let completeLabels = "+";
+    let completeLabels = "";
     if (enabledLabels.length === 1) {
-      completeLabels = `+label:${enabledLabels[0]}`;
+      completeLabels = "+label:" + enabledLabels[0];
     } else if (enabledLabels.length > 1) {
       completeLabels = enabledLabels.map = label => {
-        return "+label:$" + label;
+        return "+label:" + label;
       };
     }
 
     let textToSend = "";
     if (providedText !== "") {
-      textToSend = providedText + "+";
+      textToSend = "+" + providedText;
     }
 
     const completeUrl =
       baseUrl +
       completeLabels +
       textToSend +
-      `state:${issueState}` +
+      `+state:${issueState}` +
       sortOptions;
 
     return completeUrl;
