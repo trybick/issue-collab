@@ -2,7 +2,7 @@ import React from 'react';
 import Title from './Title';
 import SearchResults from '../search/SearchResults';
 import '../../style.scss';
-import ToggleButtons from '../search/ToggleButtons.js';
+import GroupedToggles from '../search/GroupedToggles.js';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -104,7 +104,7 @@ class SearchBar extends React.Component {
           <button onClick={this.getIssues}>Get Results</button>
         </div>
 
-        <ToggleButtons onToggle={this.onToggle} />
+        <GroupedToggles onToggle={this.onToggle} />
 
         {results.items && 
           <SearchResults results={results} />}
