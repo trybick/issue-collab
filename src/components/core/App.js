@@ -51,14 +51,14 @@ class SearchBar extends React.Component {
     // IDEA: can this work for creating URL from object?
     // var queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
 
-    let completeLabels = "";
+    let finalLabels = "";
     if (enabledLabels.length === 1) {
-      completeLabels = "+label:" + enabledLabels[0];
+      finalLabels = "+label:" + enabledLabels[0];
     } else if (enabledLabels.length > 1) {
-      completeLabels = enabledLabels.map = label => {
-        return "+label:" + label;
-      };
+      finalLabels = enabledLabels.map(label => "+label:" + label).join('');
     }
+
+    console.log("finalLabels", finalLabels);
 
     let textToSend = "";
     if (providedText !== "") {
@@ -66,11 +66,7 @@ class SearchBar extends React.Component {
     }
 
     const completeUrl =
-      baseUrl +
-      completeLabels +
-      textToSend +
-      `+state:${issueState}` +
-      sortOptions;
+      baseUrl + finalLabels + textToSend + `+state:${issueState}` + sortOptions;
 
     return completeUrl;
   };
