@@ -44,29 +44,19 @@ class SearchBar extends React.Component {
 
   formatUrl = () => {
     const { issueState, enabledLabels, providedText } = this.state;
-
     const baseUrl = "https://api.github.com/search/issues?q=type:issue";
     const sortOptions = "&sort=created&order=desc&per_page=30";
-
-    // IDEA: can this work for creating URL from object?
-    // var queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
-
     let finalLabels = "";
-    if (enabledLabels.length === 1) {
-      finalLabels = "+label:" + enabledLabels[0];
-    } else if (enabledLabels.length > 1) {
-      finalLabels = enabledLabels.map(label => "+label:" + label).join('');
-    }
+    let finalText = "";
 
-    console.log("finalLabels", finalLabels);
+    finalLabels = enabledLabels.map(label => "+label:" + label).join("");
 
-    let textToSend = "";
     if (providedText !== "") {
-      textToSend = "+" + providedText;
+      finalText = "+" + providedText;
     }
 
     const completeUrl =
-      baseUrl + finalLabels + textToSend + `+state:${issueState}` + sortOptions;
+      baseUrl + finalLabels + finalText + `+state:${issueState}` + sortOptions;
 
     return completeUrl;
   };
