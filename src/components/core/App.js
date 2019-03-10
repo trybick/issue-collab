@@ -8,12 +8,11 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      enabledLanguages: [],
-      enabledLabels: [],
+      toggledLanguages: [],
+      toggledLabels: [],
       providedText: "",
       issueState: "open",
-      results: {},
-      totalResults: ""
+      results: {}
     };
   }
 
@@ -22,34 +21,33 @@ class SearchBar extends React.Component {
   };
 
   onToggle = event => {
-    const { enabledLabels } = this.state;
-    const stateArray = [...enabledLabels];
+    const { toggledLabels } = this.state;
+    const stateArray = [...toggledLabels];
     const index = stateArray.indexOf(event.target.name);
 
-    // Removes or adds item depending on index value
     if (index !== -1) {
       stateArray.splice(index, 1);
-      this.setState({ enabledLabels: stateArray }, () =>
-        console.log("labels", enabledLabels)
+      this.setState({ toggledLabels: stateArray }, () =>
+        console.log("labels", toggledLabels)
       );
     } else {
       this.setState(
         {
-          enabledLabels: [...enabledLabels, event.target.name]
+          toggledLabels: [...toggledLabels, event.target.name]
         },
-        () => console.log("labels", enabledLabels)
+        () => console.log("labels", toggledLabels)
       );
     }
   };
 
   formatUrl = () => {
-    const { issueState, enabledLabels, providedText } = this.state;
+    const { issueState, toggledLabels, providedText } = this.state;
     const baseUrl = "https://api.github.com/search/issues?q=type:issue";
     const sortOptions = "&sort=created&order=desc&per_page=30";
     let finalLabels = "";
     let finalText = "";
 
-    finalLabels = enabledLabels.map(label => "+label:" + label).join("");
+    finalLabels = toggledLabels.map(label => "+label:" + label).join("");
 
     if (providedText !== "") {
       finalText = "+" + providedText;
@@ -62,16 +60,14 @@ class SearchBar extends React.Component {
   };
 
   getIssues = async () => {
-    const urlToSend = this.formatUrl();
+    const finalUrl = this.formatUrl();
 
-    const response = await fetch(urlToSend);
+    const response = await fetch(finalUrl);
     const json = await response.json();
 
-    this.setState({ results: json, urlToSend: urlToSend }, () =>
+    this.setState({ results: json, finalUrl: finalUrl }, () =>
       console.log("results", this.state.results)
     );
-
-    console.log("url", urlToSend);
   };
 
   render() {
@@ -94,7 +90,8 @@ class SearchBar extends React.Component {
 
         <GroupedToggles onToggle={this.onToggle} />
 
-        <h3>{this.state.urlToSend}</h3>
+        {/* temporary */}
+        <h3>{this.state.finalUrl}</h3>
 
         {results.items && <SearchResults results={results} />}
       </div>
