@@ -2,7 +2,8 @@ import React from "react";
 import Title from "./Title";
 import SearchResults from "../search/SearchResults";
 import "../../style.scss";
-import GroupedToggles from "../search/GroupedToggles.js";
+import LabelToggles from "../search/LabelToggles.js";
+import LanguageToggles from "../search/LanguageToggles.js";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -40,21 +41,56 @@ class SearchBar extends React.Component {
     }
   };
 
+  onToggleLanguage = event => {
+    const { toggledLanguages } = this.state;
+    const stateArray = [...toggledLanguages];
+    const index = stateArray.indexOf(event.target.name);
+
+    if (index !== -1) {
+      stateArray.splice(index, 1);
+      this.setState({ toggledLabels: stateArray }, () =>
+        console.log("languages", toggledLanguages)
+      );
+    } else {
+      this.setState(
+        {
+          toggledLanguages: [...toggledLanguages, event.target.name]
+        },
+        () => console.log("languages", toggledLanguages)
+      );
+    }
+  };
+
   formatUrl = () => {
-    const { issueState, toggledLabels, providedText } = this.state;
+    const {
+      issueState,
+      toggledLabels,
+      toggledLanguages,
+      providedText
+    } = this.state;
     const baseUrl = "https://api.github.com/search/issues?q=type:issue";
     const sortOptions = "&sort=created&order=desc&per_page=30";
     let finalLabels = "";
+    let finalLanguages = "";
     let finalText = "";
 
     finalLabels = toggledLabels.map(label => "+label:" + label).join("");
+
+    finalLanguages = toggledLanguages
+      .map(language => "+language:" + language)
+      .join("");
 
     if (providedText !== "") {
       finalText = "+" + providedText;
     }
 
     const completeUrl =
-      baseUrl + finalLabels + finalText + `+state:${issueState}` + sortOptions;
+      baseUrl +
+      finalLabels +
+      finalLanguages +
+      finalText +
+      `+state:${issueState}` +
+      sortOptions;
 
     return completeUrl;
   };
@@ -88,7 +124,8 @@ class SearchBar extends React.Component {
           <button onClick={this.getIssues}>Get Results</button>
         </div>
 
-        <GroupedToggles onToggle={this.onToggle} />
+        <LabelToggles onToggle={this.onToggle} />
+        <LanguageToggles onToggle={this.onToggleLanguage} />
 
         {/* temporary */}
         <h3>{this.state.finalUrl}</h3>

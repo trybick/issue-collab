@@ -2,7 +2,7 @@ import React from "react";
 import "../../style.scss";
 import Button from "../core/Button.js";
 
-const GroupedToggles = ({ onToggle }) => {
+const LabelToggles = ({ onToggle }) => {
   return (
     <div className="toggle-buttons">
       <Button name="javascript" onClick={onToggle} text="JavaScript" />
@@ -11,4 +11,4 @@ const GroupedToggles = ({ onToggle }) => {
   );
 };
 
-export default GroupedToggles;
+export default LabelToggles;
