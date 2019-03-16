@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
     this.setState({ providedText: event.target.value });
   };
 
-  onToggle = event => {
+  onToggleLabel = event => {
     const { toggledLabels } = this.state;
     const stateArray = [...toggledLabels];
     const index = stateArray.indexOf(event.target.name);
@@ -114,7 +114,7 @@ class SearchBar extends React.Component {
           <button onClick={this.getIssues}>Get Results</button>
         </div>
 
-        <LabelToggles onToggle={this.onToggle} />
+        <LabelToggles onToggle={this.onToggleLabel} />
         <LanguageToggles onToggle={this.onToggleLanguage} />
 
         {/* temporary */}
