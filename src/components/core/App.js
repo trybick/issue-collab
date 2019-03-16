@@ -22,9 +22,14 @@ class SearchBar extends React.Component {
   };
 
   onToggleLabel = event => {
+    let labelName = event.target.name;
     const { toggledLabels } = this.state;
     const stateArray = [...toggledLabels];
-    const index = stateArray.indexOf(event.target.name);
+    const index = stateArray.indexOf(labelName);
+
+    if (event.target.name === 'good+first+issue') {
+      labelName = `"good+first+issue"`;
+    }
 
     if (index !== -1) {
       stateArray.splice(index, 1);
