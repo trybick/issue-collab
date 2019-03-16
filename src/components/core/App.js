@@ -87,7 +87,7 @@ class SearchBar extends React.Component {
 
   getIssues = async () => {
     const finalUrl = this.formatUrl();
-
+    // remove finalUrl variable when done testing
     const response = await fetch(finalUrl);
     const json = await response.json();
 

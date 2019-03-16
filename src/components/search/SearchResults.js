@@ -13,7 +13,7 @@ const SearchResults = ({ results }) => {
       let bodyText;
       if (item.body) {
         if (item.body.length === 0) {
-          bodyText = '(no text)';
+          bodyText = '(no text provided)';
         } else if (item.body.length < 300) {
           bodyText = item.body;
         } else if (item.body.length > 300) {
