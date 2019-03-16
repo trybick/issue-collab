@@ -28,16 +28,11 @@ class SearchBar extends React.Component {
 
     if (index !== -1) {
       stateArray.splice(index, 1);
-      this.setState({ toggledLabels: stateArray }, () =>
-        console.log("labels", toggledLabels)
-      );
+      this.setState({ toggledLabels: stateArray });
     } else {
-      this.setState(
-        {
-          toggledLabels: [...toggledLabels, event.target.name]
-        },
-        () => console.log("labels", toggledLabels)
-      );
+      this.setState({
+        toggledLabels: [...toggledLabels, event.target.name]
+      });
     }
   };
 
@@ -48,16 +43,11 @@ class SearchBar extends React.Component {
 
     if (index !== -1) {
       stateArray.splice(index, 1);
-      this.setState({ toggledLabels: stateArray }, () =>
-        console.log("languages", toggledLanguages)
-      );
+      this.setState({ toggledLabels: stateArray });
     } else {
-      this.setState(
-        {
-          toggledLanguages: [...toggledLanguages, event.target.name]
-        },
-        () => console.log("languages", toggledLanguages)
-      );
+      this.setState({
+        toggledLanguages: [...toggledLanguages, event.target.name]
+      });
     }
   };
 
