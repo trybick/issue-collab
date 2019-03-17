@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
     const stateArray = [...toggledLabels];
     const index = stateArray.indexOf(labelName);
 
-    if (event.target.name === 'good+first+issue') {
+    if (event.target.name === "good+first+issue") {
       labelName = `"good+first+issue"`;
     }
 
@@ -96,7 +96,7 @@ class SearchBar extends React.Component {
     const response = await fetch(finalUrl);
     const json = await response.json();
 
-    this.setState({ results: json, finalUrl: finalUrl }, () =>
+    this.setState({ results: json }, () =>
       console.log("results", this.state.results)
     );
   };
@@ -121,9 +121,6 @@ class SearchBar extends React.Component {
 
         <LabelToggles onToggle={this.onToggleLabel} />
         <LanguageToggles onToggle={this.onToggleLanguage} />
-
-        {/* temporary */}
-        <h3>{this.state.finalUrl}</h3>
 
         {results.items && <SearchResults results={results} />}
       </div>
