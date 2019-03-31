@@ -6,7 +6,7 @@ const LanguageToggles = ({ onToggle }) => {
   return (
     <div className="toggle-buttons">
       <Button name="python" onClick={onToggle} text="Python" />
-      <Button name="java" onClick={onToggle} toggled={false} text="Java" />
+      <Button name="java" onClick={onToggle} text="Java" />
     </div>
   );
 };
