@@ -10,4 +10,9 @@ const Button = ({ text, name, onClick }) => (
   </button>
 );
 
+// NEXT: add this - 
+// <button onClick={this.handleClick}>
+//   {this.state.isToggleOn ? 'ON' : 'OFF'}
+// </button>
+
 export default Button;
