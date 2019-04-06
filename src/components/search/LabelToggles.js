@@ -14,7 +14,7 @@ const LabelToggles = ({ onToggle }) => {
         text="good first issue"
       />
       <Button
-        name="help wanted"
+        name="help+wanted"
         onClick={onToggle}
         toggled={false}
         text="help wanted"

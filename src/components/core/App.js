@@ -27,8 +27,10 @@ class SearchBar extends React.Component {
     const stateArray = [...toggledLabels];
     const index = stateArray.indexOf(labelName);
 
-    if (event.target.name === "good+first+issue") {
+    if (labelName === "good+first+issue") {
       labelName = `"good+first+issue"`;
+    } else if (labelName === "help+wanted") {
+      labelName = `"help+wanted"`;
     }
 
     if (index !== -1) {
@@ -36,7 +38,7 @@ class SearchBar extends React.Component {
       this.setState({ toggledLabels: stateArray });
     } else {
       this.setState({
-        toggledLabels: [...toggledLabels, event.target.name]
+        toggledLabels: [...toggledLabels, labelName]
       });
     }
   };
