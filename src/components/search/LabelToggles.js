@@ -2,18 +2,22 @@ import React from "react";
 import "../../style.scss";
 import Button from "../core/Button.js";
 
-const LabelToggles = ({ onToggle }) => {
+const LabelToggles = ({ activeLabels, onToggle }) => {
+console.log('activeLabels:', activeLabels)
+
   return (
     <div className="toggle-buttons">
-      <Button name="javascript" onClick={onToggle} text="javascript" />
-      <Button name="bug" onClick={onToggle} toggled={false} text="bug" />
+      <Button activeLabels={activeLabels} name="javascript" onClick={onToggle} text="javascript" />
+      <Button activeLabels={activeLabels} name="bug" onClick={onToggle} toggled={false} text="bug" />
       <Button
+        activeLabels={activeLabels} 
         name="good+first+issue"
         onClick={onToggle}
         toggled={false}
         text="good first issue"
       />
       <Button
+        activeLabels={activeLabels} 
         name="help+wanted"
         onClick={onToggle}
         toggled={false}

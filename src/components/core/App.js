@@ -104,7 +104,7 @@ class SearchBar extends React.Component {
   };
 
   render() {
-    const { results, providedText } = this.state;
+    const { results, providedText, toggledLabels } = this.state;
 
     return (
       <div className="wrapper">
@@ -121,7 +121,10 @@ class SearchBar extends React.Component {
           <button onClick={this.getIssues}>Get Results</button>
         </div>
 
-        <LabelToggles onToggle={this.onToggleLabel} />
+        <LabelToggles
+          onToggle={this.onToggleLabel}
+          activeLabels={toggledLabels}
+        />
         <LanguageToggles onToggle={this.onToggleLanguage} />
 
         {results.items && <SearchResults results={results} />}
