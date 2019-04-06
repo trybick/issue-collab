@@ -33,13 +33,13 @@ class SearchBar extends React.Component {
       labelName = `"help+wanted"`;
     }
 
-    if (index !== -1) {
-      stateArray.splice(index, 1);
-      this.setState({ toggledLabels: stateArray });
-    } else {
+    if (index === -1) {
       this.setState({
         toggledLabels: [...toggledLabels, labelName]
       });
+    } else {
+      stateArray.splice(index, 1);
+      this.setState({ toggledLabels: stateArray });
     }
   };
 
