@@ -5,6 +5,9 @@ import "../../style.scss";
 import LabelToggles from "../search/LabelToggles.js";
 import LanguageToggles from "../search/LanguageToggles.js";
 
+import Toggle from 'react-toggle'
+
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -121,6 +124,14 @@ class SearchBar extends React.Component {
         </div>
 
         <button onClick={this.getIssues}>Get Results</button>
+
+        <label>
+          <Toggle
+            defaultChecked={this.state.tofuIsReady}
+            icons={false}
+            onChange={this.handleTofuChange} />
+          <span>No icons</span>
+        </label>
 
         <LabelToggles
           onToggle={this.onToggleLabel}
