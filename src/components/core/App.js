@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
       toggledLabels: [],
       providedText: "",
       issueState: "open",
-      results: {}
+      results: {},
     };
   }
 
@@ -118,8 +118,9 @@ class SearchBar extends React.Component {
             value={providedText}
             onChange={this.handleTextChange}
           />
-          <button onClick={this.getIssues}>Get Results</button>
         </div>
+
+        <button onClick={this.getIssues}>Get Results</button>
 
         <LabelToggles
           onToggle={this.onToggleLabel}
