@@ -1,11 +1,11 @@
-import React from "react";
-import moment from "moment";
+import React from 'react';
+import moment from 'moment';
 
 const SearchResults = ({ results }) => {
   const searchResults =
     results.items[0] &&
     results.items.map(item => {
-      const htmlUrl = item.html_url.split("/");
+      const htmlUrl = item.html_url.split('/');
       const userName = htmlUrl[3];
       const repoName = htmlUrl[4];
       const issueAge = moment(item.created_at).fromNow();
@@ -13,11 +13,11 @@ const SearchResults = ({ results }) => {
       let bodyText;
       if (item.body) {
         if (item.body.length === 0) {
-          bodyText = "(no text provided)";
+          bodyText = '(no text provided)';
         } else if (item.body.length < 300) {
           bodyText = item.body;
         } else if (item.body.length > 300) {
-          bodyText = item.body.substr(0, 300) + "...";
+          bodyText = `${item.body.substr(0, 300)}...`;
         }
       }
 
@@ -39,7 +39,7 @@ const SearchResults = ({ results }) => {
 
           <p>{bodyText}</p>
 
-          <div>{userName + "/" + repoName}</div>
+          <div>{`${userName}/${repoName}`}</div>
           <div>{issueAge}</div>
 
           <p>{mappedLabels}</p>
