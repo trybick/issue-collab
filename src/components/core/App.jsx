@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
         documentation: false,
         helpWanted: false,
       },
-      providedText: '',
+      searchText: '',
       issueState: 'open',
       results: {},
       url: '',
@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
   }
 
   // formatUrl = () => {
-  //   const { issueState, toggledLabels, toggledLanguages, providedText } = this.state;
+  //   const { issueState, toggledLabels, toggledLanguages, searchText } = this.state;
   //   const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
   //   const sortOptions = '&sort=created&order=desc&per_page=30';
   //   let finalLabels = '';
@@ -37,8 +37,8 @@ class SearchBar extends React.Component {
 
   //   finalLanguages = toggledLanguages.map(language => `+language:${language}`).join('');
 
-  //   if (providedText !== '') {
-  //     finalText = `+${providedText}`;
+  //   if (searchText !== '') {
+  //     finalText = `+${searchText}`;
   //   }
 
   //   const completeUrl = `${baseUrl +
@@ -50,7 +50,7 @@ class SearchBar extends React.Component {
   // };
 
   formatUrl = () => {
-    const { issueState, toggledLabels, toggledLanguages, providedText } = this.state;
+    const { issueState, toggledLabels, toggledLanguages, searchText } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
     let finalLabels = '';
@@ -76,7 +76,7 @@ class SearchBar extends React.Component {
   };
 
   handleTextChange = event => {
-    this.setState({ providedText: event.target.value });
+    this.setState({ searchText: event.target.value });
   };
 
   handleToggleChange = event => {
@@ -87,7 +87,7 @@ class SearchBar extends React.Component {
   };
 
   render() {
-    const { results, providedText, toggledLabels, url } = this.state;
+    const { results, searchText, toggledLabels, url } = this.state;
 
     return (
       <div className="wrapper">
@@ -97,7 +97,7 @@ class SearchBar extends React.Component {
           <input
             type="text"
             name="search-text"
-            value={providedText}
+            value={searchText}
             onChange={this.handleTextChange}
           />
         </div>
