@@ -60,32 +60,32 @@ class SearchBar extends React.Component {
     }
   };
 
-  formatUrl = () => {
-    const { issueState, toggledLabels, toggledLanguages, providedText } = this.state;
-    const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
-    const sortOptions = '&sort=created&order=desc&per_page=30';
-    let finalLabels = '';
-    let finalLanguages = '';
-    let finalText = '';
+  // formatUrl = () => {
+  //   const { issueState, toggledLabels, toggledLanguages, providedText } = this.state;
+  //   const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
+  //   const sortOptions = '&sort=created&order=desc&per_page=30';
+  //   let finalLabels = '';
+  //   let finalLanguages = '';
+  //   let finalText = '';
 
-    finalLabels = toggledLabels.map(label => `+label:${label}`).join('');
+  //   finalLabels = toggledLabels.map(label => `+label:${label}`).join('');
 
-    finalLanguages = toggledLanguages.map(language => `+language:${language}`).join('');
+  //   finalLanguages = toggledLanguages.map(language => `+language:${language}`).join('');
 
-    if (providedText !== '') {
-      finalText = `+${providedText}`;
-    }
+  //   if (providedText !== '') {
+  //     finalText = `+${providedText}`;
+  //   }
 
-    const completeUrl = `${baseUrl +
-      finalLabels +
-      finalLanguages +
-      finalText}+state:${issueState}${sortOptions}`;
+  //   const completeUrl = `${baseUrl +
+  //     finalLabels +
+  //     finalLanguages +
+  //     finalText}+state:${issueState}${sortOptions}`;
 
-    return completeUrl;
-  };
+  //   return completeUrl;
+  // };
 
   getIssues = async () => {
-    const finalUrl = this.formatUrl2();
+    const finalUrl = this.formatUrl();
     const response = await fetch(finalUrl); // finalUrl variable used for testing
     const json = await response.json();
     this.setState({ results: json }, () => console.log('results', this.state.results));
@@ -106,17 +106,18 @@ class SearchBar extends React.Component {
     );
   };
 
-  formatUrl2 = () => {
+  formatUrl = () => {
     const { issueState, toggledLabels, toggledLanguages, providedText } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
+    let finalLabels = '';
 
-    Object.keys(toggledLabels).forEach(function(item) {
-      console.log(item); // key
-      console.log(toggledLabels[item]); // value
-    });
+    const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
+    console.log('enabled keys:', activeLabels);
 
-    const finalUrl = `${baseUrl}+state:${issueState}${sortOptions}`;
+    finalLabels = activeLabels.map(label => `+label:${label}`).join('');
+
+    const finalUrl = `${baseUrl}+state:${issueState}${finalLabels}${sortOptions}`;
 
     return finalUrl;
   };
