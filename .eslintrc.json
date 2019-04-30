@@ -1,6 +1,9 @@
 {
   "extends": ["airbnb", "prettier", "prettier/react"],
   "plugins": ["prettier"],
+  "globals": {
+    "fetch": false
+  },
   "rules": {
     "prettier/prettier": ["error"],
     "eol-last": 0,
@@ -12,6 +15,8 @@
     "padded-blocks": 1,
     "func-names": 0,
     "no-console": 0,
-    "react/destructuring-assignment": 1
+    "react/destructuring-assignment": 1,
+    "import/order": 0,
+    "react/sort-comp": 0
   }
 }

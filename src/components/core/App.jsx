@@ -19,10 +19,6 @@ class SearchBar extends React.Component {
     };
   }
 
-  handleTextChange(event) {
-    this.setState({ providedText: event.target.value });
-  }
-
   onToggleLabel(event) {
     let labelName = event.target.name;
     const { toggledLabels } = this.state;
@@ -86,11 +82,14 @@ class SearchBar extends React.Component {
 
   async getIssues() {
     const finalUrl = this.formatUrl();
-    // remove finalUrl variable when done testing
-    const response = await fetch(finalUrl);
+    const response = await fetch(finalUrl); // finalUrl variable used for testing
     const json = await response.json();
 
     this.setState({ results: json }, () => console.log('results', this.state.results));
+  }
+
+  handleTextChange(event) {
+    this.setState({ providedText: event.target.value });
   }
 
   render() {
