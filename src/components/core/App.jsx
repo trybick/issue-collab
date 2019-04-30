@@ -14,7 +14,9 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       toggledLanguages: [],
-      toggledLabels: [],
+      toggledLabels: {
+        bug: false
+      },
       providedText: '',
       issueState: 'open',
       results: {},
