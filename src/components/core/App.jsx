@@ -54,7 +54,7 @@ class SearchBar extends React.Component {
     const sortOptions = '&sort=created&order=desc&per_page=30';
     let finalLabels = '';
 
-    // Get enabled (true) labels from state
+    // Get enabled labels from state
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
     console.log('enabled keys:', activeLabels);
 
@@ -76,13 +76,15 @@ class SearchBar extends React.Component {
     this.setState({ providedText: event.target.value });
   };
 
-  handleToggleChange = () => {
+  handleToggleChange = event => {
+    console.log('event:', event.target);
+
     const { toggledLabels } = this.state;
     this.setState(
       {
         toggledLabels: { ...toggledLabels, bug: !toggledLabels.bug },
       },
-      () => console.log('toggle change', this.state.toggledLabels.bug)
+      () => console.log('toggle change', this.state.toggledLabels)
     );
   };
 
@@ -114,6 +116,7 @@ class SearchBar extends React.Component {
           <Toggle
             defaultChecked={toggledLabels.bug}
             icons={false}
+            name="label-bug"
             onChange={this.handleToggleChange}
           />
           <span>bug</span>
@@ -123,6 +126,7 @@ class SearchBar extends React.Component {
           <Toggle
             defaultChecked={toggledLabels.easy}
             icons={false}
+            name="label-easy"
             onChange={this.handleToggleChange}
           />
           <span>easy</span>
@@ -132,6 +136,7 @@ class SearchBar extends React.Component {
           <Toggle
             defaultChecked={toggledLabels.documentation}
             icons={false}
+            name="label-documentation"
             onChange={this.handleToggleChange}
           />
           <span>documentation</span>
@@ -141,6 +146,7 @@ class SearchBar extends React.Component {
           <Toggle
             defaultChecked={toggledLabels.helpWanted}
             icons={false}
+            name="label-helpWanted"
             onChange={this.handleToggleChange}
           />
           <span>help wanted</span>
