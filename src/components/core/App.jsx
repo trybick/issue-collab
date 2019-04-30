@@ -4,8 +4,6 @@ import Title from './Title';
 import SearchResults from '../search/SearchResults';
 import '../../style.scss';
 import '../../react-toggle.scss';
-import LabelToggles from '../search/LabelToggles';
-import LanguageToggles from '../search/LanguageToggles';
 
 import Toggle from 'react-toggle';
 
@@ -22,43 +20,6 @@ class SearchBar extends React.Component {
       results: {},
     };
   }
-
-  onToggleLabel = event => {
-    let labelName = event.target.name;
-    const { toggledLabels } = this.state;
-    const stateArray = [...toggledLabels];
-    const index = stateArray.indexOf(labelName);
-
-    if (labelName === 'good+first+issue') {
-      labelName = `"good+first+issue"`;
-    } else if (labelName === 'help+wanted') {
-      labelName = `"help+wanted"`;
-    }
-
-    if (index === -1) {
-      this.setState({
-        toggledLabels: [...toggledLabels, labelName],
-      });
-    } else {
-      stateArray.splice(index, 1);
-      this.setState({ toggledLabels: stateArray });
-    }
-  };
-
-  onToggleLanguage = event => {
-    const { toggledLanguages } = this.state;
-    const stateArray = [...toggledLanguages];
-    const index = stateArray.indexOf(event.target.name);
-
-    if (index !== -1) {
-      stateArray.splice(index, 1);
-      this.setState({ toggledLabels: stateArray });
-    } else {
-      this.setState({
-        toggledLanguages: [...toggledLanguages, event.target.name],
-      });
-    }
-  };
 
   // formatUrl = () => {
   //   const { issueState, toggledLabels, toggledLanguages, providedText } = this.state;
@@ -84,28 +45,6 @@ class SearchBar extends React.Component {
   //   return completeUrl;
   // };
 
-  getIssues = async () => {
-    const finalUrl = this.formatUrl();
-    const response = await fetch(finalUrl); // finalUrl variable used for testing
-    const json = await response.json();
-    this.setState({ results: json }, () => console.log('results', this.state.results));
-  };
-
-  handleTextChange = event => {
-    this.setState({ providedText: event.target.value });
-  };
-
-  // Using react-toggle
-  handleToggleChange = () => {
-    const { toggledLabels } = this.state;
-    this.setState(
-      {
-        toggledLabels: { ...toggledLabels, bug: !toggledLabels.bug },
-      },
-      () => console.log('toggle change', this.state.toggledLabels.bug)
-    );
-  };
-
   formatUrl = () => {
     const { issueState, toggledLabels, toggledLanguages, providedText } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
@@ -121,6 +60,27 @@ class SearchBar extends React.Component {
 
     // Join all parts
     return `${baseUrl}+state:${issueState}${finalLabels}${sortOptions}`;
+  };
+
+  getIssues = async () => {
+    const finalUrl = this.formatUrl();
+    const response = await fetch(finalUrl); // finalUrl variable used for testing
+    const json = await response.json();
+    this.setState({ results: json }, () => console.log('results', this.state.results));
+  };
+
+  handleTextChange = event => {
+    this.setState({ providedText: event.target.value });
+  };
+
+  handleToggleChange = () => {
+    const { toggledLabels } = this.state;
+    this.setState(
+      {
+        toggledLabels: { ...toggledLabels, bug: !toggledLabels.bug },
+      },
+      () => console.log('toggle change', this.state.toggledLabels.bug)
+    );
   };
 
   render() {
@@ -155,9 +115,6 @@ class SearchBar extends React.Component {
           />
           <span>bug</span>
         </label>
-
-        {/* <LabelToggles onToggle={this.onToggleLabel} activeLabels={toggledLabels} />
-        <LanguageToggles onToggle={this.onToggleLanguage} /> */}
 
         {results.items && <SearchResults results={results} />}
       </div>
