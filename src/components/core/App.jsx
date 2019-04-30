@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import Title from './Title';
 import SearchResults from '../search/SearchResults';
@@ -16,7 +17,9 @@ class SearchBar extends React.Component {
       toggledLabels: [],
       providedText: '',
       issueState: 'open',
-      results: {}
+      results: {},
+      // react-toggle
+      labelBug: false
     };
   }
 
@@ -92,6 +95,13 @@ class SearchBar extends React.Component {
     this.setState({ providedText: event.target.value });
   };
 
+  // Using react-toggle
+  handleToggleChange = event => {
+    this.setState({ labelBug: !this.state.labelBug }, () =>
+      console.log('state', this.state.labelBug)
+    );
+  };
+
   render() {
     const { results, providedText, toggledLabels } = this.state;
 
@@ -118,11 +128,11 @@ class SearchBar extends React.Component {
 
         <label>
           <Toggle
-            defaultChecked={this.state.tofuIsReady}
+            defaultChecked={this.state.labelBug}
             icons={false}
-            onChange={this.handleTofuChange}
+            onChange={this.handleToggleChange}
           />
-          <span>No icons</span>
+          <span>bug</span>
         </label>
 
         <LabelToggles onToggle={this.onToggleLabel} activeLabels={toggledLabels} />

@@ -7,8 +7,6 @@ class Button extends React.Component {
     const { activeLabels, text, name, onClick } = this.props;
     let isToggled;
 
-    console.log('activeLabels:', activeLabels);
-
     if (activeLabels !== undefined) {
       if (activeLabels.includes(name)) {
         isToggled = true;
