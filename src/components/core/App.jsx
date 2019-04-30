@@ -112,14 +112,15 @@ class SearchBar extends React.Component {
     const sortOptions = '&sort=created&order=desc&per_page=30';
     let finalLabels = '';
 
+    // Get enabled (true) labels from state
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
     console.log('enabled keys:', activeLabels);
 
+    // Join labels together
     finalLabels = activeLabels.map(label => `+label:${label}`).join('');
 
-    const finalUrl = `${baseUrl}+state:${issueState}${finalLabels}${sortOptions}`;
-
-    return finalUrl;
+    // Join all parts
+    return `${baseUrl}+state:${issueState}${finalLabels}${sortOptions}`;
   };
 
   render() {
