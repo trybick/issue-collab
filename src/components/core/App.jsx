@@ -54,16 +54,27 @@ class SearchBar extends React.Component {
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
     let finalLabels = '';
+    //   let finalLanguages = '';
+    let finalText = '';
 
     // Get enabled labels from state
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
     console.log('enabled keys:', activeLabels);
 
+    //   finalLanguages = toggledLanguages.map(language => `+language:${language}`).join('');
+
+    if (searchText !== '') {
+      finalText = `+${searchText}`;
+    }
+
     // Join labels together
     finalLabels = activeLabels.map(label => `+label:${label}`).join('');
 
     // Join all parts
-    return `${baseUrl}+state:${issueState}${finalLabels}${sortOptions}`;
+    return `${baseUrl +
+      finalLabels +
+      // finalLanguages +
+      finalText}+state:${issueState}${sortOptions}`;
   };
 
   getIssues = async () => {
