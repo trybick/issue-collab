@@ -84,7 +84,6 @@ class SearchBar extends React.Component {
     const finalUrl = this.formatUrl();
     const response = await fetch(finalUrl); // finalUrl variable used for testing
     const json = await response.json();
-
     this.setState({ results: json }, () => console.log('results', this.state.results));
   }
 
