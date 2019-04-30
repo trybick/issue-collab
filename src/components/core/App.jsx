@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
     };
   }
 
-  onToggleLabel(event) {
+  onToggleLabel = event => {
     let labelName = event.target.name;
     const { toggledLabels } = this.state;
     const stateArray = [...toggledLabels];
@@ -39,9 +39,9 @@ class SearchBar extends React.Component {
       stateArray.splice(index, 1);
       this.setState({ toggledLabels: stateArray });
     }
-  }
+  };
 
-  onToggleLanguage(event) {
+  onToggleLanguage = event => {
     const { toggledLanguages } = this.state;
     const stateArray = [...toggledLanguages];
     const index = stateArray.indexOf(event.target.name);
@@ -54,9 +54,9 @@ class SearchBar extends React.Component {
         toggledLanguages: [...toggledLanguages, event.target.name]
       });
     }
-  }
+  };
 
-  formatUrl() {
+  formatUrl = () => {
     const { issueState, toggledLabels, toggledLanguages, providedText } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
@@ -78,18 +78,18 @@ class SearchBar extends React.Component {
       finalText}+state:${issueState}${sortOptions}`;
 
     return completeUrl;
-  }
+  };
 
-  async getIssues() {
+  getIssues = async () => {
     const finalUrl = this.formatUrl();
     const response = await fetch(finalUrl); // finalUrl variable used for testing
     const json = await response.json();
     this.setState({ results: json }, () => console.log('results', this.state.results));
-  }
+  };
 
-  handleTextChange(event) {
+  handleTextChange = event => {
     this.setState({ providedText: event.target.value });
-  }
+  };
 
   render() {
     const { results, providedText, toggledLabels } = this.state;
