@@ -2,8 +2,8 @@ import React from "react";
 import Title from "./Title";
 import SearchResults from "../search/SearchResults";
 import "../../style.scss";
-import LabelToggles from "../search/LabelToggles.js";
-import LanguageToggles from "../search/LanguageToggles.js";
+import LabelToggles from "../search/LabelToggles";
+import LanguageToggles from "../search/LanguageToggles";
 
 import Toggle from 'react-toggle'
 

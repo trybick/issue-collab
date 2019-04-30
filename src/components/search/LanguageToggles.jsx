@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../style.scss';
-import Button from '../core/Button.js';
+import Button from '../core/Button';
 
 const LanguageToggles = ({ onToggle }) => {
   return (
