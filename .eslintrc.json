@@ -10,6 +10,8 @@
     "no-unused-vars": 1,
     "no-multiple-empty-lines": 0,
     "padded-blocks": 1,
-    "func-names": 0
+    "func-names": 0,
+    "no-console": 0,
+    "react/destructuring-assignment": 1
   }
 }
