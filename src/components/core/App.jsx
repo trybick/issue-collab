@@ -96,9 +96,10 @@ class SearchBar extends React.Component {
   };
 
   // Using react-toggle
-  handleToggleChange = event => {
-    this.setState({ labelBug: !this.state.labelBug }, () =>
-      console.log('state', this.state.labelBug)
+  handleToggleChange = () => {
+    this.setState(
+      prevState => ({ labelBug: !prevState.labelBug }),
+      () => console.log('state', this.state.labelBug)
     );
   };
 

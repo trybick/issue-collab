@@ -3,7 +3,6 @@ import '../../style.scss';
 import Button from '../core/Button';
 
 const LabelToggles = ({ activeLabels, onToggle }) => {
-  console.log('activeLabels:', activeLabels);
 
   return (
     <div className="toggle-buttons">
