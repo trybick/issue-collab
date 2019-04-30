@@ -15,13 +15,11 @@ class SearchBar extends React.Component {
     this.state = {
       toggledLanguages: [],
       toggledLabels: {
-        bug: false
+        bug: false,
       },
       providedText: '',
       issueState: 'open',
       results: {},
-      // react-toggle
-      labelBug: false
     };
   }
 
@@ -39,7 +37,7 @@ class SearchBar extends React.Component {
 
     if (index === -1) {
       this.setState({
-        toggledLabels: [...toggledLabels, labelName]
+        toggledLabels: [...toggledLabels, labelName],
       });
     } else {
       stateArray.splice(index, 1);
@@ -57,7 +55,7 @@ class SearchBar extends React.Component {
       this.setState({ toggledLabels: stateArray });
     } else {
       this.setState({
-        toggledLanguages: [...toggledLanguages, event.target.name]
+        toggledLanguages: [...toggledLanguages, event.target.name],
       });
     }
   };
