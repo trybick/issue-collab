@@ -21,6 +21,7 @@ class SearchBar extends React.Component {
       providedText: '',
       issueState: 'open',
       results: {},
+      url: '',
     };
   }
 
@@ -69,7 +70,9 @@ class SearchBar extends React.Component {
     const finalUrl = this.formatUrl();
     const response = await fetch(finalUrl); // finalUrl variable used for testing
     const json = await response.json();
-    this.setState({ results: json }, () => console.log('results', this.state.results));
+    this.setState({ results: json, url: finalUrl }, () =>
+      console.log('results', this.state.results)
+    );
   };
 
   handleTextChange = event => {
@@ -84,12 +87,11 @@ class SearchBar extends React.Component {
   };
 
   render() {
-    const { results, providedText, toggledLabels } = this.state;
+    const { results, providedText, toggledLabels, url } = this.state;
 
     return (
       <div className="wrapper">
         <Title />
-
         <div className="searchbar">
           <h3>Enter Your Search</h3>
           <input
@@ -99,14 +101,11 @@ class SearchBar extends React.Component {
             onChange={this.handleTextChange}
           />
         </div>
-
         <button type="button" onClick={this.getIssues}>
           Get Results
         </button>
-
         <br />
         <br />
-
         <div>
           <Toggle
             defaultChecked={toggledLabels.bug}
@@ -116,7 +115,6 @@ class SearchBar extends React.Component {
           />
           <span>bug</span>
         </div>
-
         <div>
           <Toggle
             defaultChecked={toggledLabels.easy}
@@ -126,7 +124,6 @@ class SearchBar extends React.Component {
           />
           <span>easy</span>
         </div>
-
         <div>
           <Toggle
             defaultChecked={toggledLabels.documentation}
@@ -136,7 +133,6 @@ class SearchBar extends React.Component {
           />
           <span>documentation</span>
         </div>
-
         <div>
           <Toggle
             defaultChecked={toggledLabels.helpWanted}
@@ -146,7 +142,8 @@ class SearchBar extends React.Component {
           />
           <span>help-wanted</span>
         </div>
-
+        <br />
+        {results.items && url} {/* for testing */}
         {results.items && <SearchResults results={results} />}
       </div>
     );
