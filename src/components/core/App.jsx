@@ -85,7 +85,7 @@ class SearchBar extends React.Component {
   };
 
   getIssues = async () => {
-    const finalUrl = this.formatUrl();
+    const finalUrl = this.formatUrl2();
     const response = await fetch(finalUrl); // finalUrl variable used for testing
     const json = await response.json();
     this.setState({ results: json }, () => console.log('results', this.state.results));
@@ -104,6 +104,16 @@ class SearchBar extends React.Component {
       },
       () => console.log('toggle change', this.state.toggledLabels.labelBug)
     );
+  };
+
+  formatUrl2 = () => {
+    const { issueState, toggledLabels, toggledLanguages, providedText } = this.state;
+    const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
+    const sortOptions = '&sort=created&order=desc&per_page=30';
+
+    const finalUrl = `${baseUrl}+state:${issueState}${sortOptions}`;
+
+    return finalUrl;
   };
 
   render() {
