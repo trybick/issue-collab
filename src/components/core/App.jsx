@@ -100,9 +100,9 @@ class SearchBar extends React.Component {
     const { toggledLabels } = this.state;
     this.setState(
       {
-        toggledLabels: { ...toggledLabels, labelBug: !toggledLabels.labelBug },
+        toggledLabels: { ...toggledLabels, bug: !toggledLabels.bug },
       },
-      () => console.log('toggle change', this.state.toggledLabels.labelBug)
+      () => console.log('toggle change', this.state.toggledLabels.bug)
     );
   };
 
@@ -110,6 +110,11 @@ class SearchBar extends React.Component {
     const { issueState, toggledLabels, toggledLanguages, providedText } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
+
+    Object.keys(toggledLabels).forEach(function(item) {
+      console.log(item); // key
+      console.log(toggledLabels[item]); // value
+    });
 
     const finalUrl = `${baseUrl}+state:${issueState}${sortOptions}`;
 
