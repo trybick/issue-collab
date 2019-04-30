@@ -77,15 +77,10 @@ class SearchBar extends React.Component {
   };
 
   handleToggleChange = event => {
-    console.log('event:', event.target);
-
     const { toggledLabels } = this.state;
-    this.setState(
-      {
-        toggledLabels: { ...toggledLabels, bug: !toggledLabels.bug },
-      },
-      () => console.log('toggle change', this.state.toggledLabels)
-    );
+    this.setState({
+      toggledLabels: { ...toggledLabels, [event.target.name]: !toggledLabels[event.target.name] },
+    });
   };
 
   render() {
@@ -116,7 +111,7 @@ class SearchBar extends React.Component {
           <Toggle
             defaultChecked={toggledLabels.bug}
             icons={false}
-            name="label-bug"
+            name="bug"
             onChange={this.handleToggleChange}
           />
           <span>bug</span>
@@ -126,7 +121,7 @@ class SearchBar extends React.Component {
           <Toggle
             defaultChecked={toggledLabels.easy}
             icons={false}
-            name="label-easy"
+            name="easy"
             onChange={this.handleToggleChange}
           />
           <span>easy</span>
@@ -136,7 +131,7 @@ class SearchBar extends React.Component {
           <Toggle
             defaultChecked={toggledLabels.documentation}
             icons={false}
-            name="label-documentation"
+            name="documentation"
             onChange={this.handleToggleChange}
           />
           <span>documentation</span>
@@ -146,10 +141,10 @@ class SearchBar extends React.Component {
           <Toggle
             defaultChecked={toggledLabels.helpWanted}
             icons={false}
-            name="label-helpWanted"
+            name="help-wanted"
             onChange={this.handleToggleChange}
           />
-          <span>help wanted</span>
+          <span>help-wanted</span>
         </div>
 
         {results.items && <SearchResults results={results} />}
