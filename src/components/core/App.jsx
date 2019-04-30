@@ -97,9 +97,12 @@ class SearchBar extends React.Component {
 
   // Using react-toggle
   handleToggleChange = () => {
+    const { toggledLabels } = this.state;
     this.setState(
-      prevState => ({ labelBug: !prevState.labelBug }),
-      () => console.log('state', this.state.labelBug)
+      {
+        toggledLabels: { ...toggledLabels, labelBug: !toggledLabels.labelBug },
+      },
+      () => console.log('toggle change', this.state.toggledLabels.labelBug)
     );
   };
 
@@ -136,8 +139,8 @@ class SearchBar extends React.Component {
           <span>bug</span>
         </label>
 
-        <LabelToggles onToggle={this.onToggleLabel} activeLabels={toggledLabels} />
-        <LanguageToggles onToggle={this.onToggleLanguage} />
+        {/* <LabelToggles onToggle={this.onToggleLabel} activeLabels={toggledLabels} />
+        <LanguageToggles onToggle={this.onToggleLanguage} /> */}
 
         {results.items && <SearchResults results={results} />}
       </div>
