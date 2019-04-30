@@ -14,6 +14,9 @@ class SearchBar extends React.Component {
       toggledLanguages: [],
       toggledLabels: {
         bug: false,
+        easy: false,
+        documentation: false,
+        helpWanted: false,
       },
       providedText: '',
       issueState: 'open',
@@ -107,14 +110,41 @@ class SearchBar extends React.Component {
         <br />
         <br />
 
-        <label>
+        <div>
           <Toggle
-            defaultChecked={this.state.labelBug}
+            defaultChecked={toggledLabels.bug}
             icons={false}
             onChange={this.handleToggleChange}
           />
           <span>bug</span>
-        </label>
+        </div>
+
+        <div>
+          <Toggle
+            defaultChecked={toggledLabels.easy}
+            icons={false}
+            onChange={this.handleToggleChange}
+          />
+          <span>easy</span>
+        </div>
+
+        <div>
+          <Toggle
+            defaultChecked={toggledLabels.documentation}
+            icons={false}
+            onChange={this.handleToggleChange}
+          />
+          <span>documentation</span>
+        </div>
+
+        <div>
+          <Toggle
+            defaultChecked={toggledLabels.helpWanted}
+            icons={false}
+            onChange={this.handleToggleChange}
+          />
+          <span>help wanted</span>
+        </div>
 
         {results.items && <SearchResults results={results} />}
       </div>
