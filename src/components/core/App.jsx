@@ -2,6 +2,7 @@ import React from 'react';
 import Title from './Title';
 import SearchResults from '../search/SearchResults';
 import '../../style.scss';
+import '../../react-toggle.scss';
 import LabelToggles from '../search/LabelToggles';
 import LanguageToggles from '../search/LanguageToggles';
 
@@ -111,6 +112,9 @@ class SearchBar extends React.Component {
         <button type="button" onClick={this.getIssues}>
           Get Results
         </button>
+
+        <br />
+        <br />
 
         <label>
           <Toggle
