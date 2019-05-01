@@ -11,7 +11,7 @@ const SearchBar = props => {
         <button type="submit" onClick={handleButtonClick}>
           Get Results
         </button>
-        <Button className="btn-get-issues" onClick={handleButtonClick} btnType="submit">
+        <Button className="btn-get-issues" onClick={handleButtonClick} typeName="submit">
           test
         </Button>
       </form>
