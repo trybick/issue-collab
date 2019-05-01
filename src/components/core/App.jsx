@@ -26,30 +26,6 @@ class App extends React.Component {
     };
   }
 
-  // formatUrl = () => {
-  //   const { issueState, toggledLabels, toggledLanguages, searchText } = this.state;
-  //   const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
-  //   const sortOptions = '&sort=created&order=desc&per_page=30';
-  //   let finalLabels = '';
-  //   let finalLanguages = '';
-  //   let finalText = '';
-
-  //   finalLabels = toggledLabels.map(label => `+label:${label}`).join('');
-
-  //   finalLanguages = toggledLanguages.map(language => `+language:${language}`).join('');
-
-  //   if (searchText !== '') {
-  //     finalText = `+${searchText}`;
-  //   }
-
-  //   const completeUrl = `${baseUrl +
-  //     finalLabels +
-  //     finalLanguages +
-  //     finalText}+state:${issueState}${sortOptions}`;
-
-  //   return completeUrl;
-  // };
-
   formatUrl = () => {
     const { issueState, toggledLabels, toggledLanguages, searchText } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
@@ -104,15 +80,6 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <Title />
-        {/* <div className="searchbar">
-          <h3>Enter Your Search</h3>
-          <form>
-            <input type="text" value={searchText} onChange={this.handleTextChange} />
-            <button type="submit" onClick={this.getIssues}>
-              Get Results
-            </button>
-          </form>
-        </div> */}
         <SearchBar
           handleTextChange={this.handleTextChange}
           handleButtonClick={this.getIssues}
