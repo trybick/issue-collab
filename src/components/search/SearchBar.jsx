@@ -8,11 +8,8 @@ const SearchBar = props => {
       <h3>Enter Your Search</h3>
       <form>
         <input type="text" value={searchText} onChange={handleTextChange} />
-        <button type="submit" onClick={handleButtonClick}>
-          Get Results
-        </button>
         <Button className="btn-get-issues" onClick={handleButtonClick} typeName="submit">
-          test
+          Get Issues
         </Button>
       </form>
     </div>
