@@ -14,33 +14,33 @@ const LabelToggles = props => {
         />
         <span>bug</span>
       </div>
-      {/* <div>
+      <div>
         <Toggle
-          defaultChecked={toggledLabels.easy}
+          defaultChecked={isChecked.easy}
           icons={false}
           name="easy"
-          onChange={this.handleToggleChange}
+          onChange={handleToggleChange}
         />
         <span>easy</span>
       </div>
       <div>
         <Toggle
-          defaultChecked={toggledLabels.documentation}
+          defaultChecked={isChecked.documentation}
           icons={false}
           name="documentation"
-          onChange={this.handleToggleChange}
+          onChange={handleToggleChange}
         />
         <span>documentation</span>
       </div>
       <div>
         <Toggle
-          defaultChecked={toggledLabels.helpWanted}
+          defaultChecked={isChecked.helpWanted}
           icons={false}
           name="help-wanted"
-          onChange={this.handleToggleChange}
+          onChange={handleToggleChange}
         />
-        <span>help-wanted</span>
-      </div> */}
+        <span>help wanted</span>
+      </div>
     </div>
   );
 };
