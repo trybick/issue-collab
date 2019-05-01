@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../core/Button';
 
 const SearchBar = props => {
   const { handleButtonClick, handleTextChange, searchText } = props;
@@ -10,6 +11,9 @@ const SearchBar = props => {
         <button type="submit" onClick={handleButtonClick}>
           Get Results
         </button>
+        <Button className="btn-get-issues" onClick={handleButtonClick} type="submit">
+          test
+        </Button>
       </form>
     </div>
   );

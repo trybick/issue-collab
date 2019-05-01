@@ -2,15 +2,13 @@ import React from 'react';
 import classNames from 'classnames';
 
 const Button = props => {
-  const { text, name, onClick } = props;
+  const { children, className, onClick, text, type, name } = props;
 
-  const btnClass = classNames({
-    btn: true,
-  });
+  const combinedClasses = classNames('btn', className);
 
   return (
-    <button className={btnClass} name={name} type="button" onClick={onClick}>
-      {text}
+    <button className={combinedClasses} name={name} onClick={onClick} type="submit">
+      {children}
     </button>
   );
 };
