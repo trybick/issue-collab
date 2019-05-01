@@ -77,7 +77,8 @@ class SearchBar extends React.Component {
       finalText}+state:${issueState}${sortOptions}`;
   };
 
-  getIssues = async () => {
+  getIssues = async event => {
+    event.preventDefault();
     const finalUrl = this.formatUrl();
     const response = await fetch(finalUrl); // finalUrl variable used for testing
     const json = await response.json();
@@ -105,16 +106,13 @@ class SearchBar extends React.Component {
         <Title />
         <div className="searchbar">
           <h3>Enter Your Search</h3>
-          <input
-            type="text"
-            name="search-text"
-            value={searchText}
-            onChange={this.handleTextChange}
-          />
+          <form>
+            <input type="text" value={searchText} onChange={this.handleTextChange} />
+            <button type="submit" onClick={this.getIssues}>
+              Get Results
+            </button>
+          </form>
         </div>
-        <button type="button" onClick={this.getIssues}>
-          Get Results
-        </button>
         <br />
         <br />
         <div>
