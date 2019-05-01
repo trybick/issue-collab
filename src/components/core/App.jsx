@@ -6,8 +6,9 @@ import '../../style.scss';
 import '../../react-toggle.scss';
 
 import Toggle from 'react-toggle';
+import SearchBar from '../search/SearchBar';
 
-class SearchBar extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,7 +60,6 @@ class SearchBar extends React.Component {
 
     // Get enabled labels from state
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
-    console.log('enabled keys:', activeLabels);
 
     //   finalLanguages = toggledLanguages.map(language => `+language:${language}`).join('');
 
@@ -104,7 +104,7 @@ class SearchBar extends React.Component {
     return (
       <div className="wrapper">
         <Title />
-        <div className="searchbar">
+        {/* <div className="searchbar">
           <h3>Enter Your Search</h3>
           <form>
             <input type="text" value={searchText} onChange={this.handleTextChange} />
@@ -112,7 +112,12 @@ class SearchBar extends React.Component {
               Get Results
             </button>
           </form>
-        </div>
+        </div> */}
+        <SearchBar
+          handleTextChange={this.handleTextChange}
+          handleButtonClick={this.getIssues}
+          searchText={searchText}
+        />
         <br />
         <br />
         <div>
@@ -159,4 +164,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+export default App;
