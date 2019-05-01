@@ -4,9 +4,8 @@ import Title from './Title';
 import SearchResults from '../search/SearchResults';
 import '../../style.scss';
 import '../../react-toggle.scss';
-
-import Toggle from 'react-toggle';
 import SearchBar from '../search/SearchBar';
+import LabelToggles from '../search/LabelToggles';
 
 class App extends React.Component {
   constructor(props) {
@@ -87,42 +86,7 @@ class App extends React.Component {
         />
         <br />
         <br />
-        <div>
-          <Toggle
-            defaultChecked={toggledLabels.bug}
-            icons={false}
-            name="bug"
-            onChange={this.handleToggleChange}
-          />
-          <span>bug</span>
-        </div>
-        <div>
-          <Toggle
-            defaultChecked={toggledLabels.easy}
-            icons={false}
-            name="easy"
-            onChange={this.handleToggleChange}
-          />
-          <span>easy</span>
-        </div>
-        <div>
-          <Toggle
-            defaultChecked={toggledLabels.documentation}
-            icons={false}
-            name="documentation"
-            onChange={this.handleToggleChange}
-          />
-          <span>documentation</span>
-        </div>
-        <div>
-          <Toggle
-            defaultChecked={toggledLabels.helpWanted}
-            icons={false}
-            name="help-wanted"
-            onChange={this.handleToggleChange}
-          />
-          <span>help-wanted</span>
-        </div>
+        <LabelToggles isChecked={toggledLabels} handleToggleChange={this.handleToggleChange} />
         <br />
         {results.items && url} {/* for testing */}
         {results.items && <SearchResults results={results} />}
