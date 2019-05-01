@@ -5,6 +5,9 @@
   "globals": {
     "fetch": false
   },
+  "env":{
+    "browser": true
+  },
   "rules": {
     "prettier/prettier": ["error"],
     "eol-last": 0,
