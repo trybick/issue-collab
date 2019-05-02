@@ -32,7 +32,7 @@ class App extends React.Component {
     };
   }
 
-  formatUrl = () => {
+  createUrl = () => {
     const { issueState, toggledLabels, toggledLanguages, textToSearch } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=';
     const sortOptions = '&sort=created&order=desc&per_page=30';
@@ -57,7 +57,7 @@ class App extends React.Component {
 
   getIssues = async event => {
     event.preventDefault();
-    const finalUrl = this.formatUrl();
+    const finalUrl = this.createUrl();
     const response = await fetch(finalUrl); // finalUrl variable used for testing
     const json = await response.json();
     this.setState({ results: json, url: finalUrl }, () =>
