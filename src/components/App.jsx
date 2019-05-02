@@ -39,8 +39,9 @@ class App extends React.Component {
     let finalText = '';
 
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
-    const convertedLabels = formatLabels(activeLabels);
-    const formattedLabels = convertedLabels.map(label => `+label:${label}`).join('');
+    const formattedLabels = formatLabels(activeLabels)
+      .map(label => `+label:${label}`)
+      .join('');
 
     const activeLanguage = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
