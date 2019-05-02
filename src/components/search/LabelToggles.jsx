@@ -5,6 +5,7 @@ const LabelToggles = props => {
   const { isChecked, handleToggleChange } = props;
   return (
     <div>
+      <h3>Labels:</h3>
       <div>
         <Toggle
           defaultChecked={isChecked.bug}
