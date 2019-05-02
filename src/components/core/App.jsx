@@ -79,6 +79,7 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <Title />
+        <LabelToggles isChecked={toggledLabels} handleToggleChange={this.handleToggleChange} />
         <SearchBar
           handleTextChange={this.handleTextChange}
           handleButtonClick={this.getIssues}
@@ -86,7 +87,6 @@ class App extends React.Component {
         />
         <br />
         <br />
-        <LabelToggles isChecked={toggledLabels} handleToggleChange={this.handleToggleChange} />
         <br />
         {results.items && url} {/* for testing */}
         {results.items && <SearchResults results={results} />}
