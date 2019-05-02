@@ -68,20 +68,24 @@ class App extends React.Component {
   handleToggleChange = event => {
     const { toggledLabels, toggledLanguages } = this.state;
     const toggleType = event.target.dataset.type;
+    console.log('event.target.name:', event.target.name);
 
     if (toggleType === 'label') {
       this.setState({
         toggledLabels: { ...toggledLabels, [event.target.name]: !toggledLabels[event.target.name] },
       });
     } else if (toggleType === 'language') {
-      // we want only one language toggled at a time
-      // disable toggle on all and enable toggle on the clicked item
+      // enable toggle on the clicked item and disable all others
       const currentLanguages = toggledLanguages;
       Object.keys(currentLanguages).forEach(key => {
-        currentLanguages[key] = false;
+        if (key === event.target.name) {
+          currentLanguages[key] = !currentLanguages[key];
+        } else {
+          currentLanguages[key] = false;
+        }
       });
       this.setState({
-        toggledLanguages: { ...currentLanguages, [event.target.name]: true },
+        toggledLanguages: { ...currentLanguages },
       });
     }
   };
