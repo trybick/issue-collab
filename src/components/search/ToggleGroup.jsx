@@ -3,7 +3,7 @@ import Toggle from 'react-toggle';
 
 const LanguageToggles = props => {
   const { dataType, defaultChecked, handleToggleChange, names } = props;
-  const mappedToggles = names.map((name, i) => {
+  const mappedToggles = names.map(name => {
     return (
       <div key={name}>
         <Toggle
