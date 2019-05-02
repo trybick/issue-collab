@@ -75,8 +75,6 @@ class App extends React.Component {
   handleToggleChange = event => {
     const { toggledLabels, toggledLanguages } = this.state;
     const toggleType = event.target.dataset.type;
-    // let toggleState;
-    // toggleType === 'language' ? (toggleState = toggledLanguages) : (toggleState = toggledLabels);
 
     if (toggleType === 'label') {
       this.setState({
