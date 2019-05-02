@@ -24,7 +24,7 @@ class App extends React.Component {
         php: false,
         java: false,
       },
-      searchText: '',
+      textToSearch: '',
       issueState: 'open',
       results: {},
       url: '',
@@ -32,7 +32,7 @@ class App extends React.Component {
   }
 
   formatUrl = () => {
-    const { issueState, toggledLabels, toggledLanguages, searchText } = this.state;
+    const { issueState, toggledLabels, toggledLanguages, textToSearch } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
     let finalLabels = '';
@@ -44,8 +44,8 @@ class App extends React.Component {
 
     //   finalLanguages = toggledLanguages.map(language => `+language:${language}`).join('');
 
-    if (searchText !== '') {
-      finalText = `+${searchText}`;
+    if (textToSearch !== '') {
+      finalText = `+${textToSearch}`;
     }
 
     // Join labels together
@@ -69,7 +69,7 @@ class App extends React.Component {
   };
 
   handleTextChange = event => {
-    this.setState({ searchText: event.target.value });
+    this.setState({ textToSearch: event.target.value });
   };
 
   handleToggleChange = event => {
@@ -91,7 +91,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { results, searchText, toggledLabels, toggledLanguages, url } = this.state;
+    const { results, textToSearch, toggledLabels, toggledLanguages, url } = this.state;
 
     return (
       <div className="wrapper">
@@ -104,7 +104,7 @@ class App extends React.Component {
         <SearchBar
           handleTextChange={this.handleTextChange}
           handleButtonClick={this.getIssues}
-          searchText={searchText}
+          textToSearch={textToSearch}
         />
         <br />
         <br />
