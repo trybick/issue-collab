@@ -93,25 +93,15 @@ class App extends React.Component {
           },
         });
       } else {
-        Object.keys(toggledLanguages).map(i => this.setState({ [i]: false }));
-
         const stateCopy = toggledLanguages;
         Object.keys(stateCopy).forEach(key => {
           stateCopy[key] = false;
         });
-
         this.setState({
-          // toggledLanguages: this.originalToggledLabels,
           toggledLanguages: { ...stateCopy, [event.target.name]: true },
-          // {
-          //   this.originalToggledLanguages,
-          //   [event.target.name]: true,
-          // },
         });
       }
     }
-    console.log('labels', this.state.toggledLabels);
-    console.log('languages', this.state.toggledLanguages);
   };
 
   render() {
