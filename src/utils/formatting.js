@@ -7,17 +7,11 @@ String.prototype.addQuotes = function() {
   return `"${this}"`;
 };
 
-const convertCamelToSpaces = string => {
-  const test = string
+const format = string => {
+  return string
     .camelToSpaces()
     .toLowerCase()
     .addQuotes();
-  console.log('test', test);
-  // const spacedString = string.replace(/([a-z])([A-Z])/g, '$1 $2');
-  // const answer = spacedString.toLowerCase();
-  // const withQuotes = `"${answer}"`;
-  // console.log('withQuotes:', withQuotes);
-  return test;
 };
 
 const hasUpperCase = str => {
@@ -31,6 +25,6 @@ export const formatLabels = labels => {
     if (!hasUpperCase(label)) {
       return label;
     }
-    return convertCamelToSpaces(label);
+    return format(label);
   });
 };
