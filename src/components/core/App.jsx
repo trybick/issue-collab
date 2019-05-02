@@ -5,8 +5,8 @@ import SearchResults from '../search/SearchResults';
 import '../../style.scss';
 import '../../react-toggle.scss';
 import SearchBar from '../search/SearchBar';
-import LabelToggles from '../search/LabelToggles';
-import LanguageToggles from '../search/LanguageToggles';
+import Labels from '../search/Labels';
+import Languages from '../search/Languages';
 
 class App extends React.Component {
   constructor(props) {
@@ -95,8 +95,8 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <Title />
-        <LabelToggles itemList={toggledLabels} handleToggleChange={this.handleToggleChange} />
-        <LanguageToggles itemList={toggledLanguages} handleToggleChange={this.handleToggleChange} />
+        <Labels itemList={toggledLabels} handleToggleChange={this.handleToggleChange} />
+        <Languages itemList={toggledLanguages} handleToggleChange={this.handleToggleChange} />
         <SearchBar
           handleTextChange={this.handleTextChange}
           handleButtonClick={this.getIssues}

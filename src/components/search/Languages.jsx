@@ -1,13 +1,13 @@
 import React from 'react';
 import ToggleGroup from './ToggleGroup';
 
-const LabelToggles = props => {
+const Languages = props => {
   const { itemList, handleToggleChange } = props;
-  const names = ['bug', 'easy', 'documentation', 'helpWanted'];
+  const names = ['python', 'javascript', 'c++', 'java'];
   return [
-    <h3 key="title">Labels:</h3>,
+    <h3 key="title">Languages:</h3>,
     <ToggleGroup
-      dataType="label"
+      dataType="language"
       itemList={itemList}
       key="group"
       handleToggleChange={handleToggleChange}
@@ -16,4 +16,4 @@ const LabelToggles = props => {
   ];
 };
 
-export default LabelToggles;
+export default Languages;
