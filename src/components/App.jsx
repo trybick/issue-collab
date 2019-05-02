@@ -97,8 +97,8 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <Title />
-        <Labels itemList={toggledLabels} handleToggleChange={this.handleToggleChange} />
-        <Languages itemList={toggledLanguages} handleToggleChange={this.handleToggleChange} />
+        <Labels labels={toggledLabels} handleToggleChange={this.handleToggleChange} />
+        <Languages languages={toggledLanguages} handleToggleChange={this.handleToggleChange} />
         <SearchBar
           handleTextChange={this.handleTextChange}
           handleButtonClick={this.getIssues}

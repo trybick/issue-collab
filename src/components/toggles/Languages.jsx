@@ -2,15 +2,15 @@ import React from 'react';
 import ToggleGroup from './ToggleGroup';
 
 const Languages = props => {
-  const { itemList, handleToggleChange } = props;
+  const { languages, handleToggleChange } = props;
   return [
     <h3 key="title">Languages:</h3>,
     <ToggleGroup
       dataType="language"
-      itemList={itemList}
+      items={languages}
       key="group"
       handleToggleChange={handleToggleChange}
-      names={Object.keys(itemList)}
+      names={Object.keys(languages)}
     />,
   ];
 };
