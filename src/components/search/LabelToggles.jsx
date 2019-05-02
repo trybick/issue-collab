@@ -2,13 +2,13 @@ import React from 'react';
 import ToggleGroup from './ToggleGroup';
 
 const LabelToggles = props => {
-  const { isChecked, handleToggleChange } = props;
-  const names = ['bug', 'easy', 'documentation', 'help wanted'];
+  const { itemList, handleToggleChange } = props;
+  const names = ['bug', 'easy', 'documentation', 'helpWanted'];
   return [
     <h3 key="title">Labels:</h3>,
     <ToggleGroup
       dataType="label"
-      defaultChecked={isChecked}
+      itemList={itemList}
       key="group"
       handleToggleChange={handleToggleChange}
       names={names}

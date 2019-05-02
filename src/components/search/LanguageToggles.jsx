@@ -1,53 +1,19 @@
 import React from 'react';
-import Toggle from 'react-toggle';
+import ToggleGroup from './ToggleGroup';
 
 const LanguageToggles = props => {
-  const { isChecked, handleToggleChange } = props;
-  return (
-    <div>
-      <h3>Languages:</h3>
-      <div>
-        <Toggle
-          data-type="language"
-          checked={isChecked.python}
-          icons={false}
-          name="python"
-          onChange={handleToggleChange}
-        />
-        <span>python</span>
-      </div>
-      <div>
-        <Toggle
-          data-type="language"
-          checked={isChecked.javascript}
-          icons={false}
-          name="javascript"
-          onChange={handleToggleChange}
-        />
-        <span>javascript</span>
-      </div>
-      <div>
-        <Toggle
-          data-type="language"
-          checked={isChecked.php}
-          icons={false}
-          name="php"
-          onChange={handleToggleChange}
-        />
-        <span>php</span>
-      </div>
-      <div>
-        <Toggle
-          data-type="language"
-          checked={isChecked.java}
-          icons={false}
-          name="java"
-          onChange={handleToggleChange}
-        />
-        <span>java</span>
-      </div>
-    </div>
-  );
+  const { itemList, handleToggleChange } = props;
+  const names = ['python', 'javascript', 'c++', 'java'];
+  return [
+    <h3 key="title">Languages:</h3>,
+    <ToggleGroup
+      dataType="language"
+      itemList={itemList}
+      key="group"
+      handleToggleChange={handleToggleChange}
+      names={names}
+    />,
+  ];
 };
 
 export default LanguageToggles;
