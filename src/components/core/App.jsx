@@ -34,23 +34,21 @@ class App extends React.Component {
 
   formatUrl = () => {
     const { issueState, toggledLabels, toggledLanguages, textToSearch } = this.state;
-    const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
+    const baseUrl = 'https://api.github.com/search/issues?q=';
     const sortOptions = '&sort=created&order=desc&per_page=30';
     let finalText;
 
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
     const formattedLabels = activeLabels.map(label => `+label:${label}`).join('');
 
-    const activeLanguages = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
-    const formattedLanguages = activeLanguages.map(language => `+language:${language}`).join('');
+    const activeLanguage = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
+    const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
 
     if (textToSearch !== '') {
-      finalText = `+${textToSearch}`;
+      finalText = `${textToSearch}`;
     }
     return `${baseUrl +
-      formattedLabels +
-      formattedLanguages +
-      finalText}+state:${issueState}${sortOptions}`;
+      finalText}+type:issue${formattedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
   };
 
   getIssues = async event => {
