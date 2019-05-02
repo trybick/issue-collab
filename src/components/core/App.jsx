@@ -49,7 +49,7 @@ class App extends React.Component {
 
     // Join labels together
     finalLabels = activeLabels.map(label => `+label:${label}`).join('');
-    finalLanguages = toggledLanguages.map(language => `+language:${language}`).join('');
+    finalLanguages = activeLanguages.map(language => `+language:${language}`).join('');
 
     // Join all parts
     return `${baseUrl +
@@ -81,12 +81,26 @@ class App extends React.Component {
         toggledLabels: { ...toggledLabels, [event.target.name]: !toggledLabels[event.target.name] },
       });
     } else if (toggleType === 'language') {
-      this.setState({
-        toggledLanguages: {
-          ...toggledLanguages,
-          [event.target.name]: !toggledLanguages[event.target.name],
-        },
-      });
+      // if this language is already enabled, disable it
+      // otherwise disable all other languages
+      if (toggledLanguages[event.target.name]) {
+        this.setState({
+          toggledLanguages: {
+            ...toggledLanguages,
+            [event.target.name]: false,
+          },
+        });
+      } else {
+        Object.keys(toggledLanguages).forEach(key => {
+          toggledLanguages[key] = false;
+        });
+        this.setState({
+          toggledLanguages: {
+            ...toggledLanguages,
+            [event.target.name]: true,
+          },
+        });
+      }
     }
   };
 
