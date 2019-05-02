@@ -29,7 +29,6 @@ class App extends React.Component {
       results: {},
       url: '',
     };
-    this.originalToggledLabels = this.state.toggledLanguages;
   }
 
   formatUrl = () => {
