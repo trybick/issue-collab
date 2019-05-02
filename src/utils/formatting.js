@@ -7,11 +7,13 @@ String.prototype.addQuotes = function() {
   return `"${this}"`;
 };
 
-const format = string => {
-  return string
-    .camelToSpaces()
-    .toLowerCase()
-    .addQuotes();
+export const formatLabel = (string, purpose) => {
+  return purpose === 'url'
+    ? string
+        .camelToSpaces()
+        .toLowerCase()
+        .addQuotes()
+    : string.camelToSpaces().toLowerCase();
 };
 
 const hasUpperCase = str => {
@@ -25,6 +27,6 @@ export const formatLabels = labels => {
     if (!hasUpperCase(label)) {
       return label;
     }
-    return format(label);
+    return formatLabel(label, 'url');
   });
 };

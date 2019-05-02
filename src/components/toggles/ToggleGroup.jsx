@@ -1,5 +1,6 @@
 import React from 'react';
 import Toggle from 'react-toggle';
+import { formatLabel } from '../../utils/formatting';
 
 const ToggleGroup = props => {
   const { dataType, itemList, handleToggleChange, names } = props;
@@ -13,7 +14,7 @@ const ToggleGroup = props => {
           name={name}
           onChange={handleToggleChange}
         />
-        <span>{name}</span>
+        <span>{formatLabel(name)}</span>
       </div>
     );
   });
