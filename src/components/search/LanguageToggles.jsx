@@ -8,6 +8,7 @@ const LanguageToggles = props => {
       <h3>Languages:</h3>
       <div>
         <Toggle
+          data-type="language"
           defaultChecked={isChecked.python}
           icons={false}
           name="python"
