@@ -1,12 +1,12 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import Title from './Title';
-import SearchResults from '../search/SearchResults';
-import '../../style.scss';
-import '../../react-toggle.scss';
-import SearchBar from '../search/SearchBar';
-import Labels from '../search/Labels';
-import Languages from '../search/Languages';
+import Title from './core/Title';
+import SearchResults from './search/SearchResults';
+import '../styles/main.scss';
+import '../styles/react-toggle.scss';
+import SearchBar from './search/SearchBar';
+import Labels from './toggles/Labels';
+import Languages from './toggles/Languages';
 
 class App extends React.Component {
   constructor(props) {
