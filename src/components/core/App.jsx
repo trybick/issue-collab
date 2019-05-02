@@ -12,17 +12,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggledLanguages: {
-        python: false,
-        javascript: false,
-        php: false,
-        java: false,
-      },
       toggledLabels: {
         bug: false,
         easy: false,
         documentation: false,
         helpWanted: false,
+      },
+      toggledLanguages: {
+        python: false,
+        javascript: false,
+        php: false,
+        java: false,
       },
       searchText: '',
       issueState: 'open',
@@ -73,20 +73,23 @@ class App extends React.Component {
   };
 
   handleToggleChange = event => {
-    const { toggledLabels } = this.state;
+    const { toggledLabels, toggledLanguages } = this.state;
     this.setState({
       toggledLabels: { ...toggledLabels, [event.target.name]: !toggledLabels[event.target.name] },
     });
   };
 
   render() {
-    const { results, searchText, toggledLabels, url } = this.state;
+    const { results, searchText, toggledLabels, toggledLanguages, url } = this.state;
 
     return (
       <div className="wrapper">
         <Title />
         <LabelToggles isChecked={toggledLabels} handleToggleChange={this.handleToggleChange} />
-        <LanguageToggles isChecked={toggledLanguages} handleToggleChange={this.handleToggleChange} />
+        <LanguageToggles
+          isChecked={toggledLanguages}
+          handleToggleChange={this.handleToggleChange}
+        />
         <SearchBar
           handleTextChange={this.handleTextChange}
           handleButtonClick={this.getIssues}
