@@ -18,6 +18,7 @@ const LanguageToggles = props => {
       </div>
       <div>
         <Toggle
+          data-type="language"
           defaultChecked={isChecked.javascript}
           icons={false}
           name="javascript"
@@ -27,6 +28,7 @@ const LanguageToggles = props => {
       </div>
       <div>
         <Toggle
+          data-type="language"
           defaultChecked={isChecked.php}
           icons={false}
           name="php"
@@ -36,6 +38,7 @@ const LanguageToggles = props => {
       </div>
       <div>
         <Toggle
+          data-type="language"
           defaultChecked={isChecked.java}
           icons={false}
           name="java"

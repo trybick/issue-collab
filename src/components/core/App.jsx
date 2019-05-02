@@ -73,9 +73,16 @@ class App extends React.Component {
   };
 
   handleToggleChange = event => {
-    console.log('event:', event.target.dataset.type);
     const { toggledLabels, toggledLanguages } = this.state;
-    if (event.target.dataset.type === 'language') {
+    const toggleType = event.target.dataset.type;
+    // let toggleState;
+    // toggleType === 'language' ? (toggleState = toggledLanguages) : (toggleState = toggledLabels);
+
+    if (toggleType === 'label') {
+      this.setState({
+        toggledLabels: { ...toggledLabels, [event.target.name]: !toggledLabels[event.target.name] },
+      });
+    } else if (toggleType === 'language') {
       this.setState({
         toggledLanguages: {
           ...toggledLanguages,
@@ -83,10 +90,6 @@ class App extends React.Component {
         },
       });
     }
-
-    this.setState({
-      toggledLabels: { ...toggledLabels, [event.target.name]: !toggledLabels[event.target.name] },
-    });
   };
 
   render() {

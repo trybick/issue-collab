@@ -8,6 +8,7 @@ const LabelToggles = props => {
       <h3>Labels:</h3>
       <div>
         <Toggle
+          data-type="label"
           defaultChecked={isChecked.bug}
           icons={false}
           name="bug"
@@ -17,6 +18,7 @@ const LabelToggles = props => {
       </div>
       <div>
         <Toggle
+          data-type="label"
           defaultChecked={isChecked.easy}
           icons={false}
           name="easy"
@@ -26,6 +28,7 @@ const LabelToggles = props => {
       </div>
       <div>
         <Toggle
+          data-type="label"
           defaultChecked={isChecked.documentation}
           icons={false}
           name="documentation"
@@ -35,6 +38,7 @@ const LabelToggles = props => {
       </div>
       <div>
         <Toggle
+          data-type="label"
           defaultChecked={isChecked.helpWanted}
           icons={false}
           name="help-wanted"
