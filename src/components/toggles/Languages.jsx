@@ -3,7 +3,6 @@ import ToggleGroup from './ToggleGroup';
 
 const Languages = props => {
   const { itemList, handleToggleChange } = props;
-  const names = ['python', 'javascript', 'php', 'java'];
   return [
     <h3 key="title">Languages:</h3>,
     <ToggleGroup
@@ -11,7 +10,7 @@ const Languages = props => {
       itemList={itemList}
       key="group"
       handleToggleChange={handleToggleChange}
-      names={names}
+      names={Object.keys(itemList)}
     />,
   ];
 };
