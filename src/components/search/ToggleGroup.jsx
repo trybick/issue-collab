@@ -1,7 +1,7 @@
 import React from 'react';
 import Toggle from 'react-toggle';
 
-const LanguageToggles = props => {
+const ToggleGroup = props => {
   const { dataType, itemList, handleToggleChange, names } = props;
   const mappedToggles = names.map(name => {
     return (
@@ -21,4 +21,4 @@ const LanguageToggles = props => {
   return mappedToggles;
 };
 
-export default LanguageToggles;
+export default ToggleGroup;
