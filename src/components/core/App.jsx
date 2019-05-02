@@ -36,26 +36,20 @@ class App extends React.Component {
     const { issueState, toggledLabels, toggledLanguages, textToSearch } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
-    let finalLabels = '';
-    let finalLanguages = '';
-    let finalText = '';
+    let finalText;
 
-    // Get enabled labels from state
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
+    const formattedLabels = activeLabels.map(label => `+label:${label}`).join('');
+
     const activeLanguages = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
+    const formattedLanguages = activeLanguages.map(language => `+language:${language}`).join('');
 
     if (textToSearch !== '') {
       finalText = `+${textToSearch}`;
     }
-
-    // Join labels together
-    finalLabels = activeLabels.map(label => `+label:${label}`).join('');
-    finalLanguages = activeLanguages.map(language => `+language:${language}`).join('');
-
-    // Join all parts
     return `${baseUrl +
-      finalLabels +
-      // finalLanguages +
+      formattedLabels +
+      formattedLanguages +
       finalText}+state:${issueState}${sortOptions}`;
   };
 
