@@ -1,4 +1,11 @@
+/* eslint-disable no-extend-native */
+String.prototype.camelToSpaces = function() {
+  this.replace(/([a-z])([A-Z])/g, '$1 $2');
+};
+
 const convertCamelToSpaces = string => {
+  const test = string.camelToSpaces();
+  console.log('test:', test);
   const spacedString = string.replace(/([a-z])([A-Z])/g, '$1 $2');
   const answer = spacedString.toLowerCase();
   const withQuotes = `"${answer}"`;
