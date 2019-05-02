@@ -5,7 +5,7 @@ const ToggleGroup = props => {
   const { dataType, itemList, handleToggleChange, names } = props;
   const mappedToggles = names.map(name => {
     return (
-      <div key={name}>
+      <div className="toggle" key={name}>
         <Toggle
           data-type={dataType}
           checked={itemList[name]}
