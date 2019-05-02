@@ -7,7 +7,7 @@ import '../styles/react-toggle.scss';
 import SearchBar from './search/SearchBar';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
-import { format } from '../utils/formatting';
+import { formatLabels } from '../utils/formatting';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class App extends React.Component {
     let finalText = '';
 
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
-    const convertedLabels = format(activeLabels);
+    const convertedLabels = formatLabels(activeLabels);
     console.log('convertedLabels:', convertedLabels);
     const formattedLabels = activeLabels.map(label => `+label:${label}`).join('');
 

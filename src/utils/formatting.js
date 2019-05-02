@@ -1,19 +1,19 @@
 const convertCamelToSpaces = string => {
-  console.log('string:', string);
   const spacedString = string.replace(/([a-z])([A-Z])/g, '$1 $2');
   const answer = spacedString.toLowerCase();
-  console.log('answer:', answer);
-  return answer;
+  const withQuotes = `"${answer}"`;
+  console.log('withQuotes:', withQuotes);
+  return withQuotes;
 };
 
 const hasUpperCase = str => {
   return str.toLowerCase() !== str;
 };
 
-export const format = array => {
-  array.forEach(item => {
-    if (hasUpperCase(item)) {
-      convertCamelToSpaces(item);
+export const formatLabels = labels => {
+  labels.forEach(label => {
+    if (hasUpperCase(label)) {
+      convertCamelToSpaces(label);
     }
   });
 };
