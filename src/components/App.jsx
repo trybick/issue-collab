@@ -7,6 +7,7 @@ import '../styles/react-toggle.scss';
 import SearchBar from './search/SearchBar';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
+import { format } from '../utils/formatting';
 
 class App extends React.Component {
   constructor(props) {
@@ -46,8 +47,10 @@ class App extends React.Component {
     if (textToSearch !== '') {
       finalText = `${textToSearch}+`;
     }
+    // return `${baseUrl +
+    //   finalText}type:issue${formattedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
     return `${baseUrl +
-      finalText}type:issue${formattedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
+      finalText}type:issue+label:"help wanted"${formattedLanguage}+state:${issueState}${sortOptions}`;
   };
 
   getIssues = async event => {
