@@ -39,9 +39,8 @@ class App extends React.Component {
     let finalText = '';
 
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
-    const formattedLabels = formatLabels(activeLabels)
-      .map(label => `+label:${label}`)
-      .join('');
+    const formattedLabels = formatLabels(activeLabels);
+    const joinedLabels = formattedLabels.map(label => `+label:${label}`).join('');
 
     const activeLanguage = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
@@ -50,7 +49,7 @@ class App extends React.Component {
       finalText = `${textToSearch}+`;
     }
     return `${baseUrl +
-      finalText}type:issue${formattedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
+      finalText}type:issue${joinedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
   };
 
   getIssues = async event => {
