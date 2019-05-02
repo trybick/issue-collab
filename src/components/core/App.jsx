@@ -36,13 +36,12 @@ class App extends React.Component {
     const baseUrl = 'https://api.github.com/search/issues?q=type:issue';
     const sortOptions = '&sort=created&order=desc&per_page=30';
     let finalLabels = '';
-    //   let finalLanguages = '';
+    let finalLanguages = '';
     let finalText = '';
 
     // Get enabled labels from state
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
-
-    //   finalLanguages = toggledLanguages.map(language => `+language:${language}`).join('');
+    const activeLanguages = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
 
     if (textToSearch !== '') {
       finalText = `+${textToSearch}`;
@@ -50,6 +49,7 @@ class App extends React.Component {
 
     // Join labels together
     finalLabels = activeLabels.map(label => `+label:${label}`).join('');
+    finalLanguages = toggledLanguages.map(language => `+language:${language}`).join('');
 
     // Join all parts
     return `${baseUrl +
