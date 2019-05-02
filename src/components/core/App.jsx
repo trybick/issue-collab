@@ -29,6 +29,7 @@ class App extends React.Component {
       results: {},
       url: '',
     };
+    this.originalToggledLabels = this.state.toggledLanguages;
   }
 
   formatUrl = () => {
@@ -84,6 +85,7 @@ class App extends React.Component {
       // if this language is already enabled, disable it
       // otherwise disable all other languages
       if (toggledLanguages[event.target.name]) {
+        console.log('hi');
         this.setState({
           toggledLanguages: {
             ...toggledLanguages,
@@ -91,17 +93,25 @@ class App extends React.Component {
           },
         });
       } else {
-        Object.keys(toggledLanguages).forEach(key => {
-          toggledLanguages[key] = false;
+        Object.keys(toggledLanguages).map(i => this.setState({ [i]: false }));
+
+        const stateCopy = toggledLanguages;
+        Object.keys(stateCopy).forEach(key => {
+          stateCopy[key] = false;
         });
+
         this.setState({
-          toggledLanguages: {
-            ...toggledLanguages,
-            [event.target.name]: true,
-          },
+          // toggledLanguages: this.originalToggledLabels,
+          toggledLanguages: { ...stateCopy, [event.target.name]: true },
+          // {
+          //   this.originalToggledLanguages,
+          //   [event.target.name]: true,
+          // },
         });
       }
     }
+    console.log('labels', this.state.toggledLabels);
+    console.log('languages', this.state.toggledLanguages);
   };
 
   render() {

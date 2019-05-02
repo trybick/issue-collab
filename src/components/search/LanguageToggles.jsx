@@ -9,7 +9,7 @@ const LanguageToggles = props => {
       <div>
         <Toggle
           data-type="language"
-          defaultChecked={isChecked.python}
+          checked={isChecked.python}
           icons={false}
           name="python"
           onChange={handleToggleChange}
@@ -19,7 +19,7 @@ const LanguageToggles = props => {
       <div>
         <Toggle
           data-type="language"
-          defaultChecked={isChecked.javascript}
+          checked={isChecked.javascript}
           icons={false}
           name="javascript"
           onChange={handleToggleChange}
@@ -29,7 +29,7 @@ const LanguageToggles = props => {
       <div>
         <Toggle
           data-type="language"
-          defaultChecked={isChecked.php}
+          checked={isChecked.php}
           icons={false}
           name="php"
           onChange={handleToggleChange}
@@ -39,7 +39,7 @@ const LanguageToggles = props => {
       <div>
         <Toggle
           data-type="language"
-          defaultChecked={isChecked.java}
+          checked={isChecked.java}
           icons={false}
           name="java"
           onChange={handleToggleChange}
