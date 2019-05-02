@@ -41,7 +41,7 @@ class App extends React.Component {
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
     const convertedLabels = formatLabels(activeLabels);
     console.log('convertedLabels:', convertedLabels);
-    const formattedLabels = activeLabels.map(label => `+label:${label}`).join('');
+    const formattedLabels = convertedLabels.map(label => `+label:${label}`).join('');
 
     const activeLanguage = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
@@ -52,7 +52,7 @@ class App extends React.Component {
     // return `${baseUrl +
     //   finalText}type:issue${formattedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
     return `${baseUrl +
-      finalText}type:issue+label:"help wanted"${formattedLanguage}+state:${issueState}${sortOptions}`;
+      finalText}type:issue${formattedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
   };
 
   getIssues = async event => {

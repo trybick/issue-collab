@@ -11,11 +11,6 @@ const hasUpperCase = str => {
 };
 
 export const formatLabels = labels => {
-  // labels.forEach(label => {
-  //   if (hasUpperCase(label)) {
-  //     convertCamelToSpaces(label);
-  //   }
-  // });
   return labels.map(label => {
     if (!hasUpperCase(label)) {
       return label;
