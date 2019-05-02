@@ -6,12 +6,18 @@ import '../../style.scss';
 import '../../react-toggle.scss';
 import SearchBar from '../search/SearchBar';
 import LabelToggles from '../search/LabelToggles';
+import LanguageToggles from '../search/LanguageToggles';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggledLanguages: [],
+      toggledLanguages: {
+        python: false,
+        javascript: false,
+        php: false,
+        java: false,
+      },
       toggledLabels: {
         bug: false,
         easy: false,
@@ -80,6 +86,7 @@ class App extends React.Component {
       <div className="wrapper">
         <Title />
         <LabelToggles isChecked={toggledLabels} handleToggleChange={this.handleToggleChange} />
+        <LanguageToggles isChecked={toggledLanguages} handleToggleChange={this.handleToggleChange} />
         <SearchBar
           handleTextChange={this.handleTextChange}
           handleButtonClick={this.getIssues}
