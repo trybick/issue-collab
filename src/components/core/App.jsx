@@ -36,7 +36,7 @@ class App extends React.Component {
     const { issueState, toggledLabels, toggledLanguages, textToSearch } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=';
     const sortOptions = '&sort=created&order=desc&per_page=30';
-    let finalText;
+    let finalText = '';
 
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
     const formattedLabels = activeLabels.map(label => `+label:${label}`).join('');
@@ -45,10 +45,10 @@ class App extends React.Component {
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
 
     if (textToSearch !== '') {
-      finalText = `${textToSearch}`;
+      finalText = `${textToSearch}+`;
     }
     return `${baseUrl +
-      finalText}+type:issue${formattedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
+      finalText}type:issue${formattedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
   };
 
   getIssues = async event => {
