@@ -11,6 +11,10 @@ const hasUpperCase = str => {
   return str.toLowerCase() !== str;
 };
 
+function hasWhiteSpace(string) {
+  return string.indexOf(' ') >= 0;
+}
+
 export const formatLabelForName = name => {
   return name.camelToSpaces().toLowerCase();
 };
@@ -29,6 +33,9 @@ export const formatLabels = labels => {
 
 export const formatTextToSearch = text => {
   if (text !== '') {
+    if (hasWhiteSpace(text)) {
+      return `${`${text}`.addQuotes()}+`;
+    }
     return `${text}+`;
   }
   return '';
