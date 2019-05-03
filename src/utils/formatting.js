@@ -11,13 +11,8 @@ const hasUpperCase = str => {
   return str.toLowerCase() !== str;
 };
 
-export const formatLabel = (string, purpose) => {
-  return purpose === 'url'
-    ? string
-        .camelToSpaces()
-        .toLowerCase()
-        .addQuotes()
-    : string.camelToSpaces().toLowerCase();
+export const formatLabelForName = name => {
+  return name.camelToSpaces().toLowerCase();
 };
 
 export const formatLabels = labels => {
@@ -25,7 +20,10 @@ export const formatLabels = labels => {
     if (!hasUpperCase(label)) {
       return label;
     }
-    return formatLabel(label, 'url');
+    return label
+      .camelToSpaces()
+      .toLowerCase()
+      .addQuotes();
   });
 };
 
