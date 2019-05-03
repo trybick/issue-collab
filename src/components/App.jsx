@@ -36,28 +36,22 @@ class App extends React.Component {
     const { issueState, toggledLabels, toggledLanguages, textToSearch } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=';
     const sortOptions = '&sort=created&order=desc&per_page=30';
-    // let finalText = '';
-
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
     const formattedLabels = formatLabels(activeLabels);
     const joinedLabels = formattedLabels.map(label => `+label:${label}`).join('');
-
     const activeLanguage = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
-
-    // if (textToSearch !== '') {
-    //   finalText = `${textToSearch}+`;
-    // }
     const formattedText = formatTextToSearch(textToSearch);
-
-    return `${baseUrl +
+    const createdUrl = `${baseUrl +
       formattedText}type:issue${joinedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
+
+    return createdUrl;
   };
 
   getIssues = async event => {
     event.preventDefault();
     const finalUrl = this.createUrl();
-    const response = await fetch(finalUrl); // finalUrl variable used for testing
+    const response = await fetch(finalUrl);
     const json = await response.json();
     this.setState({ results: json, url: finalUrl }, () =>
       console.log('results', this.state.results)
