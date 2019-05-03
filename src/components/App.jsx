@@ -18,12 +18,14 @@ class App extends React.Component {
         easy: false,
         documentation: false,
         helpWanted: false,
+        goodFirstIssue: false,
       },
       toggledLanguages: {
         python: false,
         javascript: false,
         php: false,
         java: false,
+        ruby: false,
       },
       textToSearch: '',
       issueState: 'open',
@@ -35,7 +37,7 @@ class App extends React.Component {
   createUrl = () => {
     const { issueState, toggledLabels, toggledLanguages, textToSearch } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=';
-    const sortOptions = '&sort=created&order=desc&per_page=30';
+    const sortOptions = '&sort=created&order=desc&per_page=20';
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
     const formattedLabels = formatLabelsForUrl(activeLabels);
     const joinedLabels = formattedLabels.map(label => `+label:${label}`).join('');
