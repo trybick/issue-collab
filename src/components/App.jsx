@@ -7,7 +7,7 @@ import '../styles/react-toggle.scss';
 import SearchBar from './search/SearchBar';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
-import { formatLabels, formatTextToSearch } from '../utils/formatting';
+import { formatLabelsForUrl, formatTextToSearch } from '../utils/formatting';
 
 class App extends React.Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class App extends React.Component {
     const baseUrl = 'https://api.github.com/search/issues?q=';
     const sortOptions = '&sort=created&order=desc&per_page=30';
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
-    const formattedLabels = formatLabels(activeLabels);
+    const formattedLabels = formatLabelsForUrl(activeLabels);
     const joinedLabels = formattedLabels.map(label => `+label:${label}`).join('');
     const activeLanguage = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');

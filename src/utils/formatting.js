@@ -19,7 +19,7 @@ export const formatLabelForName = name => {
   return name.camelToSpaces().toLowerCase();
 };
 
-export const formatLabels = labels => {
+export const formatLabelsForUrl = labels => {
   return labels.map(label => {
     if (!hasUpperCase(label)) {
       return label;
