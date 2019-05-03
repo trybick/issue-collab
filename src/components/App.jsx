@@ -92,17 +92,23 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <Title />
+
         <Labels labels={toggledLabels} handleToggleChange={this.handleToggleChange} />
         <Languages languages={toggledLanguages} handleToggleChange={this.handleToggleChange} />
+
         <SearchBar
           handleTextChange={this.handleTextChange}
           handleButtonClick={this.getIssues}
           textToSearch={textToSearch}
         />
+
         <br />
         <br />
         <br />
-        {results.items && url} {/* for testing */}
+
+        {/* url display for testing */}
+        {results.items && url}
+
         {results.items && <SearchResults results={results} />}
       </div>
     );
