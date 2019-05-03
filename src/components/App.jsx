@@ -7,7 +7,7 @@ import '../styles/react-toggle.scss';
 import SearchBar from './search/SearchBar';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
-import { formatLabels } from '../utils/formatting';
+import { formatLabels, formatTextToSearch } from '../utils/formatting';
 
 class App extends React.Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class App extends React.Component {
     const { issueState, toggledLabels, toggledLanguages, textToSearch } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=';
     const sortOptions = '&sort=created&order=desc&per_page=30';
-    let finalText = '';
+    // let finalText = '';
 
     const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
     const formattedLabels = formatLabels(activeLabels);
@@ -45,11 +45,13 @@ class App extends React.Component {
     const activeLanguage = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
 
-    if (textToSearch !== '') {
-      finalText = `${textToSearch}+`;
-    }
+    // if (textToSearch !== '') {
+    //   finalText = `${textToSearch}+`;
+    // }
+    const formattedText = formatTextToSearch(textToSearch);
+
     return `${baseUrl +
-      finalText}type:issue${joinedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
+      formattedText}type:issue${joinedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
   };
 
   getIssues = async event => {

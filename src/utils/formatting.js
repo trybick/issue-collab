@@ -28,3 +28,10 @@ export const formatLabels = labels => {
     return formatLabel(label, 'url');
   });
 };
+
+export const formatTextToSearch = text => {
+  if (text !== '') {
+    return `${text}+`;
+  }
+  return '';
+};
