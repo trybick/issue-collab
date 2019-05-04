@@ -9,6 +9,7 @@ import SearchBar from './search/SearchBar';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
 import { formatLabelsForUrl, formatTextToSearch } from '../utils/formatting';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 class App extends React.Component {
   constructor(props) {
@@ -148,7 +149,11 @@ class App extends React.Component {
         {/* url display for testing */}
         {/* {results.items && url} */}
 
-        {isFetching ? <h3>loading</h3> : results.items && <SearchResults results={results} />}
+        {isFetching ? (
+          <PulseLoader color="black" />
+        ) : (
+          results.items && <SearchResults results={results} />
+        )}
         {/* {results.items && <SearchResults results={results} />} */}
       </div>
     );
