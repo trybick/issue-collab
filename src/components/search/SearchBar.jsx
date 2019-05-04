@@ -5,14 +5,15 @@ const SearchBar = props => {
   const { handleButtonClick, handleTextChange, searchText } = props;
   return (
     <div className="searchbar">
-      <h4 className="searchbar-title">search terms (optional):</h4>
       <form>
-        <input className="text-input" type="text" value={searchText} onChange={handleTextChange} />
-        <br />
-        <br />
-        <Button className="get-issues-btn" onClick={handleButtonClick} typeName="submit">
-          Get Issues
-        </Button>
+        {/* <h4 className="searchbar-title">keywords (optional):</h4> */}
+        <input
+          className="text-input"
+          type="text"
+          placeholder="keywords (optional)"
+          value={searchText}
+          onChange={handleTextChange}
+        />
       </form>
     </div>
   );

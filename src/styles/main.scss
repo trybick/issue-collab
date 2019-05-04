@@ -7,29 +7,32 @@ body {
 }
 
 .wrapper {
-  max-width: 800px;
+  width: 800px;
   margin: 0 auto;
   display: grid;
   grid-template-areas:
-  "header header header header"
+  "head head head head"
   "labels labels languages languages"
-  "searchbar searbar . .";
+  "searchbar searbar . ."
+  ". button button ."
+  "results results results results";
+
+  form {
+    display: flex;
+
+    // text-align: center;
+  }
 
   // .header {
   //   display: grid;
   //   grid-template-rows: 1fr 1fr;
   //   text-align: center;
   // }
-  // .toggles-group {
-  //   display: grid;
-  //   grid-template-columns: 1fr 1fr;
-  //   align-items: center;
-  // }
 }
 
 
 .header {
-  grid-area: header;
+  grid-area: head;
 }
 
 .labels {
@@ -44,7 +47,14 @@ body {
   grid-area: searchbar;
 }
 
+.results {
+  grid-area: results;
+}
 
+.button {
+  grid-area: button;
+  vertical-alignment: stretch;
+}
 
 
 

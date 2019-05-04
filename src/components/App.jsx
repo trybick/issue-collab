@@ -140,12 +140,16 @@ class App extends React.Component {
           </Button>
         </div>
 
+        <Button className="get-issues-btn" onClick={this.getIssues} typeName="submit">
+          Load
+        </Button>
+
+        {/* <br />
         <br />
-        <br />
-        <br />
+        <br /> */}
 
         {/* url display for testing */}
-        {results.items && url}
+        {/* {results.items && url} */}
 
         {isFetching ? (
           <PulseLoader color="black" />
