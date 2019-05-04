@@ -9,15 +9,25 @@ body {
 .wrapper {
   max-width: 800px;
   margin: 0 auto;
+  .toggles-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+
 }
 
 h2 {
   text-align: center;
 }
 
-.toggle-buttons {
-  margin: 40px 0 60px 0;
-}
+
+
+
+
+
+
 
 
 // Button credit:
