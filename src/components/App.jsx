@@ -125,10 +125,8 @@ class App extends React.Component {
       <div className="wrapper">
         <Header />
 
-        <div className="toggles-group">
-          <Labels labels={labels} handleToggleChange={this.handleToggleChange} />
-          <Languages languages={languages} handleToggleChange={this.handleToggleChange} />
-        </div>
+        <Labels labels={labels} handleToggleChange={this.handleToggleChange} />
+        <Languages languages={languages} handleToggleChange={this.handleToggleChange} />
         <SearchBar
           handleTextChange={this.handleTextChange}
           handleButtonClick={this.getIssues}

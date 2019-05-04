@@ -9,21 +9,44 @@ body {
 .wrapper {
   max-width: 800px;
   margin: 0 auto;
-  .header {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    text-align: center;
-  }
-  .toggles-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
+  display: grid;
+  grid-template-areas:
+  "header header header header"
+  "labels labels languages languages"
+  "searchbar searbar . .";
+
+  // .header {
+  //   display: grid;
+  //   grid-template-rows: 1fr 1fr;
+  //   text-align: center;
+  // }
+  // .toggles-group {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  //   align-items: center;
+  // }
 }
 
-h2 {
 
+.header {
+  grid-area: header;
 }
+
+.labels {
+  grid-area: labels;
+}
+
+.languages {
+  grid-area: languages;
+}
+
+.searchbar {
+  grid-area: searchbar;
+}
+
+
+
+
 
 .toggle-label {
   margin-left: .5rem;
