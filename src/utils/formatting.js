@@ -41,9 +41,11 @@ const checkSpecial = labels => {
 };
 
 export const formatLabelsForUrl = labels => {
-  const filtered = checkSpecial(labels);
-  console.log('filtered:', filtered);
   return labels.map(label => {
+    // const specialLabels = checkSpecial(labels);
+    // if (specialLabels) {
+    //   return specialLabels;
+    // }
     if (!hasUpperCase(label)) {
       return label;
     }
