@@ -7,17 +7,13 @@ String.prototype.addQuotes = function() {
   return `"${this}"`;
 };
 
-const hasUpperCase = str => {
+function hasUpperCase(str) {
   return str.toLowerCase() !== str;
-};
+}
 
 function hasWhiteSpace(string) {
   return string.indexOf(' ') >= 0;
 }
-
-export const formatLabelForName = name => {
-  return name.camelToSpaces().toLowerCase();
-};
 
 // eslint-disable-next-line consistent-return
 // function formatSpecial(label) {
@@ -64,4 +60,8 @@ export const formatTextToSearch = text => {
     return `${text}+`;
   }
   return '';
+};
+
+export const formatLabelForName = name => {
+  return name.camelToSpaces().toLowerCase();
 };
