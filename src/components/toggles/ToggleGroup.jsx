@@ -14,7 +14,7 @@ const ToggleGroup = props => {
           name={name}
           onChange={handleToggleChange}
         />
-        <span>{formatLabelForName(name)}</span>
+        <span className="toggle-label">{formatLabelForName(name)}</span>
       </div>
     );
   });

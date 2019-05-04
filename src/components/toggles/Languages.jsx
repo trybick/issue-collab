@@ -5,11 +5,10 @@ const Languages = props => {
   const { languages, handleToggleChange } = props;
   return (
     <div className="languages">
-      <h3 key="title">Languages:</h3>
+      <h3 className="group-title">Languages:</h3>
       <ToggleGroup
         dataType="language"
         items={languages}
-        key="group"
         handleToggleChange={handleToggleChange}
         names={Object.keys(languages)}
       />

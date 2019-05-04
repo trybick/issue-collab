@@ -5,11 +5,10 @@ const Labels = props => {
   const { labels, handleToggleChange } = props;
   return (
     <div className="labels">
-      <h3 key="title">Labels:</h3>
+      <h3 className="group-title">Labels:</h3>
       <ToggleGroup
         dataType="label"
         items={labels}
-        key="group"
         handleToggleChange={handleToggleChange}
         names={Object.keys(labels)}
       />
