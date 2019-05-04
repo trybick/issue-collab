@@ -28,6 +28,8 @@ class App extends React.Component {
         php: false,
         java: false,
         ruby: false,
+        swift: false,
+        dart: false,
       },
       textToSearch: '',
       issueState: 'open',
