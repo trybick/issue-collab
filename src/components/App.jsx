@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import Title from './core/Title';
+import Header from './core/Header';
 import SearchResults from './search/SearchResults';
 import '../styles/main.scss';
 import '../styles/react-toggle.scss';
@@ -97,7 +97,7 @@ class App extends React.Component {
 
     return (
       <div className="wrapper">
-        <Title />
+        <Header />
 
         <div className="toggles-group">
           <Labels labels={labels} handleToggleChange={this.handleToggleChange} />
