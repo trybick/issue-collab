@@ -4,6 +4,7 @@ import Header from './core/Header';
 import SearchResults from './search/SearchResults';
 import '../styles/main.scss';
 import '../styles/react-toggle.scss';
+import Button from './core/Button';
 import SearchBar from './search/SearchBar';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
@@ -97,6 +98,23 @@ class App extends React.Component {
     }
   };
 
+  resetToggles = toggleType => {
+    const currentItems = this.state[toggleType];
+    Object.keys(currentItems).forEach(key => {
+      currentItems[key] = false;
+    });
+    return currentItems;
+  };
+
+  onResetToggles = () => {
+    const resetLabels = this.resetToggles('labels');
+    const resetLanguages = this.resetToggles('languages');
+    this.setState({
+      labels: { ...resetLabels },
+      languages: { ...resetLanguages },
+    });
+  };
+
   render() {
     const { results, textToSearch, labels, languages, url } = this.state;
 
@@ -113,6 +131,13 @@ class App extends React.Component {
           handleButtonClick={this.getIssues}
           textToSearch={textToSearch}
         />
+
+        {/* Reset button */}
+        <div>
+          <Button className="rest-btn" onClick={this.onResetToggles} type="button">
+            Reset
+          </Button>
+        </div>
 
         <br />
         <br />
