@@ -9,6 +9,11 @@ body {
 .wrapper {
   max-width: 800px;
   margin: 0 auto;
+  .header {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+  }
   .toggles-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -17,7 +22,7 @@ body {
 }
 
 h2 {
-  text-align: center;
+
 }
 
 .toggle-label {
