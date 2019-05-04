@@ -32,7 +32,6 @@ class App extends React.Component {
         dart: false,
       },
       textToSearch: '',
-      issueState: 'open',
       results: {},
       url: '',
     };
@@ -41,7 +40,7 @@ class App extends React.Component {
   createUrl = () => {
     const { issueState, labels, languages, textToSearch } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=';
-    const sortOptions = '&sort=created&order=desc&per_page=20';
+    const sortOptions = '+state:open&sort=created&order=desc&per_page=20';
     const formattedText = formatTextToSearch(textToSearch);
 
     const activeLabels = Object.keys(labels).filter(item => labels[item]);
@@ -51,8 +50,8 @@ class App extends React.Component {
     const activeLanguage = Object.keys(languages).filter(item => languages[item]);
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
 
-    return `${baseUrl +
-      formattedText}type:issue${joinedLabels}${formattedLanguage}+state:${issueState}${sortOptions}`;
+    return `${baseUrl}
+      ${formattedText}type:issue${joinedLabels}${formattedLanguage}${sortOptions}`;
   };
 
   getIssues = async event => {
