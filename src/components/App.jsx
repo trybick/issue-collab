@@ -13,7 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggledLabels: {
+      labels: {
         goodFirstIssue: false,
         documentation: false,
         easy: false,
@@ -22,7 +22,7 @@ class App extends React.Component {
         question: false,
         enhancement: false,
       },
-      toggledLanguages: {
+      languages: {
         python: false,
         javascript: false,
         php: false,
@@ -39,16 +39,16 @@ class App extends React.Component {
   }
 
   createUrl = () => {
-    const { issueState, toggledLabels, toggledLanguages, textToSearch } = this.state;
+    const { issueState, labels, languages, textToSearch } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=';
     const sortOptions = '&sort=created&order=desc&per_page=20';
     const formattedText = formatTextToSearch(textToSearch);
 
-    const activeLabels = Object.keys(toggledLabels).filter(item => toggledLabels[item]);
+    const activeLabels = Object.keys(labels).filter(item => labels[item]);
     const formattedLabels = formatLabelsForUrl(activeLabels);
     const joinedLabels = formattedLabels.map(label => `+label:${label}`).join('');
 
-    const activeLanguage = Object.keys(toggledLanguages).filter(item => toggledLanguages[item]);
+    const activeLanguage = Object.keys(languages).filter(item => languages[item]);
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
 
     return `${baseUrl +
@@ -70,16 +70,16 @@ class App extends React.Component {
   };
 
   handleToggleChange = event => {
-    const { toggledLabels, toggledLanguages } = this.state;
+    const { labels, languages } = this.state;
     const selectedType = event.target.dataset.type;
     const selectedName = event.target.name;
 
     if (selectedType === 'label') {
       this.setState({
-        toggledLabels: { ...toggledLabels, [selectedName]: !toggledLabels[selectedName] },
+        labels: { ...labels, [selectedName]: !labels[selectedName] },
       });
     } else if (selectedType === 'language') {
-      const currentLanguages = toggledLanguages;
+      const currentLanguages = languages;
       Object.keys(currentLanguages).forEach(key => {
         if (key === selectedName) {
           currentLanguages[key] = !currentLanguages[key];
@@ -88,21 +88,21 @@ class App extends React.Component {
         }
       });
       this.setState({
-        toggledLanguages: { ...currentLanguages },
+        languages: { ...currentLanguages },
       });
     }
   };
 
   render() {
-    const { results, textToSearch, toggledLabels, toggledLanguages, url } = this.state;
+    const { results, textToSearch, labels, languages, url } = this.state;
 
     return (
       <div className="wrapper">
         <Title />
 
         <div className="toggles-group">
-          <Labels labels={toggledLabels} handleToggleChange={this.handleToggleChange} />
-          <Languages languages={toggledLanguages} handleToggleChange={this.handleToggleChange} />
+          <Labels labels={labels} handleToggleChange={this.handleToggleChange} />
+          <Languages languages={languages} handleToggleChange={this.handleToggleChange} />
         </div>
         <SearchBar
           handleTextChange={this.handleTextChange}
