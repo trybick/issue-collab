@@ -14,12 +14,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       toggledLabels: {
-        bug: false,
-        easy: false,
-        documentation: false,
-        helpWanted: false,
         goodFirstIssue: false,
-        uiUx: false,
+        documentation: false,
+        easy: false,
+        helpWanted: false,
+        bug: false,
+        question: false,
+        enhancement: false,
       },
       toggledLanguages: {
         python: false,
