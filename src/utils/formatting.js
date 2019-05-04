@@ -19,7 +19,30 @@ export const formatLabelForName = name => {
   return name.camelToSpaces().toLowerCase();
 };
 
+// eslint-disable-next-line consistent-return
+function formatSpecial(label) {
+  switch (label) {
+    case 'uiUx':
+      return 'UI/UX';
+    default:
+      break;
+  }
+}
+
+const checkSpecial = labels => {
+  const specialValues = ['uiUx'];
+  const formattedSpecials = [];
+  labels.map(label => {
+    if (specialValues.indexOf(label !== -1)) {
+      formattedSpecials.push(formatSpecial(label));
+    }
+  });
+  return formattedSpecials;
+};
+
 export const formatLabelsForUrl = labels => {
+  const filtered = checkSpecial(labels);
+  console.log('filtered:', filtered);
   return labels.map(label => {
     if (!hasUpperCase(label)) {
       return label;

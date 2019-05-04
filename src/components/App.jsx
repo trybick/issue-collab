@@ -19,6 +19,7 @@ class App extends React.Component {
         documentation: false,
         helpWanted: false,
         goodFirstIssue: false,
+        uiUx: false,
       },
       toggledLanguages: {
         python: false,
