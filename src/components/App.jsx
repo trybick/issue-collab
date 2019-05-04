@@ -35,6 +35,7 @@ class App extends React.Component {
       textToSearch: '',
       results: {},
       url: '',
+      isFetching: false,
     };
   }
 
@@ -57,10 +58,11 @@ class App extends React.Component {
 
   getIssues = async event => {
     event.preventDefault();
+    this.setState({ isFetching: true });
     const finalUrl = this.createUrl();
     const response = await fetch(finalUrl);
     const json = await response.json();
-    this.setState({ results: json, url: finalUrl }, () =>
+    this.setState({ isFetching: false, results: json, url: finalUrl }, () =>
       console.log('results', this.state.results)
     );
   };
@@ -116,7 +118,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { results, textToSearch, labels, languages, url } = this.state;
+    const { isFetching, results, textToSearch, labels, languages, url } = this.state;
 
     return (
       <div className="wrapper">
@@ -144,9 +146,10 @@ class App extends React.Component {
         <br />
 
         {/* url display for testing */}
-        {results.items && url}
+        {/* {results.items && url} */}
 
-        {results.items && <SearchResults results={results} />}
+        {isFetching ? <h3>loading</h3> : results.items && <SearchResults results={results} />}
+        {/* {results.items && <SearchResults results={results} />} */}
       </div>
     );
   }
