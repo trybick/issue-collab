@@ -10,6 +10,7 @@ body {
   width: 800px;
   margin: 0 auto;
   display: grid;
+  grid-gap: 15px 0;
   grid-template-areas:
   "head head head head"
   "labels labels languages languages"
@@ -53,8 +54,18 @@ body {
 
 .button {
   grid-area: button;
-  vertical-alignment: stretch;
+  // display: grid;
+
+  // grid-column-start: 2;
+  // grid-column-end: 3;
+  // grid-row-start: 4;
+  // grid-row-end: 4;
+
+  // button {
+
+  // }
 }
+
 
 
 
@@ -67,77 +78,63 @@ body {
 
 
 
-
-
-// Button credit:
-// https://codepen.io/simonbusborg/pen/cyxad?editors=1100
 .btn {
   color: #e7ff20;
   background-color: #7999a9;
-
-  display: flex;
-  overflow: hidden;
-
-  margin: 10px;
-  padding: 12px 12px;
-
   cursor: pointer;
   user-select: none;
   transition: all 150ms linear;
   text-align: center;
   white-space: nowrap;
-  text-decoration: none !important;
+  text-decoration: none;
   text-transform: none;
   text-transform: capitalize;
-
   border: 0 none;
   border-radius: 4px;
-
   font-size: 13px;
   font-weight: 500;
   line-height: 1.3;
-
-  -webkit-appearance: none;
-  -moz-appearance:    none;
-  appearance:         none;
-
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 160px;
-
   box-shadow: 2px 5px 10px var(--color-smoke);
 
   &:hover {
     transition: all 150ms linear;
-
     opacity: .85;
   }
-
   &:active {
     transition: all 150ms linear;
     opacity: .75;
   }
-
   &:focus {
     outline: 1px dotted #959595;
     outline-offset: -4px;
   }
+
+  //   display: flex;
+  //   overflow: hidden;
+  //   justify-content: center;
+  //   align-items: center;
+  //   flex: 0 0 160px;
+  //   margin: 10px;
+  //   padding: 12px 12px;
+  // -webkit-appearance: none;
+  // -moz-appearance:    none;
+  // appearance:         none;
 }
 
 
-// Text input
+
 input[type="text"] {
-  width: 50%;
+  // width: 50%;
+  // margin: 0 auto;
+  // box-sizing: border-box;
   border: 2px solid #aaa;
   border-radius: 4px;
-  margin: 0 auto;
   outline: none;
   padding: 8px;
-  box-sizing: border-box;
   transition: 0.3s;
-}
 
-input[type="text"]:focus {
-  border-color: dodgerBlue;
-  box-shadow: 0 0 8px 0 dodgerBlue;
+  &:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+  }
 }
