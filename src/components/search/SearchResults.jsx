@@ -1,8 +1,9 @@
 import React from 'react';
 import moment from 'moment';
+import NoResultsMessage from './NoResultsMessage';
 
 const SearchResults = ({ results }) => {
-  const searchResults =
+  const formattedResults =
     results.items[0] &&
     results.items.map(item => {
       const htmlUrl = item.html_url.split('/');
@@ -52,8 +53,9 @@ const SearchResults = ({ results }) => {
 
   return (
     <div className="results">
-      <h4>Total results: {results.total_count.toLocaleString()}</h4>
-      {searchResults}
+      {results.total_count > 0 && <h4>Total results: {results.total_count.toLocaleString()}</h4>}
+      {formattedResults}
+      {results.total_count === 0 && <NoResultsMessage />}
     </div>
   );
 };
