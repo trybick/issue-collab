@@ -15,11 +15,11 @@ class App extends React.Component {
     this.state = {
       labels: {
         goodFirstIssue: false,
-        documentation: false,
-        easy: false,
         helpWanted: false,
+        easy: false,
+        documentation: false,
         bug: false,
-        question: false,
+        // question: false,
         enhancement: false,
       },
       languages: {
@@ -29,7 +29,7 @@ class App extends React.Component {
         java: false,
         ruby: false,
         swift: false,
-        dart: false,
+        // dart: false,
       },
       textToSearch: '',
       results: {},
@@ -68,8 +68,20 @@ class App extends React.Component {
     this.setState({ textToSearch: event.target.value });
   };
 
+  toggleLanguage = selectedName => {
+    const currentLanguages = this.state.languages;
+    Object.keys(currentLanguages).forEach(key => {
+      if (key === selectedName) {
+        currentLanguages[key] = !currentLanguages[key];
+      } else {
+        currentLanguages[key] = false;
+      }
+    });
+    return currentLanguages;
+  };
+
   handleToggleChange = event => {
-    const { labels, languages } = this.state;
+    const { labels } = this.state;
     const selectedType = event.target.dataset.type;
     const selectedName = event.target.name;
 
@@ -78,16 +90,9 @@ class App extends React.Component {
         labels: { ...labels, [selectedName]: !labels[selectedName] },
       });
     } else if (selectedType === 'language') {
-      const currentLanguages = languages;
-      Object.keys(currentLanguages).forEach(key => {
-        if (key === selectedName) {
-          currentLanguages[key] = !currentLanguages[key];
-        } else {
-          currentLanguages[key] = false;
-        }
-      });
+      const updatedLanguages = this.toggleLanguage(selectedName);
       this.setState({
-        languages: { ...currentLanguages },
+        languages: { ...updatedLanguages },
       });
     }
   };
