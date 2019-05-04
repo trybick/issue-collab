@@ -134,7 +134,7 @@ class App extends React.Component {
 
         {/* Reset button */}
         <div>
-          <Button className="rest-btn" onClick={this.onResetToggles} type="button">
+          <Button className="reset-btn" onClick={this.onResetToggles} type="button">
             Reset
           </Button>
         </div>
@@ -146,7 +146,6 @@ class App extends React.Component {
         {/* url display for testing */}
         {results.items && url}
 
-        {/* {results.total_count === 0 && 'hi'} */}
         {results.items && <SearchResults results={results} />}
       </div>
     );
