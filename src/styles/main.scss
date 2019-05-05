@@ -14,12 +14,13 @@ body {
   justify-items: center;
   align-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 75px 235px 45px 60px auto;
+  grid-template-rows: 75px 235px 45px 60px 60px auto;
   grid-template-areas:
   "head head head head"
   "labels labels languages languages"
   "keywords keywords . reset"
   ". get get ."
+  ". loading loading ."
   "results results results results";
 
 }
@@ -53,6 +54,9 @@ body {
   grid-area: reset;
 }
 
+.loading-spinner {
+  grid-area: loading;
+}
 
 
 

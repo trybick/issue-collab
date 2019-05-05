@@ -151,7 +151,9 @@ class App extends React.Component {
         {/* {results.items && url} */}
 
         {isFetching ? (
-          <PulseLoader color="black" />
+          <div className="loading-spinner">
+            <PulseLoader color="black" />
+          </div>
         ) : (
           results.items && <SearchResults results={results} />
         )}
