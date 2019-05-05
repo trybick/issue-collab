@@ -1,8 +1,7 @@
 import React from 'react';
 import ToggleGroup from './ToggleGroup';
 
-const Languages = props => {
-  const { languages, handleToggleChange } = props;
+const Languages = ({ languages, handleToggleChange }) => {
   return (
     <div className="languages">
       <h3 className="group-title">Languages:</h3>

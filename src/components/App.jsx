@@ -147,7 +147,7 @@ class App extends React.Component {
         <br />
 
         {/* url display for testing */}
-        {/* {results.items && url} */}
+        {results.items && url}
 
         {isFetching ? (
           <PulseLoader color="black" />

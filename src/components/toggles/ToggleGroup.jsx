@@ -2,11 +2,10 @@ import React from 'react';
 import Toggle from 'react-toggle';
 import { formatLabelForName } from '../../utils/formatting';
 
-const ToggleGroup = props => {
-  const { dataType, items, handleToggleChange, names } = props;
+const ToggleGroup = ({ dataType, items, handleToggleChange, names }) => {
   const mappedToggles = names.map(name => {
     return (
-      <div className="toggle" key={name}>
+      <div className={`toggle-item toggle-${dataType}`} key={name}>
         <Toggle
           data-type={dataType}
           checked={items[name]}

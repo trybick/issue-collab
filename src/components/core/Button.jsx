@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Button = props => {
-  const { typeName, children, className, onClick } = props;
+const Button = ({ typeName, children, className, onClick }) => {
   const combinedClasses = classNames('btn', className);
 
   return (
