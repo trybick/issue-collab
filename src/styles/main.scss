@@ -11,14 +11,17 @@ body {
   margin: 0 auto;
   display: grid;
   grid-gap: 15px 0;
+  justify-items: center;
+  align-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 100px 263px 45px 60px auto;
+  grid-template-rows: 75px 235px 45px 60px auto;
   grid-template-areas:
   "head head head head"
   "labels labels languages languages"
   "searchbar searbar . ."
   ". button button ."
   "results results results results";
+
 }
 
 
@@ -52,7 +55,7 @@ body {
 
 
 .toggle-label {
-  margin-left: .5rem;
+  // margin-left: .5rem;
   vertical-align: top;
 }
 
