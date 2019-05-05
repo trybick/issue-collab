@@ -3,13 +3,13 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Button = ({ children, className, classNameWrapper, onClick, type }) => {
+const Button = ({ children, className, classNameWrapper, forForm, onClick, type }) => {
   const btnClasses = classNames('btn', className);
   const wrapperClasses = classNames('btn-wrapper', classNameWrapper);
 
   return classNameWrapper ? (
     <div className={wrapperClasses}>
-      <button className={btnClasses} onClick={onClick} type={type}>
+      <button className={btnClasses} onClick={onClick} type={type} form={forForm}>
         {children}
       </button>
     </div>

@@ -52,7 +52,7 @@ class App extends React.Component {
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
 
     return `${baseUrl}
-      ${formattedText}type:issue${joinedLabels}${formattedLanguage}${sortOptions}`;
+      ${textToSearch && formattedText}type:issue${joinedLabels}${formattedLanguage}${sortOptions}`;
   };
 
   getIssues = async event => {
@@ -141,13 +141,14 @@ class App extends React.Component {
         <Button
           className="get-issues-btn"
           classNameWrapper="get-button-wrapper"
+          forForm="issues-form"
           onClick={this.getIssues}
           type="submit"
         >
           Load
         </Button>
 
-        {/* url display for testing */}
+        {/* url for testing */}
         {/* {results.items && url} */}
 
         {isFetching ? (

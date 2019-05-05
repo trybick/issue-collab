@@ -4,7 +4,7 @@ const KeywordsInput = props => {
   const { handleTextChange, searchText } = props;
   return (
     <div className="keywords-input">
-      <form>
+      <form id="issues-form">
         {/* <h4 className="keywords-input-title">keywords (optional):</h4> */}
         <input
           className="text-input"
