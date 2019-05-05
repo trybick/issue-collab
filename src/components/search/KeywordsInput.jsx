@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBar = props => {
+const KeywordsInput = props => {
   const { handleTextChange, searchText } = props;
   return (
     <div className="searchbar">
@@ -18,4 +18,4 @@ const SearchBar = props => {
   );
 };
 
-export default SearchBar;
+export default KeywordsInput;

@@ -5,7 +5,7 @@ import SearchResults from './search/SearchResults';
 import '../styles/main.scss';
 import '../styles/react-toggle.scss';
 import Button from './core/Button';
-import SearchBar from './search/SearchBar';
+import KeywordsInput from './search/KeywordsInput';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
 import { formatLabelsForUrl, formatTextToSearch } from '../utils/formatting';
@@ -122,14 +122,9 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <Header />
-
         <Labels labels={labels} handleToggleChange={this.handleToggleChange} />
         <Languages languages={languages} handleToggleChange={this.handleToggleChange} />
-        <SearchBar
-          handleTextChange={this.handleTextChange}
-          handleButtonClick={this.getIssues}
-          textToSearch={textToSearch}
-        />
+        <KeywordsInput handleTextChange={this.handleTextChange} textToSearch={textToSearch} />
 
         {/* Reset button */}
         <div>
