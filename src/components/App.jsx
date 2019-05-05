@@ -142,7 +142,7 @@ class App extends React.Component {
           className="get-issues-btn"
           classNameWrapper="get-button-wrapper"
           onClick={this.getIssues}
-          typeName="submit"
+          type="submit"
         >
           Load
         </Button>
