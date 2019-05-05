@@ -19,18 +19,6 @@ body {
   "searchbar searbar . ."
   ". button button ."
   "results results results results";
-
-  form {
-    display: flex;
-
-    // text-align: center;
-  }
-
-  // .header {
-  //   display: grid;
-  //   grid-template-rows: 1fr 1fr;
-  //   text-align: center;
-  // }
 }
 
 
@@ -56,17 +44,9 @@ body {
 
 .button {
   grid-area: button;
-  // display: grid;
-
-  // grid-column-start: 2;
-  // grid-column-end: 3;
-  // grid-row-start: 4;
-  // grid-row-end: 4;
-
-  // button {
-
-  // }
 }
+
+
 
 
 
@@ -75,9 +55,6 @@ body {
   margin-left: .5rem;
   vertical-align: top;
 }
-
-
-
 
 
 .btn {
@@ -110,7 +87,6 @@ body {
     outline: 1px dotted #959595;
     outline-offset: -4px;
   }
-
   //   display: flex;
   //   overflow: hidden;
   //   justify-content: center;
@@ -126,9 +102,6 @@ body {
 
 
 input[type="text"] {
-  // width: 50%;
-  // margin: 0 auto;
-  // box-sizing: border-box;
   border: 2px solid #aaa;
   border-radius: 4px;
   outline: none;

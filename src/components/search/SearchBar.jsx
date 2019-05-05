@@ -1,8 +1,7 @@
 import React from 'react';
-import Button from '../core/Button';
 
 const SearchBar = props => {
-  const { handleButtonClick, handleTextChange, searchText } = props;
+  const { handleTextChange, searchText } = props;
   return (
     <div className="searchbar">
       <form>

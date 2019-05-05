@@ -15,33 +15,8 @@ function hasWhiteSpace(string) {
   return string.indexOf(' ') >= 0;
 }
 
-// eslint-disable-next-line consistent-return
-// function formatSpecial(label) {
-//   switch (label) {
-//     case 'uiUx':
-//       return 'UI/UX';
-//     default:
-//       break;
-//   }
-// }
-
-// const checkSpecial = labels => {
-//   const specialValues = ['uiUx'];
-//   const formattedSpecials = [];
-//   labels.map(label => {
-//     if (specialValues.indexOf(label !== -1)) {
-//       formattedSpecials.push(formatSpecial(label));
-//     }
-//   });
-//   return formattedSpecials;
-// };
-
 export const formatLabelsForUrl = labels => {
   return labels.map(label => {
-    // const specialLabels = checkSpecial(labels);
-    // if (specialLabels) {
-    //   return specialLabels;
-    // }
     if (!hasUpperCase(label)) {
       return label;
     }
