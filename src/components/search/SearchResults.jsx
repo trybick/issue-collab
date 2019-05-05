@@ -53,7 +53,9 @@ const SearchResults = ({ results }) => {
 
   return (
     <div className="results">
-      {results.total_count > 0 && <h4>Total results: {results.total_count.toLocaleString()}</h4>}
+      {results.total_count > 0 && (
+        <h4 className="results-count">Total results: {results.total_count.toLocaleString()}</h4>
+      )}
       {formattedResults}
       {results.total_count === 0 && <NoResultsMessage />}
     </div>
