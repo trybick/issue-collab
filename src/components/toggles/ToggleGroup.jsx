@@ -1,6 +1,7 @@
 import React from 'react';
 import Toggle from 'react-toggle';
 import { formatLabelForName } from '../../utils/formatting';
+import '../../styles/react-toggle.scss';
 
 const ToggleGroup = ({ dataType, items, handleToggleChange, names }) => {
   const mappedToggles = names.map(name => {

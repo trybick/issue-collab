@@ -1,15 +1,14 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import Header from './core/Header';
-import SearchResults from './search/SearchResults';
-import '../styles/main.scss';
-import '../styles/react-toggle.scss';
 import Button from './core/Button';
+import Header from './core/Header';
 import KeywordsInput from './search/KeywordsInput';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
+import LoadingSpinner from './core/LoadingSpinner';
+import SearchResults from './search/SearchResults';
 import { formatLabelsForUrl, formatTextToSearch } from '../utils/formatting';
-import PulseLoader from 'react-spinners/PulseLoader';
+import '../styles/main.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -127,7 +126,6 @@ class App extends React.Component {
         <KeywordsInput handleTextChange={this.handleTextChange} textToSearch={textToSearch} />
 
         {/* Reset button */}
-
         <Button
           className="reset-btn"
           classNameWrapper="reset-btn-wrapper"
@@ -151,13 +149,7 @@ class App extends React.Component {
         {/* url for testing */}
         {/* {results.items && url} */}
 
-        {isFetching ? (
-          <div className="loading-spinner">
-            <PulseLoader color="black" />
-          </div>
-        ) : (
-          results.items && <SearchResults results={results} />
-        )}
+        {isFetching ? <LoadingSpinner /> : results.items && <SearchResults results={results} />}
       </div>
     );
   }
