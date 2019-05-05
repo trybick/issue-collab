@@ -21,7 +21,6 @@ class App extends React.Component {
         easy: false,
         documentation: false,
         bug: false,
-        // question: false,
         enhancement: false,
       },
       languages: {
@@ -31,7 +30,6 @@ class App extends React.Component {
         java: false,
         ruby: false,
         swift: false,
-        // dart: false,
       },
       textToSearch: '',
       results: {},
@@ -140,13 +138,10 @@ class App extends React.Component {
           </Button>
         </div>
 
+        {/* Get button */}
         <Button className="get-issues-btn" onClick={this.getIssues} typeName="submit">
           Load
         </Button>
-
-        {/* <br />
-        <br />
-        <br /> */}
 
         {/* url display for testing */}
         {/* {results.items && url} */}
@@ -156,7 +151,6 @@ class App extends React.Component {
         ) : (
           results.items && <SearchResults results={results} />
         )}
-        {/* {results.items && <SearchResults results={results} />} */}
       </div>
     );
   }
