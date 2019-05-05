@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = props => {
+const Header = () => {
   return (
     <div className="header">
       {/* <img src="../../images/logo.png" alt="header-logo" /> */}

@@ -41,7 +41,7 @@ class App extends React.Component {
   }
 
   createUrl = () => {
-    const { issueState, labels, languages, textToSearch } = this.state;
+    const { labels, languages, textToSearch } = this.state;
     const baseUrl = 'https://api.github.com/search/issues?q=';
     const sortOptions = '+state:open&sort=created&order=desc&per_page=20';
     const formattedText = formatTextToSearch(textToSearch);
