@@ -117,7 +117,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { isFetching, results, textToSearch, labels, languages, url } = this.state;
+    const { isFetching, labels, languages, results, textToSearch, url } = this.state;
 
     return (
       <div className="wrapper">

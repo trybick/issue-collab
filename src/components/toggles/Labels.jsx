@@ -1,7 +1,7 @@
 import React from 'react';
 import ToggleGroup from './ToggleGroup';
 
-const Labels = ({ labels, handleToggleChange }) => {
+const Labels = ({ handleToggleChange, labels }) => {
   return (
     <div className="labels-group">
       <h3 className="group-title">Labels:</h3>

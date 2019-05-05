@@ -3,7 +3,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Button = ({ classNameWrapper, typeName, children, className, onClick }) => {
+const Button = ({ children, className, classNameWrapper, onClick, typeName }) => {
   const btnClasses = classNames('btn', className);
   const wrapperClasses = classNames('btn-wrapper', classNameWrapper);
 
