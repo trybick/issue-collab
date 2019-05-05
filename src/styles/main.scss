@@ -10,16 +10,16 @@ body {
   width: 800px;
   margin: 0 auto;
   display: grid;
-  grid-gap: 15px 0;
+  grid-gap: 10px 0;
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 75px 235px 45px 60px auto;
+  grid-template-rows: 65px 235px 45px 60px auto;
   grid-template-areas:
   "head head head head"
   "labels labels languages languages"
-  "keywords keywords . reset"
-  ". get get ."
+  ". keywords keywords ."
+  ". get reset ."
   "results results results results";
 }
 
@@ -46,10 +46,16 @@ body {
 
 .get-button-wrapper {
   grid-area: get;
+  align-self: center;
+  justify-self: end;
+  padding-right: 10px;
 }
 
 .reset-btn-wrapper {
   grid-area: reset;
+  align-self: center;
+  justify-self: start;
+  padding-left: 10px;
 }
 
 .loading-spinner {
@@ -80,8 +86,8 @@ body {
 }
 
 .reset-btn {
-  width: 50px;
-  height: 20px;
+  width: 55px;
+  height: 25px;
   color: #e7ff20;
   background-color: #7999a9;
   font-weight: 450;
@@ -95,6 +101,7 @@ input[type="text"] {
   outline: none;
   padding: 8px;
   transition: 0.3s;
+  width: 125px;
 
   &:focus {
     border-color: dodgerBlue;
