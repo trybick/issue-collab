@@ -145,7 +145,7 @@ class App extends React.Component {
           onClick={this.getIssues}
           type="submit"
         >
-          Load
+          Load Issues
         </Button>
 
         {/* url for testing */}

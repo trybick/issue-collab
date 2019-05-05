@@ -1,0 +1,26 @@
+.btn {
+  cursor: pointer;
+  user-select: none;
+  transition: all 150ms linear;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  text-transform: none;
+  text-transform: capitalize;
+  border: 0 none;
+  border-radius: 4px;
+  overflow: hidden;
+
+  &:hover {
+    transition: all 150ms linear;
+    opacity: .85;
+  }
+  &:active {
+    transition: all 150ms linear;
+    opacity: .75;
+  }
+  &:focus {
+    outline: 1px dotted #959595;
+    outline-offset: -4px;
+  }
+}

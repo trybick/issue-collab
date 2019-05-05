@@ -13,7 +13,7 @@ body {
   grid-gap: 15px 0;
   justify-items: center;
   align-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 75px 235px 45px 60px 60px auto;
   grid-template-areas:
   "head head head head"
@@ -22,9 +22,7 @@ body {
   ". get get ."
   ". loading loading ."
   "results results results results";
-
 }
-
 
 .header {
   grid-area: head;
@@ -44,6 +42,7 @@ body {
 
 .results {
   grid-area: results;
+  max-width: 800px;
 }
 
 .get-button-wrapper {
@@ -66,48 +65,26 @@ body {
 }
 
 
-.btn {
+.get-issues-btn {
+  width: 110px;
+  height: 42px;
   color: #e7ff20;
   background-color: #7999a9;
-  cursor: pointer;
-  user-select: none;
-  transition: all 150ms linear;
-  text-align: center;
-  white-space: nowrap;
-  text-decoration: none;
-  text-transform: none;
-  text-transform: capitalize;
-  border: 0 none;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.3;
   box-shadow: 2px 5px 10px var(--color-smoke);
 
-  &:hover {
-    transition: all 150ms linear;
-    opacity: .85;
-  }
-  &:active {
-    transition: all 150ms linear;
-    opacity: .75;
-  }
-  &:focus {
-    outline: 1px dotted #959595;
-    outline-offset: -4px;
-  }
-  //   display: flex;
-  //   overflow: hidden;
-  //   justify-content: center;
-  //   align-items: center;
-  //   flex: 0 0 160px;
-  //   margin: 10px;
-  //   padding: 12px 12px;
-  // -webkit-appearance: none;
-  // -moz-appearance:    none;
-  // appearance:         none;
+  font-size: 13px;
+  font-weight: 450;
+  // line-height: 1.3;
 }
 
+.reset-btn {
+  width: 50px;
+  height: 20px;
+  color: #e7ff20;
+  background-color: #7999a9;
+  font-weight: 450;
+  box-shadow: 2px 5px 10px var(--color-smoke);
+}
 
 
 input[type="text"] {

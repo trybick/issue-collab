@@ -2,6 +2,7 @@
 // type prop not recogonized correctly: https://github.com/yannickcr/eslint-plugin-react/issues/1555
 import React from 'react';
 import classNames from 'classnames';
+import '../../styles/Button.scss';
 
 const Button = ({ children, className, classNameWrapper, forForm, onClick, type }) => {
   const btnClasses = classNames('btn', className);
