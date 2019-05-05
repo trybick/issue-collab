@@ -13,7 +13,7 @@ const ToggleGroup = ({ dataType, items, handleToggleChange, names }) => {
           name={name}
           onChange={handleToggleChange}
         />
-        <span className="toggle-label">{formatLabelForName(name)}</span>
+        <span className="toggle-title">{formatLabelForName(name)}</span>
       </div>
     );
   });
