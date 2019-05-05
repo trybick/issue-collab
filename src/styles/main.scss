@@ -18,8 +18,8 @@ body {
   grid-template-areas:
   "head head head head"
   "labels labels languages languages"
-  "searchbar searbar . ."
-  ". button button ."
+  "keywords keywords . reset"
+  ". get get ."
   "results results results results";
 
 }
@@ -37,19 +37,21 @@ body {
   grid-area: languages;
 }
 
-.searchbar {
-  grid-area: searchbar;
+.keywords-input {
+  grid-area: keywords;
 }
 
 .results {
   grid-area: results;
 }
 
-.button {
-  grid-area: button;
+.get-button-wrapper {
+  grid-area: get;
 }
 
-
+.reset-btn-wrapper {
+  grid-area: reset;
+}
 
 
 

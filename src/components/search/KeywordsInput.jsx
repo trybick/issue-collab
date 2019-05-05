@@ -3,9 +3,9 @@ import React from 'react';
 const KeywordsInput = props => {
   const { handleTextChange, searchText } = props;
   return (
-    <div className="searchbar">
+    <div className="keywords-input">
       <form>
-        {/* <h4 className="searchbar-title">keywords (optional):</h4> */}
+        {/* <h4 className="keywords-input-title">keywords (optional):</h4> */}
         <input
           className="text-input"
           type="text"

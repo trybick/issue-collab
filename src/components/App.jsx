@@ -127,14 +127,23 @@ class App extends React.Component {
         <KeywordsInput handleTextChange={this.handleTextChange} textToSearch={textToSearch} />
 
         {/* Reset button */}
-        <div>
-          <Button className="reset-btn" onClick={this.onResetToggles} type="button">
-            Reset
-          </Button>
-        </div>
+
+        <Button
+          className="reset-btn"
+          classNameWrapper="reset-btn-wrapper"
+          onClick={this.onResetToggles}
+          type="button"
+        >
+          Reset
+        </Button>
 
         {/* Get button */}
-        <Button className="get-issues-btn" onClick={this.getIssues} typeName="submit">
+        <Button
+          className="get-issues-btn"
+          classNameWrapper="get-button-wrapper"
+          onClick={this.getIssues}
+          typeName="submit"
+        >
           Load
         </Button>
 
