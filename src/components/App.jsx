@@ -10,7 +10,6 @@ import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
 import { formatLabelsForUrl, formatTextToSearch } from '../utils/formatting';
 import PulseLoader from 'react-spinners/PulseLoader';
-import { debounce } from '../utils/debounce';
 
 class App extends React.Component {
   constructor(props) {
@@ -117,12 +116,6 @@ class App extends React.Component {
     });
   };
 
-  debounceButton = e => {
-    debounce(function(e) {
-      console.log('Debounced Event:', e);
-    }, 1000);
-  };
-
   render() {
     const { isFetching, labels, languages, results, textToSearch, url } = this.state;
 
@@ -149,8 +142,7 @@ class App extends React.Component {
           className="get-issues-btn"
           classNameWrapper="get-button-wrapper"
           forForm="issues-form"
-          onClick={this.debounceButton}
-          // onClick={debounce(this.getIssues, 5000)}
+          onClick={this.getIssues}
           type="submit"
         >
           Load
