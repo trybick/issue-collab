@@ -7,7 +7,7 @@ const KeywordsInput = props => {
       <form id="issues-form">
         {/* <h4 className="keywords-input-title">keywords (optional):</h4> */}
         <input
-          className="text-input"
+          className="keywords-text-input"
           type="text"
           placeholder="keywords (optional)"
           value={searchText}
