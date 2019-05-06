@@ -50,8 +50,8 @@ class App extends React.Component {
     const activeLanguage = Object.keys(languages).filter(item => languages[item]);
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
 
-    return `${baseUrl}
-      ${textToSearch && formattedText}type:issue${joinedLabels}${formattedLanguage}${sortOptions}`;
+    return `${baseUrl}${textToSearch &&
+      formattedText}type:issue${joinedLabels}${formattedLanguage}${sortOptions}`;
   };
 
   getIssues = async event => {
