@@ -34,6 +34,7 @@ class App extends React.Component {
       textToSearch: '',
       results: {},
       url: '',
+      isempty: true,
       isFetching: false,
     };
   }
@@ -119,7 +120,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { isFetching, labels, languages, results, textToSearch, url } = this.state;
+    const { isEmpty, isFetching, labels, languages, results, textToSearch, url } = this.state;
 
     return (
       <div className="wrapper">
@@ -150,9 +151,20 @@ class App extends React.Component {
         </Button>
 
         {/* url for testing */}
-        {results.items && url}
+        {/* {results.items && url} */}
 
         {isFetching ? <LoadingSpinner /> : results.items && <SearchResults results={results} />}
+
+        {/* eslint-disable-next-line no-nested-ternary */}
+        {/* {isEmpty ? (
+          isFetching ? (
+            <h2>Loading...</h2>
+          ) : (
+            <h2>Empty.</h2>
+          )
+        ) : (
+          results.items && <SearchResults results={results} />
+        )} */}
       </div>
     );
   }
