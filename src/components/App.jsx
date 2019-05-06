@@ -132,7 +132,7 @@ class App extends React.Component {
           onClick={this.onResetToggles}
           type="button"
         >
-          Reset
+          Clear filters
         </Button>
 
         {/* Get button */}
