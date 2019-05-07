@@ -38,15 +38,20 @@ class App extends React.Component {
     };
   }
 
+  getActiveItems = type => {
+    const items = this.state[type];
+    return Object.keys(items).filter(item => items[item]);
+  };
+
   createUrl = () => {
-    const { labels, languages, textToSearch } = this.state;
+    const { textToSearch } = this.state;
     const formattedText = formatTextToSearch(textToSearch);
 
-    const activeLabels = Object.keys(labels).filter(item => labels[item]);
+    const activeLabels = this.getActiveItems('labels');
     const formattedLabels = formatLabelsForUrl(activeLabels);
     const joinedLabels = formattedLabels.map(label => `+label:${label}`).join('');
 
-    const activeLanguage = Object.keys(languages).filter(item => languages[item]);
+    const activeLanguage = this.getActiveItems('languages');
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
 
     return `${baseUrl}${formattedText}type:issue${joinedLabels}${formattedLanguage}${sortOptions}`;
