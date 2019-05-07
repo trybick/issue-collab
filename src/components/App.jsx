@@ -8,6 +8,7 @@ import Languages from './toggles/Languages';
 import LoadingSpinner from './core/LoadingSpinner';
 import SearchResults from './search/SearchResults';
 import { formatLabelsForUrl, formatTextToSearch } from '../utils/formatting';
+import { baseUrl, sortOptions } from '../utils/constants';
 import '../styles/main.scss';
 
 class App extends React.Component {
@@ -39,8 +40,6 @@ class App extends React.Component {
 
   createUrl = () => {
     const { labels, languages, textToSearch } = this.state;
-    const baseUrl = 'https://api.github.com/search/issues?q=';
-    const sortOptions = '+state:open&sort=created&order=desc&per_page=20';
     const formattedText = formatTextToSearch(textToSearch);
 
     const activeLabels = Object.keys(labels).filter(item => labels[item]);
@@ -50,8 +49,7 @@ class App extends React.Component {
     const activeLanguage = Object.keys(languages).filter(item => languages[item]);
     const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
 
-    return `${baseUrl}${textToSearch &&
-      formattedText}type:issue${joinedLabels}${formattedLanguage}${sortOptions}`;
+    return `${baseUrl}${formattedText}type:issue${joinedLabels}${formattedLanguage}${sortOptions}`;
   };
 
   getIssues = async event => {
