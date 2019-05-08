@@ -34,7 +34,7 @@ class App extends React.Component {
       textToSearch: '',
       results: {},
       url: '',
-      isempty: true,
+      isEmpty: true,
       isFetching: false,
     };
   }
@@ -60,11 +60,11 @@ class App extends React.Component {
 
   getIssues = async event => {
     event.preventDefault();
-    this.setState({ isFetching: true });
+    this.setState({ isEmpty: true, isFetching: true });
     const finalUrl = this.createUrl();
     const response = await fetch(finalUrl);
     const json = await response.json();
-    this.setState({ isFetching: false, results: json, url: finalUrl }, () =>
+    this.setState({ isEmpty: false, isFetching: false, results: json, url: finalUrl }, () =>
       console.log('results', this.state.results)
     );
   };
@@ -153,18 +153,16 @@ class App extends React.Component {
         {/* url for testing */}
         {/* {results.items && url} */}
 
-        {isFetching ? <LoadingSpinner /> : results.items && <SearchResults results={results} />}
-
         {/* eslint-disable-next-line no-nested-ternary */}
-        {/* {isEmpty ? (
+        {isEmpty ? (
           isFetching ? (
-            <h2>Loading...</h2>
+            <LoadingSpinner />
           ) : (
             <h2>Empty.</h2>
           )
         ) : (
-          results.items && <SearchResults results={results} />
-        )} */}
+          <SearchResults results={results} />
+        )}
       </div>
     );
   }
