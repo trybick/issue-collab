@@ -11,8 +11,8 @@ function hasUpperCase(str) {
   return str.toLowerCase() !== str;
 }
 
-function hasWhiteSpace(string) {
-  return string.indexOf(' ') >= 0;
+function hasWhiteSpace(str) {
+  return str.indexOf(' ') >= 0;
 }
 
 export const formatLabelsForUrl = labels => {
