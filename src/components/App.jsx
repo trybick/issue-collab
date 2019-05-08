@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import Button from './core/Button';
@@ -6,10 +7,12 @@ import KeywordsInput from './search/KeywordsInput';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
 import LoadingSpinner from './core/LoadingSpinner';
+import InitialHomeScreen from './core/InitialHomeScreen';
 import SearchResults from './search/SearchResults';
 import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
 import { baseUrl, sortOptions } from '../utils/constants';
 import '../styles/main.scss';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -153,12 +156,11 @@ class App extends React.Component {
         {/* url for testing */}
         {/* {results.items && url} */}
 
-        {/* eslint-disable-next-line no-nested-ternary */}
         {isEmpty ? (
           isFetching ? (
             <LoadingSpinner />
           ) : (
-            <h2>Empty.</h2>
+            <InitialHomeScreen />
           )
         ) : (
           <SearchResults results={results} />
