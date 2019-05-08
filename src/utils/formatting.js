@@ -40,3 +40,7 @@ export const formatTextToSearch = text => {
 export const formatLabelForName = name => {
   return name.camelToSpaces().toLowerCase();
 };
+
+export const joinItemsForUrl = (items, itemType) => {
+  return items.map(item => `+${itemType.slice(0, -1)}:${item}`).join('');
+};

@@ -7,7 +7,7 @@ import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
 import LoadingSpinner from './core/LoadingSpinner';
 import SearchResults from './search/SearchResults';
-import { formatLabelsForUrl, formatTextToSearch } from '../utils/formatting';
+import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
 import { baseUrl, sortOptions } from '../utils/constants';
 import '../styles/main.scss';
 
@@ -43,22 +43,16 @@ class App extends React.Component {
     return Object.keys(items).filter(item => items[item]);
   };
 
-  joinFormattedItems = (items, itemType) => {
-    return items.map(item => `+${itemType.slice(0, -1)}:${item}`).join('');
-  };
-
   createUrl = () => {
     const { textToSearch } = this.state;
     const formattedText = formatTextToSearch(textToSearch);
 
     const activeLabels = this.getActiveItems('labels');
     const formattedLabels = formatLabelsForUrl(activeLabels);
-
-    const joinedLabels = this.joinFormattedItems(formattedLabels, 'labels');
-    console.log('joinedLabels:', joinedLabels);
+    const joinedLabels = joinItemsForUrl(formattedLabels, 'labels');
 
     const activeLanguage = this.getActiveItems('languages');
-    const joinedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
+    const joinedLanguage = joinItemsForUrl(activeLanguage, 'languages');
 
     return `${baseUrl}${formattedText}type:issue${joinedLabels}${joinedLanguage}${sortOptions}`;
   };
@@ -156,7 +150,7 @@ class App extends React.Component {
         </Button>
 
         {/* url for testing */}
-        {/* {results.items && url} */}
+        {results.items && url}
 
         {isFetching ? <LoadingSpinner /> : results.items && <SearchResults results={results} />}
       </div>
