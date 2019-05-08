@@ -13,7 +13,6 @@ import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../util
 import { baseUrl, sortOptions } from '../utils/constants';
 import '../styles/main.scss';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
