@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans:400,700|Roboto+Slab');
 
 body {
   margin: 0;
@@ -68,7 +68,12 @@ body {
 .initial-homescreen {
   grid-column: 1 / 5;
   grid-row: 6 / 7;
+  .get-issues-text {
+    font-weight: 700;
+  }
 }
+
+
 
 
 

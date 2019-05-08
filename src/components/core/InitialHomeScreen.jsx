@@ -3,12 +3,9 @@ import React from 'react';
 const InitialHomeScreen = () => {
   return (
     <div className="initial-homescreen">
-      <h4>
-        Click Load Issues to fetch the latest issues posted on GitHub
-        <br />
-        <br />
-        Enable filters to search by label or language
-      </h4>
+      <p>
+        Enable some filters and click <span className="get-issues-text">Load Issues!</span>
+      </p>
     </div>
   );
 };
