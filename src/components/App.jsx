@@ -43,18 +43,24 @@ class App extends React.Component {
     return Object.keys(items).filter(item => items[item]);
   };
 
+  joinFormattedItems = (items, itemType) => {
+    return items.map(item => `+${itemType.slice(0, -1)}:${item}`).join('');
+  };
+
   createUrl = () => {
     const { textToSearch } = this.state;
     const formattedText = formatTextToSearch(textToSearch);
 
     const activeLabels = this.getActiveItems('labels');
     const formattedLabels = formatLabelsForUrl(activeLabels);
-    const joinedLabels = formattedLabels.map(label => `+label:${label}`).join('');
+
+    const joinedLabels = this.joinFormattedItems(formattedLabels, 'labels');
+    console.log('joinedLabels:', joinedLabels);
 
     const activeLanguage = this.getActiveItems('languages');
-    const formattedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
+    const joinedLanguage = activeLanguage.map(language => `+language:${language}`).join('');
 
-    return `${baseUrl}${formattedText}type:issue${joinedLabels}${formattedLanguage}${sortOptions}`;
+    return `${baseUrl}${formattedText}type:issue${joinedLabels}${joinedLanguage}${sortOptions}`;
   };
 
   getIssues = async event => {
