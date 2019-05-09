@@ -7,7 +7,7 @@ import KeywordsInput from './search/KeywordsInput';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
 import LoadingSpinner from './core/LoadingSpinner';
-import InitialHomeScreen from './core/InitialHomeScreen';
+import EmptyResultsView from './search/EmptyResultsView';
 import SearchResults from './search/SearchResults';
 import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
 import { baseUrl, sortOptions } from '../utils/constants';
@@ -87,7 +87,7 @@ class App extends React.Component {
     return currentLanguages;
   };
 
-  handleToggleChange = event => {
+  onToggleChange = event => {
     const { labels } = this.state;
     const selectedType = event.target.dataset.type;
     const selectedName = event.target.name;
@@ -127,8 +127,8 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <Header />
-        <Labels labels={labels} handleToggleChange={this.handleToggleChange} />
-        <Languages languages={languages} handleToggleChange={this.handleToggleChange} />
+        <Labels labels={labels} onToggleChange={this.onToggleChange} />
+        <Languages languages={languages} onToggleChange={this.onToggleChange} />
         <KeywordsInput handleTextChange={this.handleTextChange} textToSearch={textToSearch} />
 
         {/* Reset button */}
@@ -159,7 +159,7 @@ class App extends React.Component {
           isFetching ? (
             <LoadingSpinner />
           ) : (
-            <InitialHomeScreen />
+            <EmptyResultsView />
           )
         ) : (
           <SearchResults results={results} />

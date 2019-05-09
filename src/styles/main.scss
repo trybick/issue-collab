@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans:400,700|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans:400,500,700|Roboto+Slab');
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
+  h3, h4 {
+    font-weight: 400;
+  }
 }
 
 .wrapper {

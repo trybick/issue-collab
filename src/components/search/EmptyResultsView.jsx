@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InitialHomeScreen = () => {
+const EmptyResultsView = () => {
   return (
     <div className="initial-homescreen">
       <p>
@@ -10,4 +10,4 @@ const InitialHomeScreen = () => {
   );
 };
 
-export default InitialHomeScreen;
+export default EmptyResultsView;

@@ -1,14 +1,14 @@
 import React from 'react';
 import ToggleGroup from './ToggleGroup';
 
-const Languages = ({ handleToggleChange, languages }) => {
+const Languages = ({ onToggleChange, languages }) => {
   return (
     <div className="languages-group">
       <h3 className="group-title">Languages:</h3>
       <ToggleGroup
         dataType="language"
         items={languages}
-        handleToggleChange={handleToggleChange}
+        onToggleChange={onToggleChange}
         names={Object.keys(languages)}
       />
     </div>
