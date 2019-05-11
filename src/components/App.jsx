@@ -64,11 +64,21 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({ isEmpty: true, isFetching: true });
     const finalUrl = this.createUrl();
-    const response = await fetch(finalUrl);
-    const json = await response.json();
-    this.setState({ isEmpty: false, isFetching: false, results: json, url: finalUrl }, () =>
-      console.log('results', this.state.results)
-    );
+    await fetch(finalUrl)
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error('Something went wrong');
+      })
+      .then(resJson => {
+        this.setState({ isEmpty: false, isFetching: false, results: resJson, url: finalUrl }, () =>
+          console.log('results', this.state.results)
+        );
+      })
+      .catch(err => {
+        console.log('error:', err);
+      });
   };
 
   handleTextChange = event => {
