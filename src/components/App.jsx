@@ -38,6 +38,7 @@ class App extends React.Component {
       url: '',
       isEmpty: true,
       isFetching: false,
+      fetchError: false,
     };
   }
 
@@ -66,10 +67,10 @@ class App extends React.Component {
     const finalUrl = this.createUrl();
     await fetch(finalUrl)
       .then(res => {
-        if (res.ok) {
-          return res.json();
+        if (!res.ok) {
+          // throw new Error('Something went wrong');
         }
-        throw new Error('Something went wrong');
+        return res.json();
       })
       .then(resJson => {
         this.setState({ isEmpty: false, isFetching: false, results: resJson, url: finalUrl }, () =>
@@ -78,11 +79,13 @@ class App extends React.Component {
       })
       .catch(err => {
         console.log('error:', err);
+        this.setState({ fetchError: true, isFetching: false });
       });
   };
 
   handleTextChange = event => {
     this.setState({ textToSearch: event.target.value });
+    throw new Error('Something went wrong');
   };
 
   toggleLanguage = selectedName => {
@@ -132,7 +135,16 @@ class App extends React.Component {
   };
 
   render() {
-    const { isEmpty, isFetching, labels, languages, results, textToSearch, url } = this.state;
+    const {
+      fetchError,
+      isEmpty,
+      isFetching,
+      labels,
+      languages,
+      results,
+      textToSearch,
+      url,
+    } = this.state;
 
     return (
       <div className="wrapper">
@@ -164,6 +176,8 @@ class App extends React.Component {
 
         {/* url for testing */}
         {/* {results.items && url} */}
+
+        {fetchError && <h4>`Wve encountered an error`</h4>}
 
         {isEmpty ? (
           isFetching ? (
