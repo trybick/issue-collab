@@ -58,7 +58,7 @@ class App extends React.Component {
     const activeLanguage = this.getActiveItems('languages');
     const joinedLanguage = joinItemsForUrl(activeLanguage, 'languages');
 
-    return `a${baseUrl}${formattedText}type:issue${joinedLabels}${joinedLanguage}${sortOptions}`;
+    return `${baseUrl}${formattedText}type:issue${joinedLabels}${joinedLanguage}${sortOptions}`;
   };
 
   handleErrors = res => {
