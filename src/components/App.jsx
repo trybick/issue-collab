@@ -61,31 +61,33 @@ class App extends React.Component {
     return `a${baseUrl}${formattedText}type:issue${joinedLabels}${joinedLanguage}${sortOptions}`;
   };
 
+  handleErrors = res => {
+    if (!res.ok) {
+      this.setState({ fetchError: true, isFetching: false });
+      throw Error(res.status);
+    }
+    return res.json();
+  };
+
   getIssues = async event => {
     event.preventDefault();
     this.setState({ isEmpty: true, isFetching: true });
     const finalUrl = this.createUrl();
     await fetch(finalUrl)
-      .then(res => {
-        if (!res.ok) {
-          // throw new Error('Something went wrong');
-        }
-        return res.json();
-      })
+      .then(this.handleErrors)
       .then(resJson => {
         this.setState({ isEmpty: false, isFetching: false, results: resJson, url: finalUrl }, () =>
           console.log('results', this.state.results)
         );
       })
       .catch(err => {
-        console.log('error:', err);
+        console.error('error:', err);
         this.setState({ fetchError: true, isFetching: false });
       });
   };
 
   handleTextChange = event => {
     this.setState({ textToSearch: event.target.value });
-    throw new Error('Something went wrong');
   };
 
   toggleLanguage = selectedName => {
