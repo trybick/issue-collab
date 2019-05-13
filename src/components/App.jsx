@@ -7,7 +7,7 @@ import KeywordsInput from './search/KeywordsInput';
 import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
 import LoadingSpinner from './core/LoadingSpinner';
-import EmptyResultsView from './search/EmptyResultsView';
+import InitialGreeting from './search/InitialGreeting';
 import SearchResults from './search/SearchResults';
 import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
 import { baseUrl, sortOptions } from '../utils/constants';
@@ -179,13 +179,11 @@ class App extends React.Component {
         {/* url for testing */}
         {/* {results.items && url} */}
 
-        {fetchError && <h4>`Wve encountered an error`</h4>}
-
         {isEmpty ? (
           isFetching ? (
             <LoadingSpinner />
           ) : (
-            <EmptyResultsView />
+            <InitialGreeting hasError={fetchError} />
           )
         ) : (
           <SearchResults results={results} />
