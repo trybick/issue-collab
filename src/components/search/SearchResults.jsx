@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import NoResultsMessage from './NoResultsMessage';
+import NoResultsMessage from '../statuses/NoResultsMessage';
 
 const SearchResults = ({ results }) => {
   const formattedResults =
