@@ -1,9 +1,19 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans:400,500,700|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+$color1: #EAECE9;
+$color2: #BEC3C9;
+$color3: #70F2FC;
+$color4: #F59E40;
+$color5: #5ABC64;
+$color6: #56BCCA;
+$color7: #EE7FB3;
+$color8: #F8F8F8;
+$color9: #3A5783;
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
+  background-color: $color8;
+
   h3, h4 {
     font-weight: 400;
   }
@@ -80,10 +90,9 @@ body {
 
 
 .toggle-title {
-  margin-left: .5rem;
+  margin-left: 6px;
   vertical-align: top;
 }
-
 
 .get-issues-btn {
   width: 110px;
