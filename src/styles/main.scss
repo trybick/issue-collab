@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Mono&display=swap');
 
 $color01: #EAECE9;
 $color02: #BEC3C9;
@@ -16,7 +16,8 @@ body {
   font-family: 'Lato', sans-serif;
   background-color: $color08;
 
-  h3, h4 {
+  h3,
+  h4 {
     font-weight: 400;
   }
 }
@@ -31,18 +32,18 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 65px 235px 45px 60px auto;
   grid-template-areas:
-  "head head head head"
-  "labels labels languages languages"
-  ". keywords keywords ."
-  ". get reset ."
-  "results results results results";
+    "head head head head"
+    "labels labels languages languages"
+    ". keywords keywords ."
+    ". get reset ."
+    "results results results results";
 }
 
 .header {
   grid-area: head;
 
   .page-title {
-    // text-transform: lowercase;
+    font-family: 'Roboto Mono', monospace;
   }
 }
 
@@ -87,6 +88,7 @@ body {
 .initial-greeting {
   grid-column: 1 / 5;
   grid-row: 6 / 7;
+
   .get-issues-text {
     font-weight: 700;
   }
