@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
-$color1: #EAECE9;
-$color2: #BEC3C9;
-$color3: #70F2FC;
-$color4: #F59E40;
-$color5: #5ABC64;
-$color6: #56BCCA;
-$color7: #EE7FB3;
-$color8: #F8F8F8;
-$color9: #3A5783;
+$color01: #EAECE9;
+$color02: #BEC3C9;
+$color03: #70F2FC;
+$color04: #F59E40;
+$color05: #5ABC64;
+$color06: #56BCCA;
+$color07: #EE7FB3;
+$color08: #F8F8F8;
+$color09: #3A5783;
+
+$color10: #3498db;
 
 body {
   font-family: 'Lato', sans-serif;
-  background-color: $color8;
+  background-color: $color08;
 
   h3, h4 {
     font-weight: 400;
@@ -38,6 +40,10 @@ body {
 
 .header {
   grid-area: head;
+
+  .page-title {
+    // text-transform: lowercase;
+  }
 }
 
 .labels-group {
