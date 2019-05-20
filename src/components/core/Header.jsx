@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Header = () => {
-  const githubCorner = (
+  const cornerBanner = (
     // github-corners: http://tholman.com/github-corners/
     // HTML to JSX converter: https://magic.reactjs.net/htmltojsx.htm
-    <div className="github-corner">
+    <div className="corner-banner">
       <a
         href="https://github.com/trybick/issue-collab"
         aria-label="View source on GitHub"
@@ -43,7 +43,7 @@ const Header = () => {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html:
-            '.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}',
+            '.corner-banner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}',
         }}
       />
     </div>
@@ -55,7 +55,7 @@ const Header = () => {
         <span style={{ color: '#3498db' }}>Issue</span>-
         <span style={{ color: 'black' }}>Collab</span>
       </h2>
-      {githubCorner}
+      {cornerBanner}
     </div>
   );
 };

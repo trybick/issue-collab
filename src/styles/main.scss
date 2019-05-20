@@ -32,7 +32,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 65px 235px 45px 60px auto;
   grid-template-areas:
-    "head head head head"
+    "head head . ."
     "labels labels languages languages"
     ". keywords keywords ."
     ". get reset ."
