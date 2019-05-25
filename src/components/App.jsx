@@ -33,12 +33,12 @@ class App extends React.Component {
         ruby: false,
         swift: false,
       },
-      textToSearch: '',
-      results: {},
-      url: '',
+      fetchError: false,
       isEmpty: true,
       isFetching: false,
-      fetchError: false,
+      results: {},
+      textToSearch: '',
+      url: '',
     };
   }
 
