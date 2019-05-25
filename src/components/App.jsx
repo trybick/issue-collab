@@ -145,7 +145,7 @@ class App extends React.Component {
       languages,
       results,
       textToSearch,
-      url,
+      // url,
     } = this.state;
 
     return (
