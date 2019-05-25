@@ -2,6 +2,10 @@
 
 Find issues by fluidly searching labels and languages.
 
+## Demo
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/39889198/58373516-62beae00-7efd-11e9-940d-83109f260e4f.gif)
+
+
 ## Local development
 
 ```
