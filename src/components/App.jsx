@@ -23,11 +23,11 @@ class App extends React.Component {
         easy: false,
         documentation: false,
         bug: false,
-        enhancement: false,
+        hacktoberfest: true,
       },
       languages: {
         python: false,
-        javascript: false,
+        javascript: true,
         php: false,
         java: false,
         ruby: false,
@@ -145,7 +145,6 @@ class App extends React.Component {
       languages,
       results,
       textToSearch,
-      // url,
     } = this.state;
 
     return (
@@ -175,9 +174,6 @@ class App extends React.Component {
         >
           Load Issues
         </Button>
-
-        {/* url for testing */}
-        {/* {results.items && url} */}
 
         {isEmpty ? (
           isFetching ? (
