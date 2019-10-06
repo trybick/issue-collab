@@ -76,9 +76,7 @@ class App extends React.Component {
     await fetch(finalUrl)
       .then(this.handleErrors)
       .then(resJson => {
-        this.setState({ isEmpty: false, isFetching: false, results: resJson, url: finalUrl }, () =>
-          console.log('results', this.state.results)
-        );
+        this.setState({ isEmpty: false, isFetching: false, results: resJson, url: finalUrl });
       })
       .catch(err => {
         console.error('error:', err);
