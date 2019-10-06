@@ -27,7 +27,7 @@ class App extends React.Component {
       },
       languages: {
         python: false,
-        javascript: true,
+        javascript: false,
         php: false,
         java: false,
         ruby: false,
