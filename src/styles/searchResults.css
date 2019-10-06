@@ -1,0 +1,24 @@
+.result {
+    border: 2px solid #3498DB;
+    background: #fff;
+    border-radius: 25px;
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 5px 5px 8px -5px rgba(0,0,0,0.5);
+}
+
+.resultHeader {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    margin-right: 20px;
+}
+
+.label {
+    padding: 4px 15px;
+    margin: 0 5px;
+    color: white;
+    border-radius: 25px;
+}

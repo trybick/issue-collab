@@ -24,7 +24,7 @@ const SearchResults = ({ results }) => {
 
       const mappedLabels = item.labels.map(label => {
         return (
-          <span key={label.id} style={{ color: `#${label.color}` }}>
+          <span className="label" key={label.id} style={{ backgroundColor: `#${label.color}` }}>
             {label.name}
           </span>
         );
@@ -32,11 +32,13 @@ const SearchResults = ({ results }) => {
 
       return (
         <div className="result" key={item.id}>
-          <img src={item.user.avatar_url} width="50px" alt="avatar" />
+          <div className="resultHeader">
+            <img src={item.user.avatar_url} className="avatar" width="50px" alt="avatar" />
 
-          <a href={item.html_url} target="_blank" rel="noopener noreferrer">
-            {item.title}
-          </a>
+            <a href={item.html_url} target="_blank" rel="noopener noreferrer">
+              {item.title}
+            </a>
+          </div>
 
           <p>{bodyText}</p>
 
@@ -44,9 +46,6 @@ const SearchResults = ({ results }) => {
           <div>{issueAge}</div>
 
           <p>{mappedLabels}</p>
-
-          <br />
-          <br />
         </div>
       );
     });

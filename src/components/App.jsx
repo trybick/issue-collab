@@ -12,6 +12,7 @@ import SearchResults from './search/SearchResults';
 import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
 import { baseUrl, sortOptions } from '../utils/constants';
 import '../styles/main.scss';
+import '../styles/searchResults.css';
 
 class App extends React.Component {
   constructor(props) {
