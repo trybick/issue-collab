@@ -1,4 +1,4 @@
-import './../../styles/Result.scss';
+import '../../styles/Result.scss';
 
 import React from 'react';
 
@@ -22,7 +22,7 @@ export const SearchResult = ({
 
   return (
     <div className="result">
-      <img src={user.avatar_url} width="50px" alt="avatar" class="result-avatar" />
+      <img src={user.avatar_url} width="50px" alt="avatar" className="result-avatar" />
       <a href={htmlUrl} target="_blank" rel="noopener noreferrer">
         {title}
       </a>
