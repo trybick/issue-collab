@@ -44,10 +44,21 @@ My goal it to have a fun side project that will also be useful. My favorite part
 
 
 ## Local development
-To run this project for local development follow these steps in a terminal. The app will run on port 3000.
-```
-npm i
+
+To run this project for local development if you have Node.js and NPM
+installed follow these steps in a terminal. The app will run on port 3000.
+
+```bash
+npm install
 npm start
+```
+
+If you don't want to install Node.js and you have Docker present on your
+system, then just use the ``Dockerfile`` and the script that prepares
+the whole application in a separate container. The app will run on port 3000.
+
+```bash
+./dev.sh
 ```
 
 
