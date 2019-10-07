@@ -39,6 +39,7 @@ class App extends React.Component {
       results: {},
       textToSearch: '',
       url: '',
+      pageNum: 1,
     };
   }
 
@@ -48,7 +49,7 @@ class App extends React.Component {
   };
 
   createUrl = () => {
-    const { textToSearch } = this.state;
+    const { textToSearch, pageNum } = this.state;
     const formattedText = formatTextToSearch(textToSearch);
 
     const activeLabels = this.getActiveItems('labels');
@@ -58,7 +59,7 @@ class App extends React.Component {
     const activeLanguage = this.getActiveItems('languages');
     const joinedLanguage = joinItemsForUrl(activeLanguage, 'languages');
 
-    return `${baseUrl}${formattedText}type:issue${joinedLabels}${joinedLanguage}${sortOptions}`;
+    return `${baseUrl}${formattedText}type:issue${joinedLabels}${joinedLanguage}${sortOptions}&page=${pageNum}`;
   };
 
   handleErrors = res => {
@@ -86,6 +87,20 @@ class App extends React.Component {
 
   handleTextChange = event => {
     this.setState({ textToSearch: event.target.value });
+  };
+
+  handlePageChange = (e, pageNum) => {
+    e.preventDefault();
+    e.persist();
+
+    this.setState(
+      {
+        pageNum,
+      },
+      () => {
+        this.getIssues(e);
+      }
+    );
   };
 
   toggleLanguage = selectedName => {
@@ -141,6 +156,7 @@ class App extends React.Component {
       isFetching,
       labels,
       languages,
+      pageNum,
       results,
       textToSearch,
     } = this.state;
@@ -180,7 +196,11 @@ class App extends React.Component {
             <InitialGreeting hasError={fetchError} />
           )
         ) : (
-          <SearchResults results={results} />
+          <SearchResults
+            results={results}
+            onPageChange={this.handlePageChange}
+            currentPage={pageNum}
+          />
         )}
       </div>
     );

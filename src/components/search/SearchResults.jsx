@@ -1,10 +1,11 @@
-import moment from 'moment';
 import React from 'react';
-
+import moment from 'moment';
+import Pagination from '../core/Pagination';
 import NoResultsMessage from '../statuses/NoResultsMessage';
+import { resultPerPage } from '../../utils/constants';
 import { SearchResult } from './SearchResult';
 
-const SearchResults = ({ results }) => {
+const SearchResults = ({ currentPage, onPageChange, results }) => {
   const formattedResults =
     results.items[0] &&
     results.items.map(item => {
@@ -39,6 +40,8 @@ const SearchResults = ({ results }) => {
       );
     });
 
+  const totalPage = Math.ceil(results.total_count / resultPerPage);
+
   return (
     <div className="results">
       {results.total_count > 0 && (
@@ -46,6 +49,9 @@ const SearchResults = ({ results }) => {
       )}
       {formattedResults}
       {results.total_count === 0 && <NoResultsMessage />}
+      {totalPage > 1 && (
+        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalPage={totalPage} />
+      )}
     </div>
   );
 };
