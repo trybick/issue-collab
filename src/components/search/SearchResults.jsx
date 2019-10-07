@@ -3,6 +3,7 @@ import moment from 'moment';
 import Pagination from '../core/Pagination';
 import NoResultsMessage from '../statuses/NoResultsMessage';
 import { resultPerPage } from '../../utils/constants';
+import { SearchResult } from './SearchResult';
 
 const SearchResults = ({ currentPage, onPageChange, results }) => {
   const formattedResults =
@@ -24,32 +25,18 @@ const SearchResults = ({ currentPage, onPageChange, results }) => {
         }
       }
 
-      const mappedLabels = item.labels.map(label => {
-        return (
-          <span key={label.id} style={{ color: `#${label.color}` }}>
-            {label.name}
-          </span>
-        );
-      });
-
       return (
-        <div className="result" key={item.id}>
-          <img src={item.user.avatar_url} width="50px" alt="avatar" />
-
-          <a href={item.html_url} target="_blank" rel="noopener noreferrer">
-            {item.title}
-          </a>
-
-          <p>{bodyText}</p>
-
-          <div>{`${userName}/${repoName}`}</div>
-          <div>{issueAge}</div>
-
-          <p>{mappedLabels}</p>
-
-          <br />
-          <br />
-        </div>
+        <SearchResult
+          key={item.id}
+          user={item.user}
+          htmlUrl={item.html_url}
+          title={item.title}
+          bodyText={bodyText}
+          userName={userName}
+          repoName={repoName}
+          issueAge={issueAge}
+          labels={item.labels}
+        />
       );
     });
 

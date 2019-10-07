@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Mono&display=swap');
-
-$color01: #EAECE9;
-$color02: #BEC3C9;
-$color03: #70F2FC;
-$color04: #F59E40;
-$color05: #5ABC64;
-$color06: #56BCCA;
-$color07: #EE7FB3;
-$color08: #F8F8F8;
-$color09: #3A5783;
-
-$color10: #3498db;
+@import './variables';
 
 body {
   font-family: 'Lato', sans-serif;
@@ -32,11 +21,11 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 65px 235px 45px 60px auto;
   grid-template-areas:
-    "head head . ."
-    "labels labels languages languages"
-    ". keywords keywords ."
-    ". get reset ."
-    "results results results results";
+    'head head . .'
+    'labels labels languages languages'
+    '. keywords keywords .'
+    '. get reset .'
+    'results results results results';
 }
 
 .header {
@@ -63,7 +52,7 @@ body {
   grid-area: results;
   max-width: 800px;
 
-  @media only screen and (max-width: 800px){
+  @media only screen and (max-width: 800px) {
     max-width: 100vw;
   }
 }
@@ -92,14 +81,21 @@ body {
 .initial-greeting {
   grid-column: 1 / 5;
   grid-row: 6 / 7;
+  text-align: center;
 
+  p {
+    font-weight: 300;
+    b {
+      font-family: 'Roboto Mono', monospace;
+    }
+    span {
+      color: $color10;
+    }
+  }
   .get-issues-text {
     font-weight: 700;
   }
 }
-
-
-
 
 .toggle-title {
   margin-left: 6px;
@@ -125,7 +121,6 @@ body {
   font-weight: 450;
   box-shadow: 2px 5px 10px var(--color-smoke);
 }
-
 
 .keywords-text-input {
   border: 2px solid #aaa;
