@@ -1,6 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 import NoResultsMessage from '../statuses/NoResultsMessage';
+import Chip from '../core/Chip';
+import '../../styles/Results.scss';
 
 const SearchResults = ({ results }) => {
   const formattedResults =
@@ -22,40 +24,41 @@ const SearchResults = ({ results }) => {
         }
       }
 
-      const mappedLabels = item.labels.map(label => {
-        return (
-          <span key={label.id} style={{ color: `#${label.color}` }}>
-            {label.name}
-          </span>
-        );
+      const mappedLabels = item.labels.map(({ id, name, color }) => {
+        return <Chip key={id} text={name} color={color}/>;
       });
 
       return (
         <div className="result" key={item.id}>
-          <img src={item.user.avatar_url} width="50px" alt="avatar" />
+          <div className="header">
+            <img src={item.user.avatar_url} alt="avatar" />
 
-          <a href={item.html_url} target="_blank" rel="noopener noreferrer">
-            {item.title}
-          </a>
+            <a href={item.html_url} target="_blank" rel="noopener noreferrer">
+              {item.title}
+            </a>
+          </div>
+          <div className="content">
+            <p>{bodyText}</p>
 
-          <p>{bodyText}</p>
+            <div className="repo-name">{`${userName}/${repoName}`}</div>
+            <div className="issue-age">{issueAge}</div>
 
-          <div>{`${userName}/${repoName}`}</div>
-          <div>{issueAge}</div>
-
-          <p>{mappedLabels}</p>
-
-          <br />
-          <br />
+            <p>{mappedLabels}</p>
+          </div>
         </div>
       );
     });
 
+  const resultCount = 
+    results.total_count > 0  && (
+      <h4 className="results-count">Total results:
+        <span className="highlight">{results.total_count.toLocaleString()}</span>
+      </h4>
+    );
+
   return (
     <div className="results">
-      {results.total_count > 0 && (
-        <h4 className="results-count">Total results: {results.total_count.toLocaleString()}</h4>
-      )}
+      {resultCount}
       {formattedResults}
       {results.total_count === 0 && <NoResultsMessage />}
     </div>
