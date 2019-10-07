@@ -1,6 +1,8 @@
 .pagination {
   text-align: center;
   margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
 
   .btn {
     width: 100px;
@@ -18,5 +20,13 @@
     + .btn {
       margin-left: 20px;
     }
+  }
+
+  .pagination-pages {
+    margin-left: auto;
+  }
+
+  .pagination-count {
+    margin: 0;
   }
 }

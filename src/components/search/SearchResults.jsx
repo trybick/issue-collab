@@ -45,7 +45,12 @@ const SearchResults = ({ currentPage, onPageChange, results }) => {
   return (
     <div className="results">
       {results.total_count > 0 && (
-        <h4 className="results-count">Total results: {results.total_count.toLocaleString()}</h4>
+        <div className="pagination">
+          <h4 className="pagination-count">Total results: {results.total_count.toLocaleString()}</h4>
+          <span className="pagination-pages">
+            Page {currentPage} of {totalPage}
+          </span>
+        </div>
       )}
       {formattedResults}
       {results.total_count === 0 && <NoResultsMessage />}
