@@ -92,7 +92,6 @@ class App extends React.Component {
           });
         })
         .catch(err => {
-          console.error('error:', err);
           this.setState({ fetchError: true, isFetching: false });
         });
     });
