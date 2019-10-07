@@ -3,15 +3,18 @@
 import React from 'react';
 import '../../styles/Button.scss';
 
-const Button = ({ children, className, classNameWrapper, forForm, onClick, type }) => {
+const Button = ({ children, className, classNameWrapper, disabled, forForm, onClick, type }) => {
+  const wrapperClasses = classNameWrapper ? `btn-wrapper ${classNameWrapper}` : 'btn-wrapper';
+  const classes = className ? `btn ${className}` : 'btn';
+
   return classNameWrapper ? (
-    <div className={`btn-wrapper ${classNameWrapper}`}>
-      <button className={`btn ${className}`} onClick={onClick} type={type} form={forForm}>
+    <div className={wrapperClasses}>
+      <button className={classes} onClick={onClick} type={type} form={forForm} disabled={disabled}>
         {children}
       </button>
     </div>
   ) : (
-    <button className={`btn ${className}`} onClick={onClick} type={type}>
+    <button className={classes} onClick={onClick} type={type} disabled={disabled}>
       {children}
     </button>
   );
