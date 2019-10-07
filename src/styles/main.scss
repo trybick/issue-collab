@@ -81,7 +81,17 @@ body {
 .initial-greeting {
   grid-column: 1 / 5;
   grid-row: 6 / 7;
+  text-align: center;
 
+  p {
+    font-weight: 300;
+    b {
+      font-family: 'Roboto Mono', monospace;
+    }
+    span {
+      color: $color10;
+    }
+  }
   .get-issues-text {
     font-weight: 700;
   }
