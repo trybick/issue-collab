@@ -70,14 +70,23 @@ class App extends React.Component {
     return res.json();
   };
 
-  getIssues = async event => {
+  getIssues = async (event, shouldResetPageNum = true) => {
     event.preventDefault();
     this.setState({ isEmpty: true, isFetching: true });
     const finalUrl = this.createUrl();
     await fetch(finalUrl)
       .then(this.handleErrors)
       .then(resJson => {
-        this.setState({ isEmpty: false, isFetching: false, results: resJson, url: finalUrl });
+        const newState = {
+          isEmpty: false,
+          isFetching: false,
+          results: resJson,
+          url: finalUrl,
+        };
+        if (shouldResetPageNum) {
+          newState.pageNum = 1;
+        }
+        this.setState(newState);
       })
       .catch(err => {
         console.error('error:', err);
@@ -98,7 +107,7 @@ class App extends React.Component {
         pageNum,
       },
       () => {
-        this.getIssues(e);
+        this.getIssues(e, false);
       }
     );
   };
