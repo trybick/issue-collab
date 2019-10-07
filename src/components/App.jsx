@@ -80,7 +80,6 @@ class App extends React.Component {
         this.setState({ isEmpty: false, isFetching: false, results: resJson, url: finalUrl });
       })
       .catch(err => {
-        console.error('error:', err);
         this.setState({ fetchError: true, isFetching: false });
       });
   };
