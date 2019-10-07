@@ -10,4 +10,6 @@ docker run \
     --tty \
     --name ${IMAGE_NAME}-cont \
     --publish 3000:3000 \
+    --volume $(pwd)/src:/app/src \
+    --volume $(pwd)/public:/app/public \
     ${IMAGE_NAME}
