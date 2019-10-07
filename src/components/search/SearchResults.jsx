@@ -1,10 +1,11 @@
 import React from 'react';
 import moment from 'moment';
+import Pagination from '../core/Pagination';
 import NoResultsMessage from '../statuses/NoResultsMessage';
-import Chip from '../core/Chip';
-import '../../styles/Results.scss';
+import { resultPerPage } from '../../utils/constants';
+import { SearchResult } from './SearchResult';
 
-const SearchResults = ({ results }) => {
+const SearchResults = ({ currentPage, onPageChange, results }) => {
   const formattedResults =
     results.items[0] &&
     results.items.map(item => {
@@ -24,43 +25,38 @@ const SearchResults = ({ results }) => {
         }
       }
 
-      const mappedLabels = item.labels.map(({ id, name, color }) => {
-        return <Chip key={id} text={name} color={color}/>;
-      });
-
       return (
-        <div className="result" key={item.id}>
-          <div className="header">
-            <img src={item.user.avatar_url} alt="avatar" />
-
-            <a href={item.html_url} target="_blank" rel="noopener noreferrer">
-              {item.title}
-            </a>
-          </div>
-          <div className="content">
-            <p>{bodyText}</p>
-
-            <div className="repo-name">{`${userName}/${repoName}`}</div>
-            <div className="issue-age">{issueAge}</div>
-
-            <p>{mappedLabels}</p>
-          </div>
-        </div>
+        <SearchResult
+          key={item.id}
+          user={item.user}
+          htmlUrl={item.html_url}
+          title={item.title}
+          bodyText={bodyText}
+          userName={userName}
+          repoName={repoName}
+          issueAge={issueAge}
+          labels={item.labels}
+        />
       );
     });
 
-  const resultCount = 
-    results.total_count > 0  && (
+  const resultCount =
+    results.total_count > 0 && (
       <h4 className="results-count">Total results:
         <span className="highlight">{results.total_count.toLocaleString()}</span>
       </h4>
     );
+
+  const totalPage = Math.ceil(results.total_count / resultPerPage);
 
   return (
     <div className="results">
       {resultCount}
       {formattedResults}
       {results.total_count === 0 && <NoResultsMessage />}
+      {totalPage > 1 && (
+        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalPage={totalPage} />
+      )}
     </div>
   );
 };

@@ -13,14 +13,20 @@
 
   &:hover {
     transition: all 150ms linear;
-    opacity: .85;
+    opacity: 0.85;
   }
+  
   &:active {
     transition: all 150ms linear;
-    opacity: .75;
+    opacity: 0.75;
   }
+
   &:focus {
     outline: 1px dotted #959595;
     outline-offset: -4px;
+  }
+
+  &:disabled {
+    pointer-events: none;
   }
 }
