@@ -40,12 +40,12 @@ const SearchResults = ({ currentPage, onPageChange, results }) => {
       );
     });
 
-  const resultCount =
-    results.total_count > 0 && (
-      <h4 className="results-count">Total results:
-        <span className="highlight">{results.total_count.toLocaleString()}</span>
-      </h4>
-    );
+  const resultCount = results.total_count > 0 && (
+    <h4 className="results-count">
+      Issues Found:
+      <span className="highlight">{results.total_count.toLocaleString()}</span>
+    </h4>
+  );
 
   const totalPage = Math.ceil(results.total_count / resultPerPage);
 
