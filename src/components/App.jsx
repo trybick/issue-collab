@@ -40,7 +40,7 @@ class App extends React.Component {
       textToSearch: '',
       url: '',
       pageNum: 1,
-      buttonLock: false
+      isButtonLocked: false,
     };
   }
 
@@ -71,26 +71,37 @@ class App extends React.Component {
     return res.json();
   };
 
-  getIssues = async event => {
-    const { isFetching, buttonLock } = this.state;
-
+  getIssues = (event, shouldResetPageNum = true) => {
     event.preventDefault();
+    const newState = {
+      isEmpty: true,
+      isFetching: true,
+    };
 
-    if (!isFetching && !buttonLock) {
-      this.setState({ isEmpty: true, isFetching: true });
-      const finalUrl = this.createUrl();
-      await fetch(finalUrl)
-        .then(this.handleErrors)
-        .then(resJson => {
-          this.setState(
-            { isEmpty: false, isFetching: false, buttonLock: true, results: resJson, url: finalUrl },
-            () => setTimeout(() => this.setState({ buttonLock: false }), 5000)
-          );
-        })
-        .catch(err => {
-          console.error('error:', err);
-          this.setState({ fetchError: true, isFetching: false });
-        });
+    if (shouldResetPageNum) {
+      newState.pageNum = 1;
+    }
+
+    if (!this.state.isFetching && !this.state.isButtonLocked) {
+      this.setState(newState, async () => {
+        const finalUrl = this.createUrl();
+        await fetch(finalUrl)
+          .then(this.handleErrors)
+          .then(resJson => {
+            this.setState(
+              {
+                isEmpty: false,
+                isFetching: false,
+                results: resJson,
+                url: finalUrl,
+              },
+              () => setTimeout(() => this.setState({ isButtonLocked: false }), 5000)
+            );
+          })
+          .catch(() => {
+            this.setState({ fetchError: true, isFetching: false });
+          });
+      });
     }
   };
 
@@ -107,7 +118,7 @@ class App extends React.Component {
         pageNum,
       },
       () => {
-        this.getIssues(e);
+        this.getIssues(e, false);
       }
     );
   };
@@ -161,6 +172,7 @@ class App extends React.Component {
   render() {
     const {
       fetchError,
+      isButtonLocked,
       isEmpty,
       isFetching,
       labels,
@@ -168,7 +180,6 @@ class App extends React.Component {
       pageNum,
       results,
       textToSearch,
-      buttonLock,
     } = this.state;
 
     return (
@@ -193,7 +204,7 @@ class App extends React.Component {
           className="get-issues-btn"
           classNameWrapper="get-button-wrapper"
           forForm="issues-form"
-          disabled={isFetching || buttonLock}
+          disabled={isFetching || isButtonLocked}
           onClick={this.getIssues}
           type="submit"
         >
