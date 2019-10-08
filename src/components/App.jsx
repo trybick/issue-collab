@@ -76,6 +76,7 @@ class App extends React.Component {
     const newState = {
       isEmpty: true,
       isFetching: true,
+      isButtonLocked: true,
     };
 
     if (shouldResetPageNum) {
@@ -99,7 +100,7 @@ class App extends React.Component {
             );
           })
           .catch(() => {
-            this.setState({ fetchError: true, isFetching: false });
+            this.setState({ fetchError: true, isButtonLocked: false, isFetching: false });
           });
       });
     }
