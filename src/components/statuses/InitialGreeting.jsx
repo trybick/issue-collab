@@ -10,14 +10,9 @@ const InitialGreeting = ({ hasError }) => {
       </h3>
       <p>
         Use the toggles above to filter by common issue labels and by your favorite programming
-        languages. You can also search by keyword!{' '}
-        <b>
-          <span>Issue</span>-Collab
-        </b>{' '}
-        will return results from GitHub that match <em>all</em> of your filters, in order of most
-        recently submitted.
+        languages. You can also search by keyword!
       </p>
-      <p>Click on an issue to open it in a new tab, and get collaborating!</p>
+      <p>Click Load Issues and get collaborating!</p>
     </div>
   );
 
