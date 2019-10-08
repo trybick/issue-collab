@@ -2,13 +2,13 @@
 
 > Find open source projects on GitHub by searching with labels, languages, and search terms
 
-## Usage & Demo
+## Demo
 
 - Click the toggle switches to narrow down search results by labels or language
 - Optionally add search terms to the text input
 - Click a title to open an issue on GitHub in a new tab.
 
-![demo gif](https://user-images.githubusercontent.com/39889198/58373516-62beae00-7efd-11e9-940d-83109f260e4f.gif)
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/32887144/66427658-6fdac600-e9e2-11e9-88dd-fb8d33d37256.gif)
 
 ## Background
 
