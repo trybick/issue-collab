@@ -52,8 +52,8 @@ body {
   grid-area: results;
   max-width: 800px;
 
-  @media only screen and (max-width: 800px) {
-    max-width: 100vw;
+  @media only screen and (max-width: 800px){
+    padding: 0 1em;
   }
 }
 

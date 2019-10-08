@@ -40,13 +40,18 @@ const SearchResults = ({ currentPage, onPageChange, results }) => {
       );
     });
 
+  const resultCount =
+    results.total_count > 0 && (
+      <h4 className="results-count">Total results:
+        <span className="highlight">{results.total_count.toLocaleString()}</span>
+      </h4>
+    );
+
   const totalPage = Math.ceil(results.total_count / resultPerPage);
 
   return (
     <div className="results">
-      {results.total_count > 0 && (
-        <h4 className="results-count">Total results: {results.total_count.toLocaleString()}</h4>
-      )}
+      {resultCount}
       {formattedResults}
       {results.total_count === 0 && <NoResultsMessage />}
       {totalPage > 1 && (
