@@ -55,6 +55,11 @@ body {
   @media only screen and (max-width: 800px){
     padding: 0 1em;
   }
+
+  p {
+    max-width: 800px;
+    overflow-wrap: break-word;
+  }
 }
 
 .get-button-wrapper {
