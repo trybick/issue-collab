@@ -14,11 +14,9 @@ const SearchResults = ({ currentPage, onPageChange, results }) => {
       const repoName = htmlUrl[4];
       const issueAge = moment(item.created_at).fromNow();
 
-      let bodyText;
+      let bodyText = <span style={{ fontStyle: 'italic' }}>No additional text</span>;
       if (item.body) {
-        if (item.body.length === 0) {
-          bodyText = '(no text provided)';
-        } else if (item.body.length < 300) {
+        if (item.body.length < 300) {
           bodyText = item.body;
         } else if (item.body.length > 300) {
           bodyText = `${item.body.substr(0, 300)}...`;
