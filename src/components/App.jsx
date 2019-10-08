@@ -72,16 +72,20 @@ class App extends React.Component {
   };
 
   getIssues = async event => {
-      event.preventDefault();
+    const { isFetching, buttonLock } = this.state;
 
-    if (!this.state.isFetching && !this.state.buttonLock) {
+    event.preventDefault();
+
+    if (!isFetching && !buttonLock) {
       this.setState({ isEmpty: true, isFetching: true });
       const finalUrl = this.createUrl();
       await fetch(finalUrl)
         .then(this.handleErrors)
         .then(resJson => {
-          this.setState({ isEmpty: false, isFetching: false, buttonLock: true, results: resJson, url: finalUrl });
-          setTimeout(() => this.setState({ buttonLock: false }), 5000);
+          this.setState(
+            { isEmpty: false, isFetching: false, buttonLock: true, results: resJson, url: finalUrl },
+            () => setTimeout(() => this.setState({ buttonLock: false }), 5000)
+          );
         })
         .catch(err => {
           console.error('error:', err);
@@ -164,6 +168,7 @@ class App extends React.Component {
       pageNum,
       results,
       textToSearch,
+      buttonLock,
     } = this.state;
 
     return (
@@ -188,7 +193,7 @@ class App extends React.Component {
           className="get-issues-btn"
           classNameWrapper="get-button-wrapper"
           forForm="issues-form"
-          disabled={this.state.isFetching || this.state.buttonLock}
+          disabled={isFetching || buttonLock}
           onClick={this.getIssues}
           type="submit"
         >
