@@ -91,7 +91,7 @@ class App extends React.Component {
             url: finalUrl,
           });
         })
-        .catch(err => {
+        .catch(() => {
           this.setState({ fetchError: true, isFetching: false });
         });
     });
