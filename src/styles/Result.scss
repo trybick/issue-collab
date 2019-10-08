@@ -23,15 +23,14 @@
   .content {
     p {
       line-height: 1.4em;
-      font-size: 1em;
+      font-size: 1.1em;
     }
-    .repo-name {
+
+    .metadata > div {
       font-family: 'Roboto Mono', monospace;
-      margin: .5em 0;
-    }
-    .issue-age {
+      margin: .2em 0;
       color: #757575;
-    }
+    } 
   }
 }
 
