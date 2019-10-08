@@ -40,14 +40,19 @@ const SearchResults = ({ currentPage, onPageChange, results }) => {
       );
     });
 
+  const totalPage = Math.ceil(results.total_count / resultPerPage);
+
   const resultCount =
     results.total_count > 0 && (
-      <h4 className="results-count">Total results:
-        <span className="highlight">{results.total_count.toLocaleString()}</span>
-      </h4>
+      <div className="pagination">
+          <h4 className="pagination-count">
+            <span className="highlight">Total Results: {results.total_count.toLocaleString()}</span>
+          </h4>
+          <span className="pagination-pages">
+            Page {currentPage} of {totalPage}
+          </span>
+        </div>
     );
-
-  const totalPage = Math.ceil(results.total_count / resultPerPage);
 
   return (
     <div className="results">

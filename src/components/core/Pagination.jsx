@@ -21,6 +21,9 @@ const Pagination = ({ totalPage = 1, currentPage = 1, onPageChange = () => {} })
       <Button onClick={handleClickNext} disabled={currentPage === totalPage}>
         Next
       </Button>
+      <span className="pagination-pages">
+        Page {currentPage} of {totalPage}
+      </span>
     </div>
   );
 };
