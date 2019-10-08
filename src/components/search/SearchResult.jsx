@@ -14,7 +14,7 @@ export const SearchResult = ({
   labels,
 }) => {
   const mappedLabels = labels.map(({ id, name, color }) => {
-    return <Chip key={id} text={name} color={color}/>;
+    return <Chip key={id} text={name} color={color} />;
   });
 
   return (

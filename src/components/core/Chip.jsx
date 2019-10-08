@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Chip.scss'
+import '../../styles/Chip.scss';
 import { getContrastTextColor } from '../../utils/color';
 
 const Chip = ({ text, color }) => {
@@ -9,7 +9,7 @@ const Chip = ({ text, color }) => {
   };
 
   return (
-    <span className='chip' style={dinStyle}>
+    <span className="chip" style={dinStyle}>
       {text}
     </span>
   );
