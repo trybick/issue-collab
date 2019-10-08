@@ -70,18 +70,31 @@ class App extends React.Component {
     return res.json();
   };
 
-  getIssues = async event => {
+  getIssues = (event, shouldResetPageNum = true) => {
     event.preventDefault();
-    this.setState({ isEmpty: true, isFetching: true });
-    const finalUrl = this.createUrl();
-    await fetch(finalUrl)
-      .then(this.handleErrors)
-      .then(resJson => {
-        this.setState({ isEmpty: false, isFetching: false, results: resJson, url: finalUrl });
-      })
-      .catch(err => {
-        this.setState({ fetchError: true, isFetching: false });
-      });
+    const newState = {
+      isEmpty: true,
+      isFetching: true,
+    };
+    if (shouldResetPageNum) {
+      newState.pageNum = 1;
+    }
+    this.setState(newState, async () => {
+      const finalUrl = this.createUrl();
+      await fetch(finalUrl)
+        .then(this.handleErrors)
+        .then(resJson => {
+          this.setState({
+            isEmpty: false,
+            isFetching: false,
+            results: resJson,
+            url: finalUrl,
+          });
+        })
+        .catch(err => {
+          this.setState({ fetchError: true, isFetching: false });
+        });
+    });
   };
 
   handleTextChange = event => {
@@ -97,7 +110,7 @@ class App extends React.Component {
         pageNum,
       },
       () => {
-        this.getIssues(e);
+        this.getIssues(e, false);
       }
     );
   };
