@@ -8,7 +8,7 @@
 - Optionally add search terms to the text input
 - Click a title to open an issue on GitHub in a new tab.
 
-![demo gif](./src/images/ezgif.com-video-to-gif.gif)
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/32887144/66427658-6fdac600-e9e2-11e9-88dd-fb8d33d37256.gif)
 
 ## Background
 
