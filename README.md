@@ -40,6 +40,7 @@ Thank you for your interest! All types of contributions welcome. **HACK AWAY!** 
 
 - Fork and clone this repository
 - Create your branch from the `master` branch
+- Run `npm run lint:fix` to ensure correct formatting
 - Please open your PR with the `development` branch as the base
 
 ---
