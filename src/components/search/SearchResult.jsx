@@ -27,14 +27,14 @@ export const SearchResult = ({
         </a>
       </div>
       <div className="content">
-        <p>{bodyText}</p>
+        <p className="body-text">{bodyText}</p>
 
         <div className="metadata">
           <div>{`${userName}/${repoName}`}</div>
           <div className="issue-age">{issueAge}</div>
         </div>
 
-        <p>{mappedLabels}</p>
+        <div className="mapped-labels">{mappedLabels}</div>
       </div>
     </div>
   );

@@ -52,13 +52,8 @@ body {
   grid-area: results;
   max-width: 800px;
 
-  @media only screen and (max-width: 800px){
+  @media only screen and (max-width: 800px) {
     max-width: 90vw;
-  }
-
-  p {
-    max-width: 800px;
-    overflow-wrap: break-word;
   }
 }
 

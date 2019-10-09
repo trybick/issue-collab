@@ -21,9 +21,13 @@
     }
   }
   .content {
-    p {
-      line-height: 1.4em;
+    padding-left: 5px;
+
+    .body-text {
       font-size: 1.1em;
+      line-height: 1.4em;
+      max-width: 800px;
+      overflow-wrap: break-word;
     }
 
     .metadata {
@@ -35,6 +39,11 @@
         font-size: 0.9em;
         margin-top: 4px;
       }
+    }
+
+    .mapped-labels {
+      color: red;
+      margin: 15px 0 5px;
     }
   }
 }
