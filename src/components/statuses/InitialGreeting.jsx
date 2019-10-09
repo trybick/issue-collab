@@ -5,9 +5,7 @@ const InitialGreeting = ({ hasError }) => {
     <p>Oops, that was an error.</p>
   ) : (
     <div>
-      <h3>
-        Find open source projects on GitHub by searching with labels, languages, or search terms!
-      </h3>
+
       <p>
         Use the toggles above to filter by common issue labels and by your favorite programming
         languages. You can also search by keyword!
