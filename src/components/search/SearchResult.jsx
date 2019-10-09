@@ -29,10 +29,10 @@ export const SearchResult = ({
       <div className="content">
         <p>{bodyText}</p>
 
-        <span className="metadata">
+        <div className="metadata">
           <div>{`${userName}/${repoName}`}</div>
-          <div>{issueAge}</div>
-        </span>
+          <div className="issue-age">{issueAge}</div>
+        </div>
 
         <p>{mappedLabels}</p>
       </div>
