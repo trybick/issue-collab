@@ -18,7 +18,17 @@ export const SearchResult = ({
   });
 
   return (
-    <div className="result">
+    <div
+      className="result"
+      tabIndex={0}
+      role="button"
+      onKeyDown={e => {
+        if (e.keyCode === 13) {
+          window.open(htmlUrl, '_blank');
+        }
+      }}
+      onClick={() => window.open(htmlUrl, '_blank')}
+    >
       <div className="header">
         <img src={user.avatar_url} alt="avatar" />
 
