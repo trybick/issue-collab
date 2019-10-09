@@ -18,6 +18,7 @@
     a {
       font-family: 'Roboto Mono', monospace;
       text-decoration: none;
+      color: #000000;
     }
   }
   .content {
@@ -28,6 +29,7 @@
       line-height: 1.4em;
       max-width: 800px;
       overflow-wrap: break-word;
+      cursor: pointer;
     }
 
     .metadata {
