@@ -31,8 +31,15 @@ body {
 .header {
   grid-area: head;
 
+
   .page-title {
     font-family: 'Roboto Mono', monospace;
+
+  }
+
+  .header-description {
+    font-size:15px;
+    font-weight: 200;
   }
 }
 
@@ -82,9 +89,19 @@ body {
   grid-column: 1 / 5;
   grid-row: 6 / 7;
   text-align: center;
+  background-image: linear-gradient(20deg,black 40%,#0984e3 50% ,black 10%);
+  -webkit-background-clip: text;
+  color:transparent;
+
+
+  .greeting-description {
+    max-width: 90%;
+    margin:0 auto;
+    font-size:18px;
+  }
 
   p {
-    font-weight: 300;
+    font-weight: 700;
     b {
       font-family: 'Roboto Mono', monospace;
     }
@@ -102,23 +119,29 @@ body {
   vertical-align: top;
 }
 
-.get-issues-btn {
+
+.btn {
   width: 110px;
   height: 42px;
-  color: #e7ff20;
-  background-color: #7999a9;
-  box-shadow: 2px 5px 10px var(--color-smoke);
-
-  font-size: 13px;
+  color: whitesmoke;
+  background-color: #3498db;
   font-weight: 450;
+  
+}
+
+.btn:hover {
+  background-color: black;
+}
+
+.btn:active {
+  transform: scaleX(0.8);
+}
+
+.get-issues-btn {
+  box-shadow: 2px 5px 10px var(--color-smoke);
 }
 
 .reset-btn {
-  width: 82px;
-  height: 28px;
-  color: #e7ff20;
-  background-color: #7999a9;
-  font-weight: 450;
   box-shadow: 2px 5px 10px var(--color-smoke);
 }
 
