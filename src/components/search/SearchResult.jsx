@@ -27,9 +27,7 @@ export const SearchResult = ({
         </a>
       </div>
       <div className="content">
-        <a href={htmlUrl} target="_blank" rel="noopener noreferrer" className="body-text">
-          {bodyText}
-        </a>
+        <p className="body-text">{bodyText}</p>
 
         <div className="metadata">
           <div>{`${userName}/${repoName}`}</div>
