@@ -50,14 +50,11 @@ const Header = () => {
   );
   return (
     <div className="header">
-      {/* <img src="../../images/logo.png" alt="header-logo" /> */}
       <h2 className="page-title">
         <span style={{ color: '#3498db' }}>Issue</span>-
         <span style={{ color: 'black' }}>Collab</span>
       </h2>
-      <p id="header__greeting">
-        Find open source projects on GitHub by searching with labels, languages, or search terms!
-      </p>
+      {/* <p id="header__greeting">Find open source projects on GitHub!</p> */}
       {cornerBanner}
     </div>
   );

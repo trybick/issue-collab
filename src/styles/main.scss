@@ -19,9 +19,9 @@ body {
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 120px 235px 45px 60px auto;
+  grid-template-rows: 65px 235px 45px 60px auto;
   grid-template-areas:
-    'head head head head'
+    'head head . .'
     'labels labels languages languages'
     '. keywords keywords .'
     '. get reset .'
@@ -36,7 +36,7 @@ body {
   }
 
   #header__greeting {
-    text-align: center;
+    // text-align: center;
   }
 
 }
@@ -112,7 +112,7 @@ body {
     }
 }
 
-.greeting__card {
+.greeting-card {
     width: 70%;
     font-size: 0.9em;
     background: rgba(255, 255, 255, 0.5);
@@ -128,7 +128,7 @@ body {
         color: $color09;
     }
 
-    .greeting__img {
+    .greeting-img {
         width: auto;
         height: 6rem;
         float: right;
