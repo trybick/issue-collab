@@ -55,6 +55,9 @@ const Header = () => {
         <span style={{ color: '#3498db' }}>Issue</span>-
         <span style={{ color: 'black' }}>Collab</span>
       </h2>
+      <p id="header__greeting">
+        Find open source projects on GitHub by searching with labels, languages, or search terms!
+      </p>
       {cornerBanner}
     </div>
   );
