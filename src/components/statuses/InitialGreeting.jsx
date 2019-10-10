@@ -4,13 +4,16 @@ const InitialGreeting = ({ hasError }) => {
   const statusMessage = hasError ? (
     <p>Oops, that was an error.</p>
   ) : (
-    <div>
-
+    <div className="greeting__card">
+          <img src={require("../../images/ic.png")} alt="issues-collab" className="greeting__img" />
+    <span>
       <p>
-        Use the toggles above to filter by common issue labels and by your favorite programming
-        languages. You can also search by keyword!
+        Use the toggles above to filter by common <em>issue labels</em> and by your favorite <em>programming
+        languages</em>. You can also search by <em>keyword</em>!
       </p>
       <p>Click Load Issues and get collaborating!</p>
+      </span>
+
     </div>
   );
 

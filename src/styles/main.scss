@@ -21,7 +21,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 120px 235px 45px 60px auto;
   grid-template-areas:
-    'head head . .'
+    'head head head head'
     'labels labels languages languages'
     '. keywords keywords .'
     '. get reset .'
@@ -34,6 +34,11 @@ body {
   .page-title {
     font-family: 'Roboto Mono', monospace;
   }
+
+  #header__greeting {
+    text-align: center;
+  }
+
 }
 
 .labels-group {
@@ -93,13 +98,46 @@ body {
     b {
       font-family: 'Roboto Mono', monospace;
     }
-    span {
-      color: $color10;
-    }
   }
   .get-issues-text {
     font-weight: 700;
   }
+
+    &::before {
+        font-family: 'Roboto Mono';
+        content: '*';
+        font-size: 4em;
+        float: left;
+        position: relative;
+        left: 105px;
+        line-height: 0;
+        color: $color10;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.greeting__card {
+    width: 70%;
+    font-size: 0.9em;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: -1px 2px 4px rgba(0,0,0,.25), 1px 1px 3px rgba(0,0,0,.1);
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 1em;
+    overflow: auto;
+
+    em {
+        font-style: normal;
+        color: $color09;
+    }
+
+    .greeting__img {
+        width: auto;
+        height: 6rem;
+        float: right;
+    }
 }
 
 .toggle-title {
