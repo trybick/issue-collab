@@ -5,15 +5,16 @@ const InitialGreeting = ({ hasError }) => {
     <p>Oops, that was an error.</p>
   ) : (
     <div className="greeting__card">
-          <img src={require("../../images/ic.png")} alt="issues-collab" className="greeting__img" />
-    <span>
-      <p>
-        Use the toggles above to filter by common <em>issue labels</em> and by your favorite <em>programming
-        languages</em>. You can also search by <em>keyword</em>!
-      </p>
-      <p>Click Load Issues and get collaborating!</p>
+      {/* eslint-disable global-require */}
+      <img src={require('../../images/ic.png')} alt="issues-collab" className="greeting__img" />
+      {/* eslint-enable global-require */}
+      <span>
+        <p>
+          Use the toggles above to filter by common <em>issue labels</em> and by your favorite{' '}
+          <em>programming languages</em>. You can also search by <em>keyword</em>!
+        </p>
+        <p>Click Load Issues and get collaborating!</p>
       </span>
-
     </div>
   );
 
