@@ -8,40 +8,37 @@ import Labels from './toggles/Labels';
 import Languages from './toggles/Languages';
 import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
-import SearchResults from './search/SearchResults';
+import SearchResultsContainer from './search/SearchResultsContainer';
 import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
 import { baseUrl, sortOptions } from '../utils/constants';
 import '../styles/main.scss';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      labels: {
-        hacktoberfest: true,
-        goodFirstIssue: false,
-        helpWanted: false,
-        documentation: false,
-        bug: false,
-        react: false,
-      },
-      languages: {
-        python: false,
-        javascript: false,
-        php: false,
-        java: false,
-        ruby: false,
-        swift: false,
-      },
-      fetchError: false,
-      isEmpty: true,
-      isFetching: false,
-      results: {},
-      textToSearch: '',
-      url: '',
-      pageNum: 1,
-    };
-  }
+  state = {
+    labels: {
+      hacktoberfest: true,
+      goodFirstIssue: false,
+      helpWanted: false,
+      documentation: false,
+      bug: false,
+      react: false,
+    },
+    languages: {
+      python: false,
+      javascript: false,
+      php: false,
+      java: false,
+      ruby: false,
+      swift: false,
+    },
+    fetchError: false,
+    isEmpty: true,
+    isFetching: false,
+    results: {},
+    textToSearch: '',
+    url: '',
+    pageNum: 1,
+  };
 
   getActiveItems = type => {
     const items = this.state[type];
@@ -209,7 +206,7 @@ class App extends React.Component {
             <InitialGreeting hasError={fetchError} />
           )
         ) : (
-          <SearchResults
+          <SearchResultsContainer
             results={results}
             onPageChange={this.handlePageChange}
             currentPage={pageNum}

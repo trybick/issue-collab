@@ -5,7 +5,7 @@ import NoResultsMessage from '../statuses/NoResultsMessage';
 import { resultPerPage } from '../../utils/constants';
 import { SearchResult } from './SearchResult';
 
-const SearchResults = ({ currentPage, onPageChange, results }) => {
+const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
   const formattedResults =
     results.items[0] &&
     results.items.map(item => {
@@ -61,4 +61,4 @@ const SearchResults = ({ currentPage, onPageChange, results }) => {
   );
 };
 
-export default SearchResults;
+export default SearchResultsContainer;

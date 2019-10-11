@@ -5,7 +5,6 @@ const KeywordsInput = props => {
   return (
     <div className="keywords-input">
       <form id="issues-form">
-        {/* <h4 className="keywords-input-title">keywords (optional):</h4> */}
         <input
           className="keywords-text-input"
           type="text"
