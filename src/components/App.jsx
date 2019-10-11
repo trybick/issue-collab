@@ -18,12 +18,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       labels: {
+        hacktoberfest: true,
         goodFirstIssue: false,
         helpWanted: false,
-        easy: false,
         documentation: false,
         bug: false,
-        hacktoberfest: true,
+        react: false,
       },
       languages: {
         python: false,
@@ -174,8 +174,9 @@ class App extends React.Component {
     } = this.state;
 
     return (
-      <div className="wrapper">
+      <div className="app-wrapper">
         <Header />
+
         <Labels labels={labels} onToggleChange={this.onToggleChange} />
         <Languages languages={languages} onToggleChange={this.onToggleChange} />
         <KeywordsInput handleTextChange={this.handleTextChange} textToSearch={textToSearch} />
