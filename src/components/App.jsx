@@ -67,31 +67,30 @@ class App extends React.Component {
     return res.json();
   };
 
-  getIssues = (event, shouldResetPageNum = true) => {
+  getIssues = async (event, shouldResetPageNum = true) => {
     event.preventDefault();
-    const newState = {
+    const preFetchState = {
       isEmpty: true,
       isFetching: true,
     };
     if (shouldResetPageNum) {
-      newState.pageNum = 1;
+      preFetchState.pageNum = 1;
     }
-    this.setState(newState, async () => {
-      const finalUrl = this.createUrl();
-      await fetch(finalUrl)
-        .then(this.handleErrors)
-        .then(resJson => {
-          this.setState({
-            isEmpty: false,
-            isFetching: false,
-            results: resJson,
-            url: finalUrl,
-          });
-        })
-        .catch(() => {
-          this.setState({ fetchError: true, isFetching: false });
+    this.setState(preFetchState);
+    const finalUrl = this.createUrl();
+    await fetch(finalUrl)
+      .then(this.handleErrors)
+      .then(resJson => {
+        this.setState({
+          isEmpty: false,
+          isFetching: false,
+          results: resJson,
+          url: finalUrl,
         });
-    });
+      })
+      .catch(() => {
+        this.setState({ fetchError: true, isFetching: false });
+      });
   };
 
   handleTextChange = event => {
