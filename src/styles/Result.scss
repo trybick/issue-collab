@@ -48,6 +48,31 @@
   }
 }
 
+.results-container {
+  font-family: 'Roboto Mono', monospace;
+  line-height: 2em;
+
+  .container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .issues-found {
+    font-size: 1.2em;
+
+    .highlight {
+      font-weight: bold;
+      color: #3498db;
+      padding-left: 0.8em;
+    }
+  }
+
+  .page-count {
+    font-size: 1.1em;;
+  }
+}
+
 .results-count {
   font-family: 'Roboto Mono', monospace;
   line-height: 2em;

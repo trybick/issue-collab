@@ -1,6 +1,9 @@
 .pagination {
-  text-align: center;
-  margin: 35px 0 40px;
+  // text-align: center;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
   .btn {
     width: 100px;

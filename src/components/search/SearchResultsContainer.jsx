@@ -40,22 +40,27 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
       );
     });
 
-  const resultCount = results.total_count > 0 && (
-    <h4 className="results-count">
-      Issues Found:
-      <span className="highlight">{results.total_count.toLocaleString()}</span>
-    </h4>
+  const totalPages = Math.ceil(results.total_count / resultPerPage);
+
+  const resultsContainerHeader = results.total_count > 0 && (
+    <div className="container-header">
+      <h4 className="issues-found">
+        Issues Found:
+        <span className="highlight">{results.total_count.toLocaleString()}</span>
+      </h4>
+      {/* <h4 className="page-count">
+        Page {currentPage} of {totalPages}
+      </h4> */}
+    </div>
   );
 
-  const totalPage = Math.ceil(results.total_count / resultPerPage);
-
   return (
-    <div className="results">
-      {resultCount}
+    <div className="results-container">
+      {resultsContainerHeader}
       {formattedResults}
       {results.total_count === 0 && <NoResultsMessage />}
-      {totalPage > 1 && (
-        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalPage={totalPage} />
+      {totalPages > 1 && (
+        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalPages={totalPages} />
       )}
     </div>
   );
