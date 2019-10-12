@@ -27,7 +27,6 @@
   }
 
   &:disabled {
-    opacity: 0.60;
-    cursor: wait;
+    cursor: default;
   }
 }

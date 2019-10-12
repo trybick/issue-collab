@@ -113,6 +113,7 @@ class App extends React.Component {
     this.setState(
       {
         pageNum,
+        isButtonLocked: false,
       },
       () => {
         this.getIssues(e, false);
@@ -157,12 +158,18 @@ class App extends React.Component {
     return currentItems;
   };
 
-  onResetToggles = () => {
+  onReset = () => {
     const resetLabels = this.resetToggles('labels');
     const resetLanguages = this.resetToggles('languages');
     this.setState({
       labels: { ...resetLabels },
       languages: { ...resetLanguages },
+      fetchError: false,
+      isEmpty: true,
+      results: {},
+      textToSearch: '',
+      pageNum: 1,
+      isButtonLocked: false,
     });
   };
 
@@ -191,10 +198,10 @@ class App extends React.Component {
         <Button
           className="reset-btn"
           classNameWrapper="reset-btn-wrapper"
-          onClick={this.onResetToggles}
+          onClick={this.onReset}
           type="button"
         >
-          Clear filters
+          Reset
         </Button>
 
         {/* Get button */}
