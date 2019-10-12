@@ -1,6 +1,6 @@
 import '../../styles/Result.scss';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Chip from '../core/Chip';
 
 export const SearchResult = ({
@@ -13,20 +13,28 @@ export const SearchResult = ({
   issueAge,
   labels,
 }) => {
-  const mappedLabels = labels.map(({ id, name, color }) => {
+  const [hasBeenClicked, setClicked] = useState(false);
+
+  const labelChips = labels.map(({ id, name, color }) => {
     return <Chip key={id} text={name} color={color} />;
   });
 
   return (
-    <div className="result">
-      <div className="header">
-        <img src={user.avatar_url} alt="avatar" />
+    <div className={`result ${hasBeenClicked ? 'clicked' : ''}`}>
+      <div className="result-header">
+        <img className="avatar" src={user.avatar_url} alt="avatar" />
 
-        <a href={htmlUrl} target="_blank" rel="noopener noreferrer">
+        <a
+          href={htmlUrl}
+          onClick={() => setClicked(true)}
+          className="link-title"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {title}
         </a>
       </div>
-      <div className="content">
+      <div className="result-content">
         <p className="body-text">{bodyText}</p>
 
         <div className="metadata">
@@ -34,7 +42,7 @@ export const SearchResult = ({
           <div className="issue-age">{issueAge}</div>
         </div>
 
-        <div className="mapped-labels">{mappedLabels}</div>
+        <div className="label-chips">{labelChips}</div>
       </div>
     </div>
   );

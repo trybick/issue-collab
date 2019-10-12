@@ -6,21 +6,26 @@
   border-radius: 0.2em;
   font-family: 'Lato', sans-serif;
 
-  .header {
+  &.clicked {
+    opacity: 0.55;
+  }
+
+  &-header {
     display: flex;
     align-items: center;
 
-    img {
+    .avatar {
       width: 3em;
       border-radius: 1.5em;
       margin-right: 1em;
     }
-    a {
+    .link-title {
       font-family: 'Roboto Mono', monospace;
       text-decoration: none;
     }
   }
-  .content {
+
+  &-content {
     padding-left: 5px;
 
     .body-text {
@@ -37,12 +42,11 @@
 
       .issue-age {
         font-size: 0.9em;
-        margin-top: 4px;
+        margin-top: -8px;
       }
     }
 
-    .mapped-labels {
-      color: red;
+    .label-chips {
       margin: 5px 0 5px;
     }
   }
@@ -69,7 +73,7 @@
   }
 
   .page-count {
-    font-size: 1.1em;;
+    font-size: 1.1em;
   }
 }
 
