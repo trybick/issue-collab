@@ -1,15 +1,15 @@
 import React from 'react';
 
 const KeywordsInput = props => {
-  const { handleTextChange, searchText } = props;
+  const { handleTextChange, textToSearch } = props;
   return (
     <div className="keywords-input">
       <form id="issues-form">
         <input
           className="keywords-text-input"
           type="text"
-          placeholder="keywords (optional)"
-          value={searchText}
+          placeholder="keyword search"
+          value={textToSearch}
           onChange={handleTextChange}
         />
       </form>
