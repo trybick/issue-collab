@@ -21,7 +21,7 @@ const Pagination = ({ totalPages = 1, currentPage = 1, onPageChange = () => {} }
         </Button>
       )}
       <div className="page-count">
-        Page {currentPage} of {totalPages}
+        Page {currentPage} of {totalPages.toLocaleString()}
       </div>
       <Button onClick={handleClickNext} disabled={currentPage === totalPages}>
         Next
