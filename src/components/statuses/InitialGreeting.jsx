@@ -19,7 +19,7 @@ const InitialGreeting = ({ hasError }) => {
     </div>
   );
 
-  return <div className="initial-greeting">{statusMessage}</div>;
+  return <div className="greeting-card-wrapper">{statusMessage}</div>;
 };
 
 export default InitialGreeting;

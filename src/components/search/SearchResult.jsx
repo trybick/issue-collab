@@ -20,7 +20,7 @@ export const SearchResult = ({
   });
 
   return (
-    <div className={`result ${hasBeenClicked ? 'clicked' : ''}`}>
+    <div className={`result-wrapper ${hasBeenClicked ? 'clicked' : ''}`}>
       <div className="result-header">
         <img className="avatar" src={user.avatar_url} alt="avatar" />
 
@@ -34,7 +34,7 @@ export const SearchResult = ({
           {title}
         </a>
       </div>
-      <div className="result-content">
+      <div className="result-body">
         <p className="body-text">{bodyText}</p>
 
         <div className="metadata">

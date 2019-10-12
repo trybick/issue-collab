@@ -3,7 +3,7 @@ import { GithubCorner } from './GithubCorner';
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className="page-header">
       <h2 className="page-title">
         <span style={{ color: '#3498db' }}>Issue</span>-
         <span style={{ color: 'black' }}>Collab</span>
