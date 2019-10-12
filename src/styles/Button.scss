@@ -15,7 +15,7 @@
     transition: all 150ms linear;
     opacity: 0.85;
   }
-  
+
   &:active {
     transition: all 150ms linear;
     opacity: 0.75;
@@ -27,6 +27,7 @@
   }
 
   &:disabled {
-    pointer-events: none;
+    opacity: 0.60;
+    cursor: wait;
   }
 }

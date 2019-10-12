@@ -36,8 +36,8 @@ class App extends React.Component {
     isFetching: false,
     results: {},
     textToSearch: '',
-    url: '',
     pageNum: 1,
+    isButtonLocked: false,
   };
 
   getActiveItems = type => {
@@ -68,10 +68,14 @@ class App extends React.Component {
   };
 
   getIssues = async (event, shouldResetPageNum = true) => {
+    const { isButtonLocked } = this.state;
     event.preventDefault();
+    if (isButtonLocked) return;
+
     const preFetchState = {
       isEmpty: true,
       isFetching: true,
+      isButtonLocked: true,
     };
     if (shouldResetPageNum) {
       preFetchState.pageNum = 1;
@@ -81,20 +85,25 @@ class App extends React.Component {
     await fetch(finalUrl)
       .then(this.handleErrors)
       .then(resJson => {
-        this.setState({
-          isEmpty: false,
-          isFetching: false,
-          results: resJson,
-          url: finalUrl,
-        });
+        this.setState(
+          {
+            isEmpty: false,
+            isFetching: false,
+            results: resJson,
+          },
+          () =>
+            setTimeout(() => {
+              this.setState({ isButtonLocked: false });
+            }, 3000)
+        );
       })
       .catch(() => {
-        this.setState({ fetchError: true, isFetching: false });
+        this.setState({ fetchError: true, isFetching: false, isButtonLocked: false });
       });
   };
 
-  handleTextChange = event => {
-    this.setState({ textToSearch: event.target.value });
+  handleTextChange = e => {
+    this.setState({ textToSearch: e.target.value });
   };
 
   handlePageChange = (e, pageNum) => {
@@ -160,6 +169,7 @@ class App extends React.Component {
   render() {
     const {
       fetchError,
+      isButtonLocked,
       isEmpty,
       isFetching,
       labels,
@@ -191,6 +201,7 @@ class App extends React.Component {
         <Button
           className="get-issues-btn"
           classNameWrapper="get-button-wrapper"
+          disabled={isFetching || isButtonLocked}
           forForm="issues-form"
           onClick={this.getIssues}
           type="submit"
