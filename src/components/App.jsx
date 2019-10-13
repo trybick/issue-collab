@@ -1,7 +1,6 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import Button from './core/Button';
 import Header from './core/Header';
 import KeywordsInput from './search/KeywordsInput';
 import Labels from './toggles/Labels';
@@ -12,6 +11,7 @@ import SearchResultsContainer from './search/SearchResultsContainer';
 import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
 import { baseUrl, sortOptions } from '../utils/constants';
 import '../styles/main.scss';
+import Button from '@material-ui/core/Button';
 
 class App extends React.Component {
   state = {
@@ -194,26 +194,25 @@ class App extends React.Component {
         <Languages languages={languages} onToggleChange={this.onToggleChange} />
         <KeywordsInput handleTextChange={this.handleTextChange} textToSearch={textToSearch} />
 
-        {/* Reset button */}
         <Button
-          className="reset-btn"
-          classNameWrapper="reset-btn-wrapper"
-          onClick={this.onReset}
-          type="button"
-        >
-          Reset
-        </Button>
-
-        {/* Get button */}
-        <Button
-          className="get-issues-btn"
-          classNameWrapper="get-button-wrapper"
+          className="get-button-wrapper"
+          color="primary"
+          variant="contained"
           disabled={isFetching || isButtonLocked}
           forForm="issues-form"
           onClick={this.getIssues}
           type="submit"
         >
           Load Issues
+        </Button>
+
+        <Button
+          color="secondary"
+          variant="contained"
+          className="reset-btn-wrapper"
+          onClick={this.onReset}
+        >
+          Reset
         </Button>
 
         {isEmpty ? (

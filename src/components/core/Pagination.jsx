@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './Button';
 import '../../styles/Pagination.scss';
+import Button from '@material-ui/core/Button';
 
 const Pagination = ({ totalPages = 1, currentPage = 1, onPageChange = () => {} }) => {
   const handleClickPrev = e => {
@@ -16,14 +16,26 @@ const Pagination = ({ totalPages = 1, currentPage = 1, onPageChange = () => {} }
   return (
     <div className="pagination">
       {currentPage !== 1 && (
-        <Button onClick={handleClickPrev} disabled={currentPage === 1}>
+        <Button
+          color="primary"
+          onClick={handleClickPrev}
+          className="pagination-buttons"
+          disabled={currentPage === 1}
+          variant="contained"
+        >
           Previous
         </Button>
       )}
       <div className="page-count">
         Page {currentPage} of {totalPages.toLocaleString()}
       </div>
-      <Button onClick={handleClickNext} disabled={currentPage === totalPages}>
+      <Button
+        color="primary"
+        onClick={handleClickNext}
+        className="pagination-buttons"
+        disabled={currentPage === totalPages}
+        variant="contained"
+      >
         Next
       </Button>
     </div>
