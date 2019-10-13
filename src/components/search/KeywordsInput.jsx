@@ -8,7 +8,7 @@ const KeywordsInput = props => {
         <input
           className="keywords-text-input"
           type="text"
-          placeholder="keyword search"
+          placeholder="Enter keywords"
           value={textToSearch}
           onChange={handleTextChange}
         />

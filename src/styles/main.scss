@@ -57,18 +57,19 @@ body {
   }
 }
 
-.get-button-wrapper {
+.get-btn {
   grid-area: get;
   justify-self: end;
   margin-right: 10px !important;
   background-color: $color10 !important;
 }
 
-.reset-btn-wrapper {
+.reset-btn {
   grid-area: reset;
   justify-self: start;
   margin-left: 10px !important;
   background-color: $color12;
+  width: 148.75px;
 }
 
 .loading-spinner {
@@ -134,26 +135,6 @@ body {
   vertical-align: top;
 }
 
-.get-issues-btn {
-  width: 110px;
-  height: 42px;
-  color: #e7ff20;
-  background-color: #7999a9;
-  box-shadow: 2px 5px 10px var(--color-smoke);
-
-  font-size: 13px;
-  font-weight: 450;
-}
-
-.reset-btn {
-  width: 82px;
-  height: 28px;
-  color: #e7ff20;
-  background-color: #7999a9;
-  font-weight: 450;
-  box-shadow: 2px 5px 10px var(--color-smoke);
-}
-
 .keywords-text-input {
   border: 2px solid #aaa;
   border-radius: 4px;
@@ -161,7 +142,7 @@ body {
   padding: 8px;
   transition: 0.3s;
   width: 125px;
-  font-size: 0.75em;
+  font-size: 0.8em;
 
   &:focus {
     border-color: dodgerBlue;

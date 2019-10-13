@@ -195,13 +195,14 @@ class App extends React.Component {
         <KeywordsInput handleTextChange={this.handleTextChange} textToSearch={textToSearch} />
 
         <Button
-          className="get-button-wrapper"
+          className="get-btn"
           color="primary"
           variant="contained"
           disabled={isFetching || isButtonLocked}
           forForm="issues-form"
           onClick={this.getIssues}
           type="submit"
+          size="large"
         >
           Load Issues
         </Button>
@@ -209,8 +210,9 @@ class App extends React.Component {
         <Button
           color="secondary"
           variant="contained"
-          className="reset-btn-wrapper"
+          className="reset-btn"
           onClick={this.onReset}
+          size="large"
         >
           Reset
         </Button>
