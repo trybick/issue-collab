@@ -166,6 +166,7 @@ class App extends React.Component {
       languages: { ...resetLanguages },
       fetchError: false,
       isEmpty: true,
+      isLoading: false,
       results: {},
       textToSearch: '',
       pageNum: 1,
@@ -199,7 +200,6 @@ class App extends React.Component {
           color="primary"
           variant="contained"
           disabled={isFetching || isButtonLocked}
-          forForm="issues-form"
           onClick={this.getIssues}
           type="submit"
           size="large"
