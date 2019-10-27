@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Chip.scss';
+import './Chip.scss';
 import { getContrastTextColor } from '../../utils/color';
 
 const Chip = ({ text, color }) => {

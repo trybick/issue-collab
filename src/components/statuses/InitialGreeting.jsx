@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from '../../images/ic.png';
+import logo from '../../images/greeting-icon.png';
+import './InitialGreeting.scss';
 
 const InitialGreeting = ({ hasError }) => {
   const statusMessage = hasError ? (

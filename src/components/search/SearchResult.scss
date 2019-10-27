@@ -1,6 +1,6 @@
 .result-wrapper {
   padding: 1em;
-  margin: .75em 0 2em;
+  margin: 0.75em 0 2em;
   background-color: #ffffff;
   box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 0.2em;
@@ -49,42 +49,5 @@
     .label-chips {
       margin: 5px 0 5px;
     }
-  }
-}
-
-.results-container {
-  font-family: 'Roboto Mono', monospace;
-  line-height: 2em;
-
-  .container-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .issues-found {
-    font-size: 1.2em;
-
-    .highlight {
-      font-weight: bold;
-      color: #3498db;
-      padding-left: 0.8em;
-    }
-  }
-
-  .page-count {
-    font-size: 1.1em;
-  }
-}
-
-.results-count {
-  font-family: 'Roboto Mono', monospace;
-  line-height: 2em;
-  font-size: 1.2em;
-
-  .highlight {
-    font-weight: bold;
-    color: #3498db;
-    padding-left: 0.8em;
   }
 }

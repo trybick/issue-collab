@@ -1,4 +1,4 @@
-import '../../styles/Result.scss';
+import './SearchResult.scss';
 
 import React, { useState } from 'react';
 import Chip from '../core/Chip';

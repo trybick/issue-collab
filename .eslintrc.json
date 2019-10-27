@@ -5,7 +5,7 @@
   "globals": {
     "fetch": false
   },
-  "env":{
+  "env": {
     "browser": true
   },
   "rules": {
@@ -19,13 +19,14 @@
     "padded-blocks": 1,
     "func-names": 0,
     "no-console": 0,
-    "react/destructuring-assignment": 1,
     "import/order": 0,
     "react/sort-comp": 0,
     "jsx-a11y/label-has-associated-control": 0,
     "jsx-a11y/label-has-for": 0,
     "react/prop-types": 0,
     "prefer-const": 1,
-    "react/no-unused-state": 1
+    "react/no-unused-state": 1,
+    "no-nested-ternary": 0,
+    "react/destructuring-assignment": 0
   }
 }

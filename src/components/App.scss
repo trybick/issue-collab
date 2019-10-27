@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Mono&display=swap');
+@import '../styles/variables';
+@import '../styles/normalize';
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: $color08;
+
+  h3,
+  h4 {
+    font-weight: 400;
+  }
+}
+
+.app-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+

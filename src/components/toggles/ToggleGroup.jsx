@@ -6,7 +6,7 @@ import '../../styles/react-toggle.scss';
 const ToggleGroup = ({ dataType, items, onToggleChange, names }) => {
   const mappedToggles = names.map(name => {
     return (
-      <div className="toggle-item" key={name}>
+      <div key={name}>
         <Toggle
           data-type={dataType}
           checked={items[name]}

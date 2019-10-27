@@ -4,8 +4,20 @@ import Pagination from '../core/Pagination';
 import NoResultsMessage from '../statuses/NoResultsMessage';
 import { resultPerPage } from '../../utils/constants';
 import { SearchResult } from './SearchResult';
+import './SearchResultsContainer.scss';
 
 const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
+  const totalPages = Math.ceil(results.total_count / resultPerPage);
+
+  const resultsContainerHeader = results.total_count > 0 && (
+    <div className="results-container-header">
+      <h4 className="issues-count">
+        Issues Found:
+        <span className="issues-count-number">{results.total_count.toLocaleString()}</span>
+      </h4>
+    </div>
+  );
+
   const formattedResults =
     results.items[0] &&
     results.items.map(item => {
@@ -14,7 +26,7 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
       const repoName = htmlUrl[4];
       const issueAge = moment(item.created_at).fromNow();
 
-      let bodyText = <span style={{ fontStyle: 'italic' }}>No additional text</span>;
+      let bodyText = <span className="no-text-message">No additional text</span>;
       if (item.body) {
         if (item.body.length < 300) {
           bodyText = item.body;
@@ -39,20 +51,6 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
         />
       );
     });
-
-  const totalPages = Math.ceil(results.total_count / resultPerPage);
-
-  const resultsContainerHeader = results.total_count > 0 && (
-    <div className="container-header">
-      <h4 className="issues-found">
-        Issues Found:
-        <span className="highlight">{results.total_count.toLocaleString()}</span>
-      </h4>
-      {/* <h4 className="page-count">
-        Page {currentPage} of {totalPages}
-      </h4> */}
-    </div>
-  );
 
   return (
     <div className="results-container">

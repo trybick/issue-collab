@@ -1,0 +1,30 @@
+.results-container {
+  max-width: 800px;
+  font-family: 'Roboto Mono', monospace;
+  line-height: 2em;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 800px) {
+    max-width: 90vw;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .issues-count {
+    font-size: 1.2em;
+
+    &-number {
+      font-weight: bold;
+      color: #3498db;
+      padding-left: 0.8em;
+    }
+  }
+
+  .no-text-message {
+    font-style: italic;
+  }
+}

@@ -1,0 +1,49 @@
+@import '../../styles/variables';
+
+.greeting-card-wrapper {
+  text-align: center;
+
+  p {
+    font-weight: 300;
+    b {
+      font-family: 'Roboto Mono', monospace;
+    }
+  }
+
+  &::before {
+    font-family: 'Roboto Mono';
+    content: '*';
+    font-size: 4em;
+    float: left;
+    position: relative;
+    left: 105px;
+    line-height: 0;
+    color: $color10;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.greeting-card {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  width: 75%;
+  font-size: 0.98em;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 1em;
+  overflow: auto;
+
+  em {
+    font-style: normal;
+    color: $color09;
+  }
+
+  .greeting-img {
+    width: auto;
+    height: 6rem;
+  }
+}

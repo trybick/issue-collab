@@ -1,22 +1,18 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
+import { baseUrl, sortOptions } from '../utils/constants';
+import './App.scss';
 import Header from './core/Header';
-import KeywordsInput from './search/KeywordsInput';
-import Labels from './toggles/Labels';
-import Languages from './toggles/Languages';
+import SearchContainer from './search/SearchContainer';
+import TogglesContainer from './toggles/TogglesContainer';
 import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
 import SearchResultsContainer from './search/SearchResultsContainer';
-import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
-import { baseUrl, sortOptions } from '../utils/constants';
-import '../styles/main.scss';
-import Button from '@material-ui/core/Button';
 
 class App extends React.Component {
   state = {
     labels: {
-      hacktoberfest: true,
+      hacktoberfest: false,
       goodFirstIssue: false,
       helpWanted: false,
       documentation: false,
@@ -190,32 +186,18 @@ class App extends React.Component {
     return (
       <div className="app-wrapper">
         <Header />
-
-        <Labels labels={labels} onToggleChange={this.onToggleChange} />
-        <Languages languages={languages} onToggleChange={this.onToggleChange} />
-        <KeywordsInput handleTextChange={this.handleTextChange} textToSearch={textToSearch} />
-
-        <Button
-          className="get-btn"
-          color="primary"
-          variant="contained"
-          disabled={isFetching || isButtonLocked}
-          onClick={this.getIssues}
-          type="submit"
-          size="large"
-        >
-          Load Issues
-        </Button>
-
-        <Button
-          color="secondary"
-          variant="contained"
-          className="reset-btn"
-          onClick={this.onReset}
-          size="large"
-        >
-          Reset
-        </Button>
+        <TogglesContainer
+          labels={labels}
+          languages={languages}
+          onToggleChange={this.onToggleChange}
+        />
+        <SearchContainer
+          handleTextChange={this.handleTextChange}
+          textToSearch={textToSearch}
+          isGetButtonDisabled={isFetching || isButtonLocked}
+          getIssues={this.getIssues}
+          onReset={this.onReset}
+        />
 
         {isEmpty ? (
           isFetching ? (

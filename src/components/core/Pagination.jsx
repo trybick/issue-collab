@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Pagination.scss';
+import './Pagination.scss';
 import Button from '@material-ui/core/Button';
 
 const Pagination = ({ totalPages = 1, currentPage = 1, onPageChange = () => {} }) => {
