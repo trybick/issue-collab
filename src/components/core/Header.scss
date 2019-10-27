@@ -4,7 +4,7 @@
 
   &-title {
     font-family: 'Roboto Mono', monospace;
-    font-size: 1.9em;
+    font-size: 2em;
     margin-bottom: 16px;
   }
 
@@ -16,6 +16,11 @@
     &-icon {
       height: 20px;
       margin-left: 20px;
+
+      &:hover {
+        transform: scale(1.12, 1.12);
+        transition: 200ms;
+      }
     }
   }
 }
