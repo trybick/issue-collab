@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .page-header {
   margin: 40px 0 20px;
   text-align: center;
@@ -6,6 +8,10 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 2em;
     margin-bottom: 16px;
+
+    &-highlight {
+      color: $color10;
+    }
   }
 
   .github-link {

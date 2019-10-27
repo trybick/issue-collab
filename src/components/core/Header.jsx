@@ -5,7 +5,7 @@ import icon from '../../images/github-icon.png';
 const Header = () => (
   <div className="page-header">
     <h2 className="page-header-title">
-      <span style={{ color: '#3498db' }}>Issue</span>-Collab
+      <span className="page-header-title-highlight">Issue</span>-Collab
     </h2>
     <a
       className="github-link"
