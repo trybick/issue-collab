@@ -3,4 +3,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  .page-count {
+    text-align: center;
+    margin: 0 auto 0 auto;
+  }
 }

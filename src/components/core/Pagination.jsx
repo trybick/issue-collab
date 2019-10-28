@@ -19,11 +19,10 @@ const Pagination = ({ totalPages = 1, currentPage = 1, onPageChange = () => {} }
         <Button
           color="primary"
           onClick={handleClickPrev}
-          className="pagination-buttons"
           disabled={currentPage === 1}
           variant="contained"
         >
-          Previous
+          Back
         </Button>
       )}
       <div className="page-count">
@@ -32,7 +31,6 @@ const Pagination = ({ totalPages = 1, currentPage = 1, onPageChange = () => {} }
       <Button
         color="primary"
         onClick={handleClickNext}
-        className="pagination-buttons"
         disabled={currentPage === totalPages}
         variant="contained"
       >
