@@ -1,32 +1,40 @@
 @import '../../styles/variables';
 
 .page-header {
-  margin: 40px 0 25px;
+  margin: 30px auto 25px;
   text-align: center;
+  border-bottom: 2px solid grey;
+
+  display: flex;
+  max-width: 550px;
+  justify-content: space-between;
+  align-items: center;
 
   &-title {
     font-family: 'Roboto Mono', monospace;
     font-size: 2em;
-    margin-bottom: 16px;
+    // margin-bottom: 16px;
+    padding-bottom: 6px;
+    margin: 0;
 
     &-highlight {
       color: $color10;
     }
   }
 
-  .github-link {
-    align-self: center;
-    justify-content: center;
-    height: 20px;
+  // .github-link {
+  //   align-self: center;
+  //   justify-content: center;
+  //   height: 20px;
 
-    &-icon {
-      height: 20px;
-      margin-left: 20px;
+  //   &-icon {
+  //     height: 20px;
+  //     margin-left: 20px;
 
-      &:hover {
-        transform: scale(1.12, 1.12);
-        transition: 200ms;
-      }
-    }
-  }
+  //     &:hover {
+  //       transform: scale(1.12, 1.12);
+  //       transition: 200ms;
+  //     }
+  //   }
+  // }
 }
