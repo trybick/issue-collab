@@ -63,9 +63,8 @@ class App extends React.Component {
     return res.json();
   };
 
-  getIssues = async (event, shouldResetPageNum = true) => {
+  getIssues = async (shouldResetPageNum = true) => {
     const { isButtonLocked } = this.state;
-    event.preventDefault();
     if (isButtonLocked) return;
 
     const preFetchState = {
@@ -77,6 +76,7 @@ class App extends React.Component {
       preFetchState.pageNum = 1;
     }
     this.setState(preFetchState);
+
     const finalUrl = this.createUrl();
     await fetch(finalUrl)
       .then(this.handleErrors)
@@ -99,7 +99,14 @@ class App extends React.Component {
   };
 
   handleTextChange = e => {
+    // e.preventDefault();
+    // console.log(e.target);
     this.setState({ textToSearch: e.target.value });
+    // if (e.key === 'Enter') {
+    //   console.log('hi');
+
+    //   this.getIssues();
+    // }
   };
 
   handlePageChange = (e, pageNum) => {
