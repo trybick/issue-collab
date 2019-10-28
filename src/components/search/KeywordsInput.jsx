@@ -1,18 +1,17 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
 
-const KeywordsInput = props => {
-  const { handleTextChange, textToSearch } = props;
-  return (
-    <form id="issues-form">
-      <input
-        className="keywords-text-input"
-        type="text"
-        placeholder="Enter keywords"
-        value={textToSearch}
-        onChange={handleTextChange}
-      />
-    </form>
-  );
-};
+const KeywordsInput = ({ handleTextChange, textToSearch }) => (
+  <form id="issues-form">
+    <TextField
+      margin="dense"
+      placeholder="Keywords (optional)"
+      type="text"
+      variant="outlined"
+      value={textToSearch}
+      onChange={handleTextChange}
+    />
+  </form>
+);
 
 export default KeywordsInput;

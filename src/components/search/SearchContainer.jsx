@@ -24,7 +24,7 @@ const SearchContainer = ({
         type="submit"
         size="large"
       >
-        Load Issues
+        Find Issues
       </Button>
       <Button
         color="secondary"

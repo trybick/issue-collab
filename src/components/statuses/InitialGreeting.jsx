@@ -13,7 +13,7 @@ const InitialGreeting = ({ hasError }) => {
           <em>programming languages</em>. You can also search by <em>keyword</em>!
         </p>
         <p>
-          Click <em>Load Issues</em> and get collaborating!
+          Click <em>Find Issues</em> and get collaborating!
         </p>
       </span>
       <img src={logo} alt="issue-collab-logo" className="greeting-img" />
