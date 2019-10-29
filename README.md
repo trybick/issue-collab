@@ -9,7 +9,7 @@
 - Use the toggle switches to filter results. Optionally enter text keywords
 - Click a title to open the issue on GitHub in a new tab
 
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/39889198/67808520-3a6b4a80-fa6d-11e9-95ed-52328c3ba2a6.gif)
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/39889198/67807711-ba90b080-fa6b-11e9-9326-c1dface895c2.gif)
 
 ## Background
 
