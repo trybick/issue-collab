@@ -63,7 +63,9 @@ class App extends React.Component {
     return res.json();
   };
 
-  getIssues = async (shouldResetPageNum = true) => {
+  getIssues = async (e, shouldResetPageNum = true) => {
+    if (e) e.preventDefault();
+
     const { isButtonLocked } = this.state;
     if (isButtonLocked) return;
 

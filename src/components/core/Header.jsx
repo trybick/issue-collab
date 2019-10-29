@@ -10,11 +10,9 @@ const Header = () => (
 
     <GitHubButton
       href="https://github.com/trybick/issue-collab"
-      data-icon="octicon-star"
-      data-show-count="true"
-      aria-label="Star trybick/issue-collab on GitHub"
+      aria-label="View trybick/issue-collab on GitHub"
     >
-      Star
+      Follow
     </GitHubButton>
   </div>
 );
