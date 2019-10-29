@@ -6,14 +6,13 @@
   border-bottom: 2px solid grey;
 
   display: flex;
-  max-width: 550px;
+  max-width: 600px;
   justify-content: space-between;
   align-items: center;
 
   &-title {
     font-family: 'Roboto Mono', monospace;
     font-size: 2em;
-    // margin-bottom: 16px;
     padding-bottom: 6px;
     margin: 0;
 
@@ -21,20 +20,4 @@
       color: $color10;
     }
   }
-
-  // .github-link {
-  //   align-self: center;
-  //   justify-content: center;
-  //   height: 20px;
-
-  //   &-icon {
-  //     height: 20px;
-  //     margin-left: 20px;
-
-  //     &:hover {
-  //       transform: scale(1.12, 1.12);
-  //       transition: 200ms;
-  //     }
-  //   }
-  // }
 }

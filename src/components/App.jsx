@@ -99,14 +99,7 @@ class App extends React.Component {
   };
 
   handleTextChange = e => {
-    // e.preventDefault();
-    // console.log(e.target);
     this.setState({ textToSearch: e.target.value });
-    // if (e.key === 'Enter') {
-    //   console.log('hi');
-
-    //   this.getIssues();
-    // }
   };
 
   handlePageChange = (e, pageNum) => {
