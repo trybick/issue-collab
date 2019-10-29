@@ -1,12 +1,13 @@
 # Issue Collab
 
-> Find open source projects on GitHub by searching with labels, languages, and search terms
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a515d6f7-91ed-4ce2-899a-5958d9600ba8/deploy-status)](https://app.netlify.com/sites/issue-collab/deploys)
 
-## Demo
+> A search tool designed to help you find open source projects
 
-- Click the toggle switches to narrow down search results by labels or language
-- Optionally add search terms to the text input
-- Click a title to open an issue on GitHub in a new tab.
+## Demo & Usage
+
+- Use the toggle switches to filter results. Optionally enter text keywords
+- Click a title to open the issue on GitHub in a new tab
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/32887144/66427658-6fdac600-e9e2-11e9-88dd-fb8d33d37256.gif)
 
@@ -43,8 +44,3 @@ Thank you for your interest! All types of contributions welcome. **HACK AWAY!** 
 - Run `npm run lint:fix` to ensure correct formatting
 - Please open your PR with the `development` branch as the base
 
----
-
-#### This application uses Netlify Continuous Delivery on the `master` branch
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a515d6f7-91ed-4ce2-899a-5958d9600ba8/deploy-status)](https://app.netlify.com/sites/issue-collab/deploys)
