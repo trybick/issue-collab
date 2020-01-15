@@ -8,6 +8,12 @@ import TogglesContainer from './toggles/TogglesContainer';
 import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
 import SearchResultsContainer from './search/SearchResultsContainer';
+import ReactGA from 'react-ga';
+
+function initGoogleAnalytics() {
+  ReactGA.initialize('UA-156066902-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
 
 class App extends React.Component {
   state = {
@@ -184,6 +190,8 @@ class App extends React.Component {
       results,
       textToSearch,
     } = this.state;
+
+    initGoogleAnalytics();
 
     return (
       <div className="app-wrapper">
