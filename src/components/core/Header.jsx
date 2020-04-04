@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.scss';
-import GitHubButton from 'react-github-btn';
+import githubIcon from '../../images/github-icon.svg';
 
 const Header = () => (
   <div className="page-header">
@@ -8,12 +8,14 @@ const Header = () => (
       <span className="page-header-title-highlight">Issue</span>-Collab
     </h2>
 
-    <GitHubButton
+    <a
+      className="github-link"
       href="https://github.com/trybick/issue-collab"
-      aria-label="View trybick/issue-collab on GitHub"
+      target="_blank"
+      rel="noopener noreferrer"
     >
-      Follow
-    </GitHubButton>
+      <img className="github-svg" src={githubIcon} alt="github-icon" />
+    </a>
   </div>
 );
 

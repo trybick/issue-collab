@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "issue-collab",
   "version": "1.8.0",
   "description": "Tool for finding open source projects on GitHub",
@@ -9,21 +8,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/trybick/issue-collab"
-=======
-  "name": "github-issue-search",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.5.1",
-    "moment": "^2.22.2",
-    "node-sass": "^4.9.4",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-github-btn": "^1.1.1",
-    "react-scripts": "^2.1.3",
-    "react-spinners": "^0.5.4",
-    "react-toggle": "^4.0.2"
->>>>>>> parent of 64be666... Add google analytics
   },
   "keywords": [
     "github",
@@ -54,8 +38,6 @@
     "node-sass": "^4.9.4",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-ga": "^2.7.0",
-    "react-github-btn": "^1.1.1",
     "react-scripts": "^2.1.3",
     "react-spinners": "^0.5.4",
     "react-toggle": "^4.0.2"

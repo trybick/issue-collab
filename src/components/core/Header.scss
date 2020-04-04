@@ -21,3 +21,14 @@
     }
   }
 }
+
+.github-link {
+  height: 18px;
+  width: 120px;
+  text-align: right;
+
+  .github-svg {
+    cursor: pointer;
+    width: 20%;
+  }
+}
