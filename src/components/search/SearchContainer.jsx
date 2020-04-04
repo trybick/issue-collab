@@ -27,6 +27,12 @@ const SearchContainer = ({
           value={textToSearch}
           onKeyPress={e => listenForSubmit(e)}
           onChange={handleTextChange}
+          InputProps={{
+            style: {
+              fontSize: '14px',
+              height: '32px',
+            },
+          }}
         />
       </div>
       <div className="button-group">
