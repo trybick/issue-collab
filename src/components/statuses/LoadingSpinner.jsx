@@ -5,7 +5,7 @@ import './LoadingSpinner.scss';
 const LoadingSpinner = () => {
   return (
     <div className="loading-spinner-wrapper">
-      <PulseLoader color="black" />
+      <PulseLoader color="white" />
     </div>
   );
 };

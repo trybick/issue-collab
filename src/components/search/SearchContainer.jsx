@@ -20,6 +20,7 @@ const SearchContainer = ({
     <div className="search-container">
       <div className="search-container-input">
         <TextField
+          className="search-textfield"
           margin="dense"
           placeholder="Keywords (optional)"
           type="text"
