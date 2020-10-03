@@ -40,7 +40,7 @@ the whole application in a separate container. The app will run on port 3000.
 Thank you for your interest! All types of contributions welcome. **HACK AWAY!** 🔨🔨🔨
 
 - Fork and clone this repository
-- Create your branch from the `development` branch
+- Create your branch from the `master` branch
 - Run `npm run lint:fix` to ensure correct formatting
-- Please open your PR with the `development` branch as the base
+- Please open your PR with the `master` branch as the base
 
