@@ -3,8 +3,13 @@
 .search-container {
   &-input {
     text-align: center;
+    width: 65%;
+    margin: 0 auto;
   }
 
+  .textField{
+    width: 100%;
+  }
   .button-group {
     text-align: center;
     margin: 20px 0 30px;

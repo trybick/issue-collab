@@ -27,11 +27,17 @@ const SearchContainer = ({
           value={textToSearch}
           onKeyPress={e => listenForSubmit(e)}
           onChange={handleTextChange}
+          className='textField'
           InputProps={{
             style: {
-              fontSize: '14px',
-              height: '32px',
-            },
+              fontSize: '1.5em',
+              height: '2.3em',
+              padding:'0.7em',
+              textAlign: 'center',
+              boxShadow: 'inset 0.15em 0.15em 0.3em' ,
+              borderRadius: '0.3em',
+              justifyContent: 'center'
+                        },
           }}
         />
       </div>
