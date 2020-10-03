@@ -33,10 +33,12 @@ const SearchContainer = ({
               fontSize: '1.5em',
               height: '2.3em',
               padding:'0.7em',
-              textAlign: 'center',
-              boxShadow: 'inset 0.15em 0.15em 0.3em' ,
-              borderRadius: '0.3em',
-              justifyContent: 'center'
+              boxShadow: ' -1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1);' ,
+              boxShadow: '-1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1)',
+              border:'0.045 solid black',
+              borderRadius: '0.3125em',
+              backgroundColor: '#FFFAFA',
+              color:'#1d2129',
                         },
           }}
         />
