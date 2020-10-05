@@ -3,7 +3,7 @@ import ToggleGroup from './ToggleGroup';
 
 const Labels = ({ onToggleChange, labels }) => {
   return (
-    <div>
+    <div className='label-container'>
       <h3>Labels:</h3>
       <ToggleGroup
         dataType="label"

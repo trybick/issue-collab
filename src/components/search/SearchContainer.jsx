@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import './SearchContainer.scss';
 
+
 const SearchContainer = ({
   handleTextChange,
   textToSearch,
@@ -15,6 +16,10 @@ const SearchContainer = ({
       getIssues();
     }
   };
+
+ 
+
+ 
 
   return (
     <div className="search-container">
@@ -33,14 +38,13 @@ const SearchContainer = ({
               fontSize: '1.5em',
               height: '2.3em',
               padding:'0.7em',
-              boxShadow: ' -1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1);' ,
               boxShadow: '-1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1)',
-              border:'0.045 solid black',
               borderRadius: '0.3125em',
-              backgroundColor: '#FFFAFA',
+              backgroundColor: '#fff',
               color:'#1d2129',
                         },
           }}
+        
         />
       </div>
       <div className="button-group">

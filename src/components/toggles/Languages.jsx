@@ -3,7 +3,7 @@ import ToggleGroup from './ToggleGroup';
 
 const Languages = ({ onToggleChange, languages }) => {
   return (
-    <div>
+    <div className='languages-container'>
       <h3>Languages:</h3>
       <ToggleGroup
         dataType="language"

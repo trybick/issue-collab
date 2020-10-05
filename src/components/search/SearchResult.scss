@@ -1,18 +1,23 @@
 .result-wrapper {
-  padding: 1em;
+  padding: 1.5em;
   margin: 0.75em 0 2em;
-  background-color: #ffffff;
+  background-color: #fff;
   box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 0.2em;
-  border: 0.25px solid black;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Times New Roman', Times, serif, Georgia, arial;
   justify-content: space-between;
   text-align: justify;
+  box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 
   &.clicked {
     opacity: 0.55;
   }
 
+  .result-wrapper:hover {
+    transform: scale(1.05);
+    border: 0.5em solid blue;
+  }
   .result-header {
     display: flex;
     align-items: center;
