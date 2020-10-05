@@ -3,12 +3,14 @@
   margin: 0.75em 0 2em;
   background-color: #fff;
   box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1);
+
   border-radius: 0.2em;
   font-family: 'Times New Roman', Times, serif, Georgia, arial;
   justify-content: space-between;
   text-align: justify;
   box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+
   &.clicked {
     opacity: 0.55;
   }
@@ -29,12 +31,14 @@
     .link-title {
       font-family:  Georgia, Arial, sans-serif, monospace;
       text-decoration: none;
+
       font-size: 18px;
     }
 
     .link-title:hover {
       text-decoration: underline;
       transform: scale(1.017);
+
     }
 
 
@@ -44,7 +48,8 @@
     padding-left: 5px;
 
     .body-text {
-      font-size: 1.1em;
+      color: black;
+      font-size: 0.9rem;
       line-height: 1.4em;
       max-width: 800px;
       overflow-wrap: break-word;
@@ -56,7 +61,7 @@
       color: #757575;
 
       .issue-age {
-        font-size: 0.9em;
+        font-size: 0.7rem;
         margin-top: -8px;
       }
     }
