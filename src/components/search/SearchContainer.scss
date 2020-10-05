@@ -17,13 +17,29 @@ margin: 3em auto 0;
 
     .get-btn {
       margin-right: 10px !important;
-      background-color: $color10 !important;
+      background-color: $color10;
+      font-family: Times, Georgia, Arial, sans-serif;
     }
-
+    .get-btn:hover{
+background-color:#fff ;
+color: blue;
+border: 0.00001px solid blue;
+font-weight: bold;;
+    }
     .reset-btn {
       margin-left: 10px !important;
       background-color: $color12;
       width: 148.75px;
+    }
+
+    .reset-btn:hover {
+      margin-left: 10px !important;
+      background-color: #fff;
+      color: red;
+      font-weight: bold;
+      border: 0.000001px solid red;
+      width: 148.75px;
+
     }
   }
 }
