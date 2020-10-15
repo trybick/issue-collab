@@ -15,7 +15,7 @@
 
 The idea for this project comes from wanting to find cool projects on GitHub but not being satisfied with GitHub's native search.
 
-I began searching issues during [Hacktoberfest](https://medium.freecodecamp.org/i-just-got-my-free-hacktoberfest-shirt-heres-a-quick-way-you-can-get-yours-fa78d6e24307) (an annual event sponsored by Digital Ocean which encourages developers to get involved with open source. Make 5 PRs in a month and get a FREE T-shirt 👕).
+I began searching issues during [Hacktoberfest](https://medium.freecodecamp.org/i-just-got-my-free-hacktoberfest-shirt-heres-a-quick-way-you-can-get-yours-fa78d6e24307) (an annual event sponsored by Digital Ocean which encourages developers to get involved with open source. Make 4 PRs in a month and get a FREE T-shirt 👕).
 
 ## Local Development
 
