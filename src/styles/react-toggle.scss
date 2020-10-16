@@ -4,7 +4,7 @@
   display: inline-block;
   position: relative;
   cursor: pointer;
-  background-color: transparent;
+  background-color: red;
   border: 0;
   padding: 0;
 
@@ -27,7 +27,7 @@
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
+  width: 2px;
 }
 
 .react-toggle--disabled {
