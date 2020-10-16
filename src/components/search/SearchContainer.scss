@@ -3,6 +3,10 @@
 .search-container {
   &-input {
     text-align: center;
+
+    &-field {
+      width: 70%;
+    }
   }
 
   .button-group {
