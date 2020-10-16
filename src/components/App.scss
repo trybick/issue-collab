@@ -15,3 +15,30 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
+
+.dark-mode{
+  background: #222;
+  color: white;
+
+  input, fieldset{
+    border-color: white;
+    color: white;
+  }
+
+  .result-wrapper{
+    background: #888;
+
+    .result-header{
+      color: lightblue;
+    }
+
+    .result-body{
+      color: white;
+
+      .metadata{
+        color: white;
+      }
+    }
+  }
+  
+}

@@ -2,10 +2,10 @@ import React from 'react';
 import PulseLoader from 'react-spinners/PulseLoader';
 import './LoadingSpinner.scss';
 
-const LoadingSpinner = () => {
+const LoadingSpinner = ({darkMode}) => {
   return (
     <div className="loading-spinner-wrapper">
-      <PulseLoader color="black" />
+      <PulseLoader color={darkMode ? "white" : "black"} />
     </div>
   );
 };

@@ -34,6 +34,7 @@ class App extends React.Component {
     textToSearch: '',
     pageNum: 1,
     isButtonLocked: false,
+    darkMode: false
   };
 
   getActiveItems = type => {
@@ -148,6 +149,23 @@ class App extends React.Component {
     }
   };
 
+  onToggleChangeDarkMode = event => {
+    
+
+    if(event.target.checked){
+      document.body.className = "dark-mode";
+      this.setState({
+        darkMode: true
+      });
+    }
+    else{
+      document.body.className = "";
+      this.setState({
+        darkMode: false
+      });
+    }
+  }
+
   resetToggles = toggleType => {
     const currentItems = this.state[toggleType];
     Object.keys(currentItems).forEach(key => {
@@ -183,11 +201,12 @@ class App extends React.Component {
       pageNum,
       results,
       textToSearch,
+      darkMode
     } = this.state;
 
     return (
       <div className="app-wrapper">
-        <Header />
+        <Header onToggleChangeDarkMode={this.onToggleChangeDarkMode} darkMode={darkMode}/>
         <TogglesContainer
           labels={labels}
           languages={languages}
@@ -203,7 +222,8 @@ class App extends React.Component {
 
         {isEmpty ? (
           isFetching ? (
-            <LoadingSpinner />
+            <LoadingSpinner darkMode={darkMode}/>
+           
           ) : (
             <InitialGreeting hasError={fetchError} />
           )

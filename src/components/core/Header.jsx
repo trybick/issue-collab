@@ -1,20 +1,29 @@
 import React from 'react';
 import './Header.scss';
 import githubIcon from '../../images/github-icon.svg';
+import githubIconWhite from '../../images/github-icon-white.svg';
+import Toggle from 'react-toggle';
+import { formatLabelForName } from '../../utils/formatting';
 
-const Header = () => (
+const Header = ({ onToggleChangeDarkMode, darkMode }) => (
   <div className="page-header">
     <h2 className="page-header-title">
       <span className="page-header-title-highlight">Issue</span>-Collab
     </h2>
-
+    <div>
+      <Toggle
+          onChange={onToggleChangeDarkMode}
+      /> 
+      <span className="toggle-label">{formatLabelForName("Dark Mode")}</span>
+    </div>
+    
     <a
       className="github-link"
       href="https://github.com/trybick/issue-collab"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img className="github-svg" src={githubIcon} alt="github-icon" />
+      <img className="github-svg" src={darkMode ? githubIconWhite : githubIcon} alt="github-icon"/>
     </a>
   </div>
 );
