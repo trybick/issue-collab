@@ -41,7 +41,7 @@ export const SearchResult = ({
         <div className="metadata">
           <div>{`${userName}/${repoName}`}</div>
           <div className="issue-age">{issueAge}</div>
-          <div className="comments">{`Comments ${comments}`}</div>
+          <div className="comments">{`${comments} comments`}</div>
         </div>
 
         <div className="label-chips">{labelChips}</div>
