@@ -5,7 +5,6 @@ import githubIconWhite from '../../images/github-icon-white.svg';
 import DarkModeToggle from 'react-dark-mode-toggle';
 
 const Header = ({ onToggleChangeDarkMode, darkMode }) => {
-  const [isDarkMode, setIsDarkMode] = useState(() => false);
   return (
     <div className="page-header">
       <h2 className="page-header-title">
@@ -13,11 +12,8 @@ const Header = ({ onToggleChangeDarkMode, darkMode }) => {
       </h2>
       <div className="header-right">
         <DarkModeToggle
-          onChange={event => {
-            onToggleChangeDarkMode(event);
-            setIsDarkMode(event);
-          }}
-          checked={isDarkMode}
+          onChange={onToggleChangeDarkMode}
+          checked={darkMode}
           size={80}
         />
 
