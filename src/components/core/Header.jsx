@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Header.scss';
 import githubIcon from '../../images/github-icon.svg';
 import githubIconWhite from '../../images/github-icon-white.svg';

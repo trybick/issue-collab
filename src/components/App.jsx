@@ -8,7 +8,7 @@ import TogglesContainer from './toggles/TogglesContainer';
 import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
 import SearchResultsContainer from './search/SearchResultsContainer';
-import { setLocalStorageItem, getLocalStorageItem } from '../utils/localStorage.js';
+import { setLocalStorageItem, getLocalStorageItem } from '../utils/localStorage';
 
 class App extends React.Component {
   state = {
