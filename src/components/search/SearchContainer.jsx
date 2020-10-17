@@ -21,7 +21,8 @@ const SearchContainer = ({
       <div className="search-container-input">
         <TextField
           margin="dense"
-          placeholder="Keywords (optional)"
+          placeholder="Enter keywords (optional)"
+          className="search-container-input-field"
           type="text"
           variant="outlined"
           value={textToSearch}
