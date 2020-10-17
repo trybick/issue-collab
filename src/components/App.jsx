@@ -34,7 +34,7 @@ class App extends React.Component {
     textToSearch: '',
     pageNum: 1,
     isButtonLocked: false,
-    darkMode: false
+    darkMode: false,
   };
 
   getActiveItems = type => {
@@ -150,16 +150,15 @@ class App extends React.Component {
   };
 
   onToggleChangeDarkMode = event => {
-    if(event.target.checked){
-      document.body.className = "dark-mode";
+    if (event) {
+      document.body.className = 'dark-mode';
       this.setState({
-        darkMode: true
+        darkMode: true,
       });
-    }
-    else{
-      document.body.className = "";
+    } else {
+      document.body.className = '';
       this.setState({
-        darkMode: false
+        darkMode: false,
       });
     }
   };
@@ -199,12 +198,12 @@ class App extends React.Component {
       pageNum,
       results,
       textToSearch,
-      darkMode
+      darkMode,
     } = this.state;
 
     return (
       <div className="app-wrapper">
-        <Header onToggleChangeDarkMode={this.onToggleChangeDarkMode} darkMode={darkMode}/>
+        <Header onToggleChangeDarkMode={this.onToggleChangeDarkMode} darkMode={darkMode} />
         <TogglesContainer
           labels={labels}
           languages={languages}
@@ -220,8 +219,7 @@ class App extends React.Component {
 
         {isEmpty ? (
           isFetching ? (
-            <LoadingSpinner darkMode={darkMode}/>
-           
+            <LoadingSpinner darkMode={darkMode} />
           ) : (
             <InitialGreeting hasError={fetchError} />
           )
