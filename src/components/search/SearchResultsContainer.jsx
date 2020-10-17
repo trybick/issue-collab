@@ -22,6 +22,7 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
     results.items[0] &&
     results.items.map(item => {
       const htmlUrl = item.html_url.split('/');
+      const comments = item.comments;
       const userName = htmlUrl[3];
       const repoName = htmlUrl[4];
       const issueAge = moment(item.created_at).fromNow();
@@ -46,6 +47,7 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
           bodyText={bodyText}
           userName={userName}
           repoName={repoName}
+          comments={comments}
           issueAge={issueAge}
           labels={item.labels}
         />
