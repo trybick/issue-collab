@@ -41,6 +41,6 @@ Thank you for your interest! All types of contributions welcome. **HACK AWAY!** 
 
 - Fork and clone this repository
 - Create your branch from the `master` branch
-- Run `npm run lint:fix` to ensure correct formatting
 - Please open your PR with the `master` branch as the base
+- Take a look at the PR checks to make sure the Netlify deploy preview looks correct
 
