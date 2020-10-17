@@ -8,7 +8,7 @@ import TogglesContainer from './toggles/TogglesContainer';
 import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
 import SearchResultsContainer from './search/SearchResultsContainer';
-import {setLocalStorageItem, getLocalStorageItem} from  "../utils/localStorage.js";
+import { setLocalStorageItem, getLocalStorageItem } from '../utils/localStorage';
 
 class App extends React.Component {
   state = {
@@ -35,22 +35,21 @@ class App extends React.Component {
     textToSearch: '',
     pageNum: 1,
     isButtonLocked: false,
-    darkMode: false
+    darkMode: false,
   };
 
   componentDidMount = () => {
     let darkModeStorage = false;
 
-    if(getLocalStorageItem('dark-mode') != null){
-      darkModeStorage = getLocalStorageItem('dark-mode') === '1' ? true : false;
-      this.setState({darkMode: darkModeStorage});
-    }
-    else{
-      this.setState({darkMode: false});
+    if (getLocalStorageItem('dark-mode') != null) {
+      darkModeStorage = getLocalStorageItem('dark-mode') === '1';
+      this.setState({ darkMode: darkModeStorage });
+    } else {
+      this.setState({ darkMode: false });
     }
 
     this.updateBodyClassDarkMode(darkModeStorage);
-  }
+  };
 
   getActiveItems = type => {
     const items = this.state[type];
@@ -165,26 +164,24 @@ class App extends React.Component {
   };
 
   onToggleChangeDarkMode = event => {
-    if(event.target.checked){
-      
+    if (event) {
       this.setState({
-        darkMode: true
+        darkMode: true,
       });
       setLocalStorageItem('dark-mode', '1');
-    }
-    else{
+    } else {
       this.setState({
-        darkMode: false
+        darkMode: false,
       });
       setLocalStorageItem('dark-mode', '0');
     }
 
-    this.updateBodyClassDarkMode(event.target.checked);
+    this.updateBodyClassDarkMode(event);
   };
 
   updateBodyClassDarkMode = darkMode => {
-    document.body.className = darkMode ? "dark-mode" : "";
-  }
+    document.body.className = darkMode ? 'dark-mode' : '';
+  };
 
   resetToggles = toggleType => {
     const currentItems = this.state[toggleType];
@@ -221,13 +218,12 @@ class App extends React.Component {
       pageNum,
       results,
       textToSearch,
-      darkMode
+      darkMode,
     } = this.state;
-
 
     return (
       <div className="app-wrapper">
-        <Header onToggleChangeDarkMode={this.onToggleChangeDarkMode} darkMode={darkMode}/>
+        <Header onToggleChangeDarkMode={this.onToggleChangeDarkMode} darkMode={darkMode} />
         <TogglesContainer
           labels={labels}
           languages={languages}
@@ -243,8 +239,7 @@ class App extends React.Component {
 
         {isEmpty ? (
           isFetching ? (
-            <LoadingSpinner darkMode={darkMode}/>
-           
+            <LoadingSpinner darkMode={darkMode} />
           ) : (
             <InitialGreeting hasError={fetchError} />
           )

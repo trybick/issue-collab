@@ -22,13 +22,18 @@
   }
 }
 
+.header-right {
+  display: flex;
+  flex-direction: row;
+}
+
 .github-link {
   height: 18px;
-  width: 120px;
+  width: 50px;
   text-align: right;
 
   .github-svg {
     cursor: pointer;
-    width: 20%;
+    width: 60%;
   }
 }
