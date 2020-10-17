@@ -11,7 +11,7 @@ export const SearchResult = ({
   userName,
   repoName,
   issueAge,
-  comments,
+  numComments,
   labels,
 }) => {
   const [hasBeenClicked, setClicked] = useState(false);
@@ -41,7 +41,7 @@ export const SearchResult = ({
         <div className="metadata">
           <div>{`${userName}/${repoName}`}</div>
           <div className="issue-age">{issueAge}</div>
-          <div className="comments">{`${comments} comments`}</div>
+          <div className="comments">{`${numComments} comments`}</div>
         </div>
 
         <div className="label-chips">{labelChips}</div>

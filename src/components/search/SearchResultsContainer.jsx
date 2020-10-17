@@ -22,10 +22,10 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
     results.items[0] &&
     results.items.map(item => {
       const htmlUrl = item.html_url.split('/');
-      const comments = item.comments;
       const userName = htmlUrl[3];
       const repoName = htmlUrl[4];
       const issueAge = moment(item.created_at).fromNow();
+      const { comments: numComments } = item;
 
       let bodyText = <span className="no-text-message">No additional text</span>;
       if (item.body) {
@@ -38,7 +38,7 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
 
       // This conditional removes an issue someone created in the future (which always shows on top): https://github.com/sebsheep/aws-server/issues/2
       // After Dec 21, 2019 we may be able to remove this conditional
-      return item.id === 459097288 ? null : (
+      return (
         <SearchResult
           key={item.id}
           user={item.user}
@@ -47,7 +47,7 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
           bodyText={bodyText}
           userName={userName}
           repoName={repoName}
-          comments={comments}
+          numComments={numComments}
           issueAge={issueAge}
           labels={item.labels}
         />
