@@ -11,6 +11,7 @@ const Header = ({ onToggleChangeDarkMode, darkMode }) => (
     </h2>
     <div>
       <Toggle
+          checked={darkMode}
           onChange={onToggleChangeDarkMode}
       /> 
       <span className="toggle-label">dark mode</span>
