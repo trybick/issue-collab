@@ -150,8 +150,6 @@ class App extends React.Component {
   };
 
   onToggleChangeDarkMode = event => {
-    
-
     if(event.target.checked){
       document.body.className = "dark-mode";
       this.setState({
@@ -164,7 +162,7 @@ class App extends React.Component {
         darkMode: false
       });
     }
-  }
+  };
 
   resetToggles = toggleType => {
     const currentItems = this.state[toggleType];

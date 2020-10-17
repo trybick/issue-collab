@@ -3,7 +3,6 @@ import './Header.scss';
 import githubIcon from '../../images/github-icon.svg';
 import githubIconWhite from '../../images/github-icon-white.svg';
 import Toggle from 'react-toggle';
-import { formatLabelForName } from '../../utils/formatting';
 
 const Header = ({ onToggleChangeDarkMode, darkMode }) => (
   <div className="page-header">
@@ -14,7 +13,7 @@ const Header = ({ onToggleChangeDarkMode, darkMode }) => (
       <Toggle
           onChange={onToggleChangeDarkMode}
       /> 
-      <span className="toggle-label">{formatLabelForName("Dark Mode")}</span>
+      <span className="toggle-label">dark mode</span>
     </div>
     
     <a
