@@ -11,11 +11,7 @@ const Header = ({ onToggleChangeDarkMode, darkMode }) => {
         <span className="page-header-title-highlight">Issue</span>-Collab
       </h2>
       <div className="header-right">
-        <DarkModeToggle
-          onChange={onToggleChangeDarkMode}
-          checked={darkMode}
-          size={80}
-        />
+        <DarkModeToggle onChange={onToggleChangeDarkMode} checked={darkMode} size={60} />
 
         <a
           className="github-link"

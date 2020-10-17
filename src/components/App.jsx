@@ -8,7 +8,7 @@ import TogglesContainer from './toggles/TogglesContainer';
 import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
 import SearchResultsContainer from './search/SearchResultsContainer';
-import {setLocalStorageItem, getLocalStorageItem} from  "../utils/localStorage.js";
+import { setLocalStorageItem, getLocalStorageItem } from '../utils/localStorage.js';
 
 class App extends React.Component {
   state = {
@@ -41,16 +41,15 @@ class App extends React.Component {
   componentDidMount = () => {
     let darkModeStorage = false;
 
-    if(getLocalStorageItem('dark-mode') != null){
-      darkModeStorage = getLocalStorageItem('dark-mode') === '1' ? true : false;
-      this.setState({darkMode: darkModeStorage});
-    }
-    else{
-      this.setState({darkMode: false});
+    if (getLocalStorageItem('dark-mode') != null) {
+      darkModeStorage = getLocalStorageItem('dark-mode') === '1';
+      this.setState({ darkMode: darkModeStorage });
+    } else {
+      this.setState({ darkMode: false });
     }
 
     this.updateBodyClassDarkMode(darkModeStorage);
-  }
+  };
 
   getActiveItems = type => {
     const items = this.state[type];
@@ -165,14 +164,12 @@ class App extends React.Component {
   };
 
   onToggleChangeDarkMode = event => {
-    if(event){
-      
+    if (event) {
       this.setState({
         darkMode: true,
       });
       setLocalStorageItem('dark-mode', '1');
-    }
-    else{
+    } else {
       this.setState({
         darkMode: false,
       });
@@ -183,8 +180,8 @@ class App extends React.Component {
   };
 
   updateBodyClassDarkMode = darkMode => {
-    document.body.className = darkMode ? "dark-mode" : "";
-  }
+    document.body.className = darkMode ? 'dark-mode' : '';
+  };
 
   resetToggles = toggleType => {
     const currentItems = this.state[toggleType];
@@ -223,7 +220,6 @@ class App extends React.Component {
       textToSearch,
       darkMode,
     } = this.state;
-
 
     return (
       <div className="app-wrapper">
