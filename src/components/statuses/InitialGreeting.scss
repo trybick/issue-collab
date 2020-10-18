@@ -49,3 +49,10 @@
     height: 6rem;
   }
 }
+
+.dark-mode{
+  .greeting-card{
+    background: #ffffff05;
+    box-shadow: -1px 2px 14px #948d8d00, 1px 1px 3px #7d77770f;
+  }
+}
