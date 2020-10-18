@@ -58,3 +58,15 @@
     }
   }
 }
+
+.dark-mode{
+  .result-wrapper{
+    background: #ffffff0f;
+    box-shadow: -1px 2px 4px rgb(31,31,31), 1px 1px 3px rgba(0,0,0,.1);
+    .result-header{
+      a{
+        color: #4e7fef;
+      }
+    }
+  }
+}
