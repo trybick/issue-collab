@@ -92,7 +92,7 @@ class App extends React.Component {
     if (shouldResetPageNum) {
       preFetchState.pageNum = 1;
     }
-    this.setState(preFetchState);
+    await this.setState(preFetchState);
 
     const finalUrl = this.createUrl();
     await fetch(finalUrl)
