@@ -9,7 +9,7 @@ import TogglesContainer from './toggles/TogglesContainer';
 import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
 import SearchResultsContainer from './search/SearchResultsContainer';
-import { setLocalStorageItem, getLocalStorageItem } from '../utils/localStorage';
+import { setLocalStorageItem, getIsDarkModeEnabled } from '../utils/localStorage';
 
 class App extends React.Component {
   state = {
@@ -42,16 +42,10 @@ class App extends React.Component {
   componentDidMount = () => {
     ReactGA.initialize(gAnalyticsID);
     ReactGA.pageview('/');
-    let darkModeStorage = false;
 
-    if (getLocalStorageItem('dark-mode') !== null) {
-      darkModeStorage = getLocalStorageItem('dark-mode') === '1';
-      this.setState({ darkMode: darkModeStorage });
-    } else {
-      this.setState({ darkMode: false });
-    }
-
-    this.updateBodyClassDarkMode(darkModeStorage);
+    const isDarkModeEnabled = getIsDarkModeEnabled();
+    this.enableOrDisabledDarkModeStyling(isDarkModeEnabled);
+    this.setState({ darkMode: isDarkModeEnabled });
   };
 
   getActiveItems = type => {
@@ -166,24 +160,19 @@ class App extends React.Component {
     }
   };
 
-  onToggleChangeDarkMode = event => {
-    if (event) {
-      this.setState({
-        darkMode: true,
-      });
-      setLocalStorageItem('dark-mode', '1');
+  onToggleDarkMode = isEnabled => {
+    if (isEnabled) {
+      this.setState({ darkMode: true });
+      setLocalStorageItem('dark-mode', 'true');
     } else {
-      this.setState({
-        darkMode: false,
-      });
-      setLocalStorageItem('dark-mode', '0');
+      this.setState({ darkMode: false });
+      setLocalStorageItem('dark-mode', 'false');
     }
-
-    this.updateBodyClassDarkMode(event);
+    this.enableOrDisabledDarkModeStyling(isEnabled);
   };
 
-  updateBodyClassDarkMode = darkMode => {
-    document.body.className = darkMode ? 'dark-mode' : '';
+  enableOrDisabledDarkModeStyling = isEnabled => {
+    document.body.className = isEnabled ? 'dark-mode' : '';
   };
 
   resetToggles = toggleType => {
@@ -226,7 +215,7 @@ class App extends React.Component {
 
     return (
       <div className="app-wrapper">
-        <Header onToggleChangeDarkMode={this.onToggleChangeDarkMode} darkMode={darkMode} />
+        <Header onToggleDarkMode={this.onToggleDarkMode} darkMode={darkMode} />
         <TogglesContainer
           labels={labels}
           languages={languages}

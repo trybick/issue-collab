@@ -4,7 +4,7 @@ import githubIcon from '../../images/github-icon.svg';
 import githubIconWhite from '../../images/github-icon-white.svg';
 import DarkModeToggle from 'react-dark-mode-toggle';
 
-const Header = ({ onToggleChangeDarkMode, darkMode }) => (
+const Header = ({ onToggleDarkMode, darkMode }) => (
   <div className="page-header">
     <h2 className="page-header-title">
       <span className="page-header-title-highlight">Issue</span>-Collab
@@ -13,7 +13,7 @@ const Header = ({ onToggleChangeDarkMode, darkMode }) => (
     <div className="header-right">
       <DarkModeToggle
         className="dark-mode-toggle"
-        onChange={onToggleChangeDarkMode}
+        onChange={onToggleDarkMode}
         checked={darkMode}
         size={42}
       />
