@@ -31,7 +31,7 @@ const SearchContainer = ({
           InputProps={{
             style: {
               fontSize: '14px',
-              height: '32px',
+              height: '40px',
             },
           }}
         />
@@ -46,7 +46,7 @@ const SearchContainer = ({
           type="submit"
           size="large"
         >
-          Find Issues
+          Search
         </Button>
         <Button
           color="secondary"
