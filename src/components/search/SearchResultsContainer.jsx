@@ -38,16 +38,16 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
 
       return (
         <SearchResult
-          key={item.id}
-          user={item.user}
-          htmlUrl={item.html_url}
-          title={item.title}
           bodyText={bodyText}
-          userName={userName}
-          repoName={repoName}
-          numComments={numComments}
+          htmlUrl={item.html_url}
           issueAge={issueAge}
+          key={item.id}
           labels={item.labels}
+          numComments={numComments}
+          repoName={repoName}
+          title={item.title}
+          user={item.user}
+          userName={userName}
         />
       );
     });

@@ -20,40 +20,41 @@ const SearchContainer = ({
     <div className="search-container">
       <div className="search-container-input">
         <TextField
-          margin="dense"
-          placeholder="Enter keywords (optional)"
           className="search-container-input-field"
-          type="text"
-          variant="outlined"
-          value={textToSearch}
-          onKeyPress={e => listenForSubmit(e)}
-          onChange={handleTextChange}
+          // eslint-disable-next-line react/jsx-sort-props
           InputProps={{
             style: {
               fontSize: '14px',
               height: '40px',
             },
           }}
+          margin="dense"
+          onChange={handleTextChange}
+          onKeyPress={e => listenForSubmit(e)}
+          placeholder="Enter keywords (optional)"
+          type="text"
+          value={textToSearch}
+          variant="outlined"
         />
       </div>
       <div className="button-group">
         <Button
           className="get-btn"
           color="primary"
-          variant="contained"
           disabled={isGetButtonDisabled}
           onClick={getIssues}
-          type="submit"
           size="large"
+          type="submit"
+          variant="contained"
         >
           Search
         </Button>
         <Button
-          color="secondary"
-          variant="contained"
           className="reset-btn"
+          color="secondary"
           onClick={onReset}
           size="large"
+          variant="contained"
         >
           Reset
         </Button>

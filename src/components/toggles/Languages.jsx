@@ -8,8 +8,8 @@ const Languages = ({ onToggleChange, languages }) => {
       <ToggleGroup
         dataType="language"
         items={languages}
-        onToggleChange={onToggleChange}
         names={Object.keys(languages)}
+        onToggleChange={onToggleChange}
       />
     </div>
   );

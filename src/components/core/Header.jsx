@@ -1,8 +1,8 @@
 import React from 'react';
+import DarkModeToggle from 'react-dark-mode-toggle';
 import './Header.scss';
 import githubIcon from '../../images/github-icon.svg';
 import githubIconWhite from '../../images/github-icon-white.svg';
-import DarkModeToggle from 'react-dark-mode-toggle';
 
 const Header = ({ onToggleDarkMode, darkMode }) => (
   <div className="page-header">
@@ -12,21 +12,21 @@ const Header = ({ onToggleDarkMode, darkMode }) => (
 
     <div className="header-right">
       <DarkModeToggle
+        checked={darkMode}
         className="dark-mode-toggle"
         onChange={onToggleDarkMode}
-        checked={darkMode}
         size={42}
       />
       <a
         className="github-link"
         href="https://github.com/trybick/issue-collab"
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
       >
         <img
+          alt="github-icon"
           className="github-svg"
           src={darkMode ? githubIconWhite : githubIcon}
-          alt="github-icon"
         />
       </a>
     </div>

@@ -16,7 +16,7 @@ const InitialGreeting = ({ hasError }) => {
           Click <em>Find Issues</em> and get collaborating!
         </p>
       </span>
-      <img src={logo} alt="issue-collab-logo" className="greeting-img" />
+      <img alt="issue-collab-logo" className="greeting-img" src={logo} />
     </div>
   );
 

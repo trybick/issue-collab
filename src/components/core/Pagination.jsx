@@ -18,8 +18,8 @@ const Pagination = ({ totalPages = 1, currentPage = 1, onPageChange }) => {
       {currentPage !== 1 && (
         <Button
           color="primary"
-          onClick={handleClickPrev}
           disabled={currentPage === 1}
+          onClick={handleClickPrev}
           variant="contained"
         >
           Back
@@ -30,8 +30,8 @@ const Pagination = ({ totalPages = 1, currentPage = 1, onPageChange }) => {
       </div>
       <Button
         color="primary"
-        onClick={handleClickNext}
         disabled={currentPage === totalPages}
+        onClick={handleClickNext}
         variant="contained"
       >
         Next

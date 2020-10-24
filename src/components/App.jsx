@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactGA from 'react-ga';
+import { getIsDarkModeEnabled, setLocalStorageItem } from '../utils/localStorage';
 import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
 import { baseUrl, gAnalyticsID, sortOptions } from '../utils/constants';
-import './App.scss';
 import Header from './core/Header';
 import SearchContainer from './search/SearchContainer';
 import TogglesContainer from './toggles/TogglesContainer';
 import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
 import SearchResultsContainer from './search/SearchResultsContainer';
-import { setLocalStorageItem, getIsDarkModeEnabled } from '../utils/localStorage';
+import './App.scss';
 
 class App extends React.Component {
   state = {
@@ -215,18 +215,18 @@ class App extends React.Component {
 
     return (
       <div className="app-wrapper">
-        <Header onToggleDarkMode={this.onToggleDarkMode} darkMode={darkMode} />
+        <Header darkMode={darkMode} onToggleDarkMode={this.onToggleDarkMode} />
         <TogglesContainer
           labels={labels}
           languages={languages}
           onToggleChange={this.onToggleChange}
         />
         <SearchContainer
-          handleTextChange={this.handleTextChange}
-          textToSearch={textToSearch}
-          isGetButtonDisabled={isFetching || isButtonLocked}
           getIssues={this.getIssues}
+          handleTextChange={this.handleTextChange}
+          isGetButtonDisabled={isFetching || isButtonLocked}
           onReset={this.onReset}
+          textToSearch={textToSearch}
         />
 
         {isEmpty ? (
@@ -237,9 +237,9 @@ class App extends React.Component {
           )
         ) : (
           <SearchResultsContainer
-            results={results}
-            onPageChange={this.handlePageChange}
             currentPage={pageNum}
+            onPageChange={this.handlePageChange}
+            results={results}
           />
         )}
       </div>

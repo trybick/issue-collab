@@ -17,20 +17,20 @@ export const SearchResult = ({
   const [hasBeenClicked, setClicked] = useState(false);
 
   const labelChips = labels.map(({ id, name, color }) => {
-    return <Chip key={id} text={name} color={color} />;
+    return <Chip color={color} key={id} text={name} />;
   });
 
   return (
     <div className={`result-wrapper ${hasBeenClicked ? 'clicked' : ''}`}>
       <div className="result-header">
-        <img className="avatar" src={user.avatar_url} alt="avatar" />
+        <img alt="avatar" className="avatar" src={user.avatar_url} />
 
         <a
+          className="link-title"
           href={htmlUrl}
           onClick={() => setClicked(true)}
-          className="link-title"
-          target="_blank"
           rel="noopener noreferrer"
+          target="_blank"
         >
           {title}
         </a>

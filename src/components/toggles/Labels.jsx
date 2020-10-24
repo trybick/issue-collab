@@ -8,8 +8,8 @@ const Labels = ({ onToggleChange, labels }) => {
       <ToggleGroup
         dataType="label"
         items={labels}
-        onToggleChange={onToggleChange}
         names={Object.keys(labels)}
+        onToggleChange={onToggleChange}
       />
     </div>
   );

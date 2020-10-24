@@ -8,8 +8,8 @@ const ToggleGroup = ({ dataType, items, onToggleChange, names }) => {
     return (
       <div key={name}>
         <Toggle
-          data-type={dataType}
           checked={items[name]}
+          data-type={dataType}
           icons={false}
           name={name}
           onChange={onToggleChange}

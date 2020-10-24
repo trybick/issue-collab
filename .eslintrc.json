@@ -27,6 +27,19 @@
     "prefer-const": 1,
     "react/no-unused-state": 1,
     "no-nested-ternary": 0,
-    "react/destructuring-assignment": 0
+    "react/destructuring-assignment": 0,
+    "react/jsx-sort-props": [
+      1,
+      {
+        "shorthandLast": true
+      }
+    ],
+    "sort-imports": [
+      1,
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ]
   }
 }
