@@ -1,6 +1,7 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
-import { baseUrl, sortOptions } from '../utils/constants';
+import { baseUrl, gAnalyticsID, sortOptions } from '../utils/constants';
 import './App.scss';
 import Header from './core/Header';
 import SearchContainer from './search/SearchContainer';
@@ -39,6 +40,8 @@ class App extends React.Component {
   };
 
   componentDidMount = () => {
+    ReactGA.initialize(gAnalyticsID);
+    ReactGA.pageview('/');
     let darkModeStorage = false;
 
     if (getLocalStorageItem('dark-mode') != null) {
