@@ -4,30 +4,33 @@ import githubIcon from '../../images/github-icon.svg';
 import githubIconWhite from '../../images/github-icon-white.svg';
 import DarkModeToggle from 'react-dark-mode-toggle';
 
-const Header = ({ onToggleChangeDarkMode, darkMode }) => {
-  return (
-    <div className="page-header">
-      <h2 className="page-header-title">
-        <span className="page-header-title-highlight">Issue</span>-Collab
-      </h2>
-      <div className="header-right">
-        <DarkModeToggle onChange={onToggleChangeDarkMode} checked={darkMode} size={60} />
+const Header = ({ onToggleChangeDarkMode, darkMode }) => (
+  <div className="page-header">
+    <h2 className="page-header-title">
+      <span className="page-header-title-highlight">Issue</span>-Collab
+    </h2>
 
-        <a
-          className="github-link"
-          href="https://github.com/trybick/issue-collab"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            className="github-svg"
-            src={darkMode ? githubIconWhite : githubIcon}
-            alt="github-icon"
-          />
-        </a>
-      </div>
+    <div className="header-right">
+      <DarkModeToggle
+        className="dark-mode-toggle"
+        onChange={onToggleChangeDarkMode}
+        checked={darkMode}
+        size={42}
+      />
+      <a
+        className="github-link"
+        href="https://github.com/trybick/issue-collab"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          className="github-svg"
+          src={darkMode ? githubIconWhite : githubIcon}
+          alt="github-icon"
+        />
+      </a>
     </div>
-  );
-};
+  </div>
+);
 
 export default Header;
