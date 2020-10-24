@@ -36,8 +36,6 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
         }
       }
 
-      // This conditional removes an issue someone created in the future (which always shows on top): https://github.com/sebsheep/aws-server/issues/2
-      // After Dec 21, 2019 we may be able to remove this conditional
       return (
         <SearchResult
           key={item.id}

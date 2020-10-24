@@ -44,7 +44,7 @@ class App extends React.Component {
     ReactGA.pageview('/');
     let darkModeStorage = false;
 
-    if (getLocalStorageItem('dark-mode') != null) {
+    if (getLocalStorageItem('dark-mode') !== null) {
       darkModeStorage = getLocalStorageItem('dark-mode') === '1';
       this.setState({ darkMode: darkModeStorage });
     } else {
