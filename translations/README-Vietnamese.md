@@ -22,7 +22,7 @@ Tôi bắt đầu tìm những issues [Hacktoberfest](https://medium.freecodecam
 Để chạy dự án này trên máy (local development) nếu bạn đã cài đặt Node.js hoặc NPM thì thực hiện những bước sau ở terminal. App sẽ chạy tại cổng 3000.
 
 ```bash
-npm install
+npm installgi
 npm start
 ```
 
