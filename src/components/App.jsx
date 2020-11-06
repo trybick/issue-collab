@@ -12,7 +12,6 @@ import SearchResultsContainer from './search/SearchResultsContainer';
 import ScrollToTop from './scrollToTop/ScrollToTop';
 import './App.scss';
 
-
 class App extends React.Component {
   state = {
     labels: {
