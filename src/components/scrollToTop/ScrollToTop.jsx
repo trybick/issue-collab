@@ -1,42 +1,32 @@
-import React, { Component } from "react";
+import React, {useState} from 'react';
 import { Fab } from '@material-ui/core';
 import ArrowUpIcon from '@material-ui/icons/ArrowUpward';
 import "./ScrollToTop.scss";
 
-export default class ScrollToTop extends Component {
-  constructor(props) {
-      super();
-    this.state = { isVisible: false };
-  }
+const ScrollArrow = () =>{
 
-  componentDidMount() {
-    const scrollComponent = this;
-    document.addEventListener("scroll", function(e) {
-      scrollComponent.toggleVisibility();
-    });
-  }
+  const [showScroll, setShowScroll] = useState(false);
 
-  toggleVisibility() {
-    window.pageYOffset > 500 ? this.setState({ isVisible: true }) : this.setState({ isVisible: false });
-  }
+  const checkScrollTop = () => {
+    (window.pageYOffset > 500) ? setShowScroll(true) : setShowScroll(false)
+  };
+    
+  const scrollToTop = () =>{
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  };
 
-  scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-  }
+  window.addEventListener('scroll', checkScrollTop);
 
-  render() {
-      const { isVisible } = this.state;
-      return (
-        isVisible &&
-        <div className="scroll-to-top" onClick={() => this.scrollToTop()}>
-        <Fab color="primary" aria-label="scroll back to top">
-          <ArrowUpIcon fontSize="large" />
-        </Fab>
-        </div>
-      );
-    }
-  }
-  
+  return (
+    <div className="scroll-to-top" onClick={scrollToTop}>
+      {showScroll && 
+      <div >
+      <Fab color="primary" aria-label="scroll back to top">
+        <ArrowUpIcon fontSize="large" />
+      </Fab>
+      </div>}
+    </div>
+  );
+}
+
+export default ScrollArrow;

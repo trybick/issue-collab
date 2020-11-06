@@ -9,8 +9,9 @@ import TogglesContainer from './toggles/TogglesContainer';
 import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
 import SearchResultsContainer from './search/SearchResultsContainer';
-import './App.scss';
 import ScrollToTop from './scrollToTop/ScrollToTop';
+import './App.scss';
+
 
 class App extends React.Component {
   state = {
