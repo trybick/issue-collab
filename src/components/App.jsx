@@ -10,6 +10,7 @@ import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
 import SearchResultsContainer from './search/SearchResultsContainer';
 import './App.scss';
+import ScrollToTop from './scrollToTop/ScrollToTop';
 
 class App extends React.Component {
   state = {
@@ -242,6 +243,7 @@ class App extends React.Component {
             results={results}
           />
         )}
+        <ScrollToTop />
       </div>
     );
   }
