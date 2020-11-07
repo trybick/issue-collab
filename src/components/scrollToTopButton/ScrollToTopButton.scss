@@ -1,0 +1,15 @@
+.scroll-to-top{
+  position: fixed; 
+  width: 56px;
+  height: 56px;
+  bottom: 4%;
+  right: 2%;
+  z-index: 1000;
+}
+
+@media only screen and (max-width: 1000px) {
+  .scroll-to-top{
+      bottom: 11%;
+      right: 7.5%;
+  }
+}

@@ -9,6 +9,7 @@ import TogglesContainer from './toggles/TogglesContainer';
 import LoadingSpinner from './statuses/LoadingSpinner';
 import InitialGreeting from './statuses/InitialGreeting';
 import SearchResultsContainer from './search/SearchResultsContainer';
+import ScrollToTopButton from './scrollToTopButton/ScrollToTopButton';
 import './App.scss';
 
 class App extends React.Component {
@@ -242,6 +243,7 @@ class App extends React.Component {
             results={results}
           />
         )}
+        <ScrollToTopButton />
       </div>
     );
   }
