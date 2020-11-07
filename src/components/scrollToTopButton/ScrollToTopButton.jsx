@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Fab } from '@material-ui/core';
 import ArrowUpIcon from '@material-ui/icons/ArrowUpward';
-import './ScrollToTop.scss';
+import './ScrollToTopButton.scss';
 
-const ScrollArrow = () => {
+const ScrollToTopButton = () => {
   const [showScroll, setShowScroll] = useState(false);
 
-  const checkScrollTop = () => {
+  const getShouldShowButton = () => {
     window.pageYOffset > 500 ? setShowScroll(true) : setShowScroll(false);
   };
 
@@ -15,9 +15,9 @@ const ScrollArrow = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', checkScrollTop);
+    window.addEventListener('scroll', getShouldShowButton);
     return () => {
-      window.removeEventListener('scroll', checkScrollTop);
+      window.removeEventListener('scroll', getShouldShowButton);
     };
   }, []);
 
@@ -34,4 +34,4 @@ const ScrollArrow = () => {
   );
 };
 
-export default ScrollArrow;
+export default ScrollToTopButton;
