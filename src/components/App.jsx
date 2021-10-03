@@ -241,6 +241,7 @@ class App extends React.Component {
             currentPage={pageNum}
             onPageChange={this.handlePageChange}
             results={results}
+            darkMode={darkMode}
           />
         )}
         <ScrollToTopButton />
