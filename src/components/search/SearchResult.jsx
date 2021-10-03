@@ -13,7 +13,6 @@ export const SearchResult = ({
   issueAge,
   numComments,
   labels,
-  darkMode
 }) => {
   const [hasBeenClicked, setClicked] = useState(false);
 

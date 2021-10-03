@@ -6,7 +6,7 @@ import { resultPerPage } from '../../utils/constants';
 import { SearchResult } from './SearchResult';
 import './SearchResultsContainer.scss';
 
-const SearchResultsContainer = ({ currentPage, onPageChange, results, darkMode }) => {
+const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
   const totalPages = Math.ceil(results.total_count / resultPerPage);
 
   const resultsContainerHeader = results.total_count > 0 && (
@@ -48,7 +48,6 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results, darkMode }
           title={item.title}
           user={item.user}
           userName={userName}
-          darkMode={darkMode}
         />
       );
     });
