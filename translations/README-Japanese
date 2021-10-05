@@ -1,0 +1,46 @@
+# Collabを発行する
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a515d6f7-91ed-4ce2-899a-5958d9600ba8/deploy-status)](https://app.netlify.com/sites/issue-collab/deploys)
+
+> オープンソースプロジェクトを見つけるのに役立つように設計された検索ツール
+
+## デモと使用法
+
+- トグルスイッチを使用して結果をフィルタリングします。 オプションでテキストキーワードを入力します
+- タイトルをクリックして、GitHubの新しいタブで問題を開きます
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/39889198/67807711-ba90b080-fa6b-11e9-9326-c1dface895c2.gif)
+
+## バックグラウンド
+
+このプロジェクトのアイデアは、GitHubでクールなプロジェクトを見つけたいが、GitHubのネイティブ検索に満足していないことから生まれました。
+
+私は中に問題を検索し始めました [Hacktoberfest](https://medium.freecodecamp.org/i-just-got-my-free-hacktoberfest-shirt-heres-a-quick-way-you-can-get-yours-fa78d6e24307) (Digital Oceanが主催する毎年恒例のイベントで、開発者がオープンソースに参加することを奨励しています。 月に4つのPRを作成し、無料のTシャツを入手してください 👕).
+
+## 地域開発
+
+Node.jsとNPMがある場合、ローカル開発のためにこのプロジェクトを実行するには
+インストールされている端末では、次の手順に従ってください。 アプリはポート3000で実行されます。
+
+```bash
+npm install
+npm start
+```
+
+Node.jsをインストールせず、Dockerが存在する場合
+システムの場合は、 `Dockerfile`と準備するスクリプトを使用するだけです
+アプリケーション全体を別のコンテナに入れます。 アプリはポート3000で実行されます。
+
+```bash
+./dev.sh
+```
+
+## 貢献
+
+ご関心をお寄せいただきありがとうございます！ あらゆる種類の貢献を歓迎します。 **ハックアウェイ！** 🔨🔨🔨
+
+- このリポジトリをフォークしてクローンを作成します
+- `master`ブランチからブランチを作成します
+- `master`ブランチをベースにしてPRを開いてください
+- PRチェックを見て、Netlifyのデプロイプレビューが正しく表示されていることを確認します
+
