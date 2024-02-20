@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import { getIsDarkModeEnabled, setLocalStorageItem } from '../utils/localStorage';
 import { formatLabelsForUrl, formatTextToSearch, joinItemsForUrl } from '../utils/formatting';
 import { baseUrl, gAnalyticsID, sortOptions } from '../utils/constants';
@@ -42,7 +42,6 @@ class App extends React.Component {
 
   componentDidMount = () => {
     ReactGA.initialize(gAnalyticsID);
-    ReactGA.pageview('/');
 
     const isDarkModeEnabled = getIsDarkModeEnabled();
     this.enableOrDisabledDarkModeStyling(isDarkModeEnabled);
