@@ -2,7 +2,9 @@
   padding: 1em;
   margin: 0.75em 0 2em;
   background-color: #ffffff;
-  box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    -1px 2px 4px rgba(0, 0, 0, 0.25),
+    1px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 14px;
   font-family: 'Lato', sans-serif;
 
@@ -59,16 +61,18 @@
   }
 }
 
-.dark-mode{
-  .result-wrapper{
+.dark-mode {
+  .result-wrapper {
     background: #ffffff0f;
-    box-shadow: -1px 2px 4px rgb(31,31,31), 1px 1px 3px rgba(0,0,0,.1);
-    .result-header{
-      a{
+    box-shadow:
+      -1px 2px 4px rgb(31, 31, 31),
+      1px 1px 3px rgba(0, 0, 0, 0.1);
+    .result-header {
+      a {
         color: #4e7fef;
       }
-      .link-title{
-        color: #ffffff
+      .link-title {
+        color: #ffffff;
       }
     }
   }

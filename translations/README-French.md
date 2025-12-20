@@ -20,7 +20,7 @@ J'ai commencé à rechercher des problèmes pendant [Hacktoberfest](https://medi
 ## Développement local
 
 Pour exécuter ce projet pour le développement local si vous avez Node.js et NPM
-installé, suivez ces étapes dans un terminal. 
+installé, suivez ces étapes dans un terminal.
 L'application fonctionnera sur le port 3000.
 
 ```bash
@@ -42,4 +42,3 @@ Merci pour ton intérêt! Tous les types de contributions sont les bienvenus. **
 - Créez votre branche à partir de la branche "maître"
 - Exécutez `npm run lint:fix` pour garantir un formatage correct
 - Veuillez ouvrir votre RP avec la branche "maître" comme base
-

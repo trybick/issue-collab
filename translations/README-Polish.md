@@ -19,8 +19,8 @@ Zacząłem szukać wątków podczas [Hacktoberfest](https://medium.freecodecamp.
 
 ## Rozbudowa projektu
 
-Żeby uruchomić ten projekt w celu rozwoju jeśli masz 
-zainstalowane Node.js i NPM wykonaj te kroki w terminalu. 
+Żeby uruchomić ten projekt w celu rozwoju jeśli masz
+zainstalowane Node.js i NPM wykonaj te kroki w terminalu.
 Aplikacja powinna działać na porcie 3000.
 
 ```bash
@@ -28,8 +28,8 @@ npm install
 npm start
 ```
 
-Jeśli nie chcesz instalować Node.js, a masz Dockera, 
-użyj `Dockerfile` i skrypt który przygotowuje całą aplikację 
+Jeśli nie chcesz instalować Node.js, a masz Dockera,
+użyj `Dockerfile` i skrypt który przygotowuje całą aplikację
 w odrębnym kontenerze. Aplikacja powinna działać na porcie 3000.
 
 ```bash
@@ -44,4 +44,3 @@ Dziekuję za zainteresowanie! Wszystkie okazje przyczyniania się do rozwoju mil
 - Utwórz nową gałąź z gałęzi `master`
 - Uruchom `npm run lint:fix` w celu zapewnienia prawidłowego formatowania
 - Proszę otwórz swój PR z gałęzią `master` jako baza.
-

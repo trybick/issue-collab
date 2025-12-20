@@ -1,4 +1,4 @@
-export const getContrastTextColor = hexColor => {
+export const getContrastTextColor = (hexColor) => {
   let color = hexColor;
 
   if (color.indexOf('#') === 0) {

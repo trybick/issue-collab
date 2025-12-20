@@ -32,7 +32,9 @@
   width: 75%;
   font-size: 0.98em;
   background: rgba(255, 255, 255, 0.5);
-  box-shadow: -1px 2px 14px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    -1px 2px 14px rgba(0, 0, 0, 0.25),
+    1px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-sizing: border-box;
   margin: 0 auto;
@@ -50,9 +52,11 @@
   }
 }
 
-.dark-mode{
-  .greeting-card{
+.dark-mode {
+  .greeting-card {
     background: #ffffff05;
-    box-shadow: -1px 2px 14px #948d8d00, 1px 1px 3px #7d77770f;
+    box-shadow:
+      -1px 2px 14px #948d8d00,
+      1px 1px 3px #7d77770f;
   }
 }

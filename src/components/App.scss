@@ -16,29 +16,29 @@ body {
   margin: 0 auto;
 }
 
-.dark-mode{
+.dark-mode {
   background: #222;
   color: white;
 
-  input, fieldset{
+  input,
+  fieldset {
     border-color: white;
     color: white;
   }
 
-  .result-wrapper{
+  .result-wrapper {
     background: #888;
 
-    .result-header{
+    .result-header {
       color: lightblue;
     }
 
-    .result-body{
+    .result-body {
       color: white;
 
-      .metadata{
+      .metadata {
         color: white;
       }
     }
   }
-  
 }

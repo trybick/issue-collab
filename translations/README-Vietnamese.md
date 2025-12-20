@@ -27,7 +27,7 @@ npm start
 ```
 
 Nếu bạn không muốn cài đặt Node.js và bạn đã có Docker hiện diện trên hệ thống,
-thì chỉ cần dùng `Dockerfile` và đoạn script chuẩn bị cho toàn bộ ứng dụng đặt ở một 
+thì chỉ cần dùng `Dockerfile` và đoạn script chuẩn bị cho toàn bộ ứng dụng đặt ở một
 thư mục chứa khác. App sẽ chạy trên cổng 3000.
 
 ```bash
@@ -42,4 +42,3 @@ Cảm ơn vì sự hứng thú của bạn! Tất cả những hình thức đó
 - Tạo nhánh mới của bạn từ nhánh `master`
 - Hãy mở một PR mới với nhánh `master` là căn bản.
 - Đừng quên xem kết quả kiểm tra PR để chắc chắn rằng bản xem trước khi triển khai trên Netlify là chính xác.
-

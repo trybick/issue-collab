@@ -4,7 +4,7 @@ import { formatLabelForName } from '../../utils/formatting';
 import '../../styles/react-toggle.scss';
 
 const ToggleGroup = ({ dataType, items, onToggleChange, names }) => {
-  const mappedToggles = names.map(name => {
+  const mappedToggles = names.map((name) => {
     return (
       <div key={name}>
         <Toggle

@@ -43,4 +43,3 @@ Thank you for your interest! All types of contributions welcome. **HACK AWAY!** 
 - Create your branch from the `master` branch
 - Please open your PR with the `master` branch as the base
 - Take a look at the PR checks to make sure the Netlify deploy preview looks correct
-

@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import './SearchContainer.scss';
 
 const SearchContainer = ({
@@ -10,7 +10,7 @@ const SearchContainer = ({
   getIssues,
   onReset,
 }) => {
-  const listenForSubmit = e => {
+  const listenForSubmit = (e) => {
     if (e.key === 'Enter') {
       getIssues();
     }
@@ -30,7 +30,7 @@ const SearchContainer = ({
           }}
           margin="dense"
           onChange={handleTextChange}
-          onKeyPress={e => listenForSubmit(e)}
+          onKeyPress={(e) => listenForSubmit(e)}
           placeholder="Enter keywords (optional)"
           type="text"
           value={textToSearch}

@@ -1,5 +1,5 @@
-.scroll-to-top{
-  position: fixed; 
+.scroll-to-top {
+  position: fixed;
   width: 56px;
   height: 56px;
   bottom: 4%;
@@ -8,8 +8,8 @@
 }
 
 @media only screen and (max-width: 1000px) {
-  .scroll-to-top{
-      bottom: 11%;
-      right: 7.5%;
+  .scroll-to-top {
+    bottom: 11%;
+    right: 7.5%;
   }
 }
