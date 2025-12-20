@@ -52,11 +52,6 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.2.11",
     "prettier": "^3.4.2"
-  },
-  "lint-staged": {
-    "*.{jsx,js}": "eslint --cache --fix"
   }
 }
