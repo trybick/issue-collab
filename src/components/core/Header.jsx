@@ -13,9 +13,9 @@ const Header = ({ onToggleDarkMode, darkMode }) => (
 
     <div className="header-right">
       <IconButton
+        aria-label="toggle dark mode"
         onClick={onToggleDarkMode}
         sx={{ color: darkMode ? '#ffd54f' : '#5c6bc0' }}
-        aria-label="toggle dark mode"
       >
         {darkMode ? <LightMode /> : <DarkMode />}
       </IconButton>
