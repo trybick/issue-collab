@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Fab } from '@material-ui/core';
-import ArrowUpIcon from '@material-ui/icons/ArrowUpward';
+import { Fab } from '@mui/material';
+import ArrowUpIcon from '@mui/icons-material/ArrowUpward';
 import './ScrollToTopButton.scss';
 
 const ScrollToTopButton = () => {
   const [showScroll, setShowScroll] = useState(false);
 
   const getShouldShowButton = () => {
-    window.pageYOffset > 500 ? setShowScroll(true) : setShowScroll(false);
+    setShowScroll(window.pageYOffset > 500);
   };
 
   const scrollToTop = () => {

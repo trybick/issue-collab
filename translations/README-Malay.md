@@ -28,7 +28,7 @@ npm start
 ```
 
 Sekiranya anda tidak mahu memasang Node.js tetapi anda mempunyai Docker pada
-sistem, gunakan sahaja `Dockerfile` dan skrip yang menyiapkannya keseluruhan 
+sistem, gunakan sahaja `Dockerfile` dan skrip yang menyiapkannya keseluruhan
 aplikasi dalam bekas yang berasingan. Aplikasi ini akan berjalan di port 3000.
 
 ```bash
@@ -41,6 +41,5 @@ Terima kasih kerana minat anda! Semua jenis sumbangan dialu-alukan. **HACK AWAY!
 
 - Fork dan klon repositori ini
 - Cipta cabang anda dari cabang `master`
-- Sila buka PR anda dengan cabang  `master` sebagai pangkalnya
+- Sila buka PR anda dengan cabang `master` sebagai pangkalnya
 - Lihatlah pemeriksaan PR untuk memastikan pratonton penggunaan Netlify kelihatan betul
-

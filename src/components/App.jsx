@@ -48,9 +48,9 @@ class App extends React.Component {
     this.setState({ darkMode: isDarkModeEnabled });
   };
 
-  getActiveItems = type => {
+  getActiveItems = (type) => {
     const items = this.state[type];
-    return Object.keys(items).filter(item => items[item]);
+    return Object.keys(items).filter((item) => items[item]);
   };
 
   createUrl = () => {
@@ -67,7 +67,7 @@ class App extends React.Component {
     return `${baseUrl}${formattedText}type:issue${joinedLabels}${joinedLanguage}${sortOptions}&page=${pageNum}`;
   };
 
-  handleErrors = res => {
+  handleErrors = (res) => {
     if (!res.ok) {
       this.setState({ fetchError: true, isFetching: false });
       throw Error(res.status);
@@ -94,7 +94,7 @@ class App extends React.Component {
     const finalUrl = this.createUrl();
     await fetch(finalUrl)
       .then(this.handleErrors)
-      .then(resJson => {
+      .then((resJson) => {
         this.setState(
           {
             isEmpty: false,
@@ -112,7 +112,7 @@ class App extends React.Component {
       });
   };
 
-  handleTextChange = e => {
+  handleTextChange = (e) => {
     this.setState({ textToSearch: e.target.value });
   };
 
@@ -131,9 +131,9 @@ class App extends React.Component {
     );
   };
 
-  toggleLanguage = selectedName => {
+  toggleLanguage = (selectedName) => {
     const currentLanguages = this.state.languages;
-    Object.keys(currentLanguages).forEach(key => {
+    Object.keys(currentLanguages).forEach((key) => {
       if (key === selectedName) {
         currentLanguages[key] = !currentLanguages[key];
       } else {
@@ -143,7 +143,7 @@ class App extends React.Component {
     return currentLanguages;
   };
 
-  onToggleChange = event => {
+  onToggleChange = (event) => {
     const { labels } = this.state;
     const selectedType = event.target.dataset.type;
     const selectedName = event.target.name;
@@ -160,7 +160,7 @@ class App extends React.Component {
     }
   };
 
-  onToggleDarkMode = isEnabled => {
+  onToggleDarkMode = (isEnabled) => {
     if (isEnabled) {
       this.setState({ darkMode: true });
       setLocalStorageItem('dark-mode', 'true');
@@ -171,13 +171,13 @@ class App extends React.Component {
     this.enableOrDisabledDarkModeStyling(isEnabled);
   };
 
-  enableOrDisabledDarkModeStyling = isEnabled => {
+  enableOrDisabledDarkModeStyling = (isEnabled) => {
     document.body.className = isEnabled ? 'dark-mode' : '';
   };
 
-  resetToggles = toggleType => {
+  resetToggles = (toggleType) => {
     const currentItems = this.state[toggleType];
-    Object.keys(currentItems).forEach(key => {
+    Object.keys(currentItems).forEach((key) => {
       currentItems[key] = false;
     });
     return currentItems;

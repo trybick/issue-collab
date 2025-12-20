@@ -13,16 +13,16 @@
 
 ## Háttér
 
-E projekt ötlete abból ered, hogy a GitHub saját keresőfunkciója nem mindig elegendő érdekes projektek megtalálásához. 
+E projekt ötlete abból ered, hogy a GitHub saját keresőfunkciója nem mindig elegendő érdekes projektek megtalálásához.
 
-Én a [Hacktoberfest](https://medium.freecodecamp.org/i-just-got-my-free-hacktoberfest-shirt-heres-a-quick-way-you-can-get-yours-fa78d6e24307) 
-keretében kezdtem keresgélni, ami egy éves esemény a Digital Ocean szponzorálásával. 
+Én a [Hacktoberfest](https://medium.freecodecamp.org/i-just-got-my-free-hacktoberfest-shirt-heres-a-quick-way-you-can-get-yours-fa78d6e24307)
+keretében kezdtem keresgélni, ami egy éves esemény a Digital Ocean szponzorálásával.
 A rendezvény célja, hogy nyílt forráskódú projektekben való közreműködésre ösztönözze a fejlesztőket.
 Hozz létre 4 `pull request`-et a hónap folyamán és egy ingyen pólót kapsz ajándékba.👕
 
 ## Lokális Fejlesztés
 
-Amennyiben a Node.js és az NPM már telepítve van, a projekt elindításához futtasd a következő parancsokat a terminálban 
+Amennyiben a Node.js és az NPM már telepítve van, a projekt elindításához futtasd a következő parancsokat a terminálban
 (az alkalmazás a 3000-es port-on fog futni):
 
 ```bash
@@ -30,7 +30,7 @@ npm install
 npm start
 ```
 
-Ha nem akarod telepíteni a Node.js-t, de a Docker jelen van a rendszerben, használhatod a Docker fájlt és a lenti szkriptet, 
+Ha nem akarod telepíteni a Node.js-t, de a Docker jelen van a rendszerben, használhatod a Docker fájlt és a lenti szkriptet,
 amely külön konténerben készíti elő az alkalmazást és a 3000-es port-on futtatja azt:
 
 ```bash
@@ -45,4 +45,3 @@ Köszönjük az érdeklődést! Minden típusú hozzájárulást szívesen fogad
 - Hozz létre egy új ágat (`branch`) a fő ágból (`master branch`)
 - `Pull request`-et a master branch-et alapul véve indíts
 - Figyeld a `pull request` ellenőrzéseit és győződj meg róla, hogy a Netlify telepítési előnézete megfelelő
-

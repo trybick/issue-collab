@@ -25,7 +25,7 @@ npm install
 npm start
 ```
 
-Se non vuoi installare Node.js ed hai Docker sul tuo sistema, 
+Se non vuoi installare Node.js ed hai Docker sul tuo sistema,
 allora puoi utilizzare il 'Dockerfile' e lo script che prepara l'applicazione in un ambiente separato
 L'app si aprirà sulla porta 3000.
 

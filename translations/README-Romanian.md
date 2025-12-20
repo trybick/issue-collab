@@ -40,4 +40,3 @@ Mulțumim pentru interes! Toate tipurile de contribuții sunt binevenite. **HACK
 - Creează un branch din branch-ul `master`
 - Rulează `npm run lint:fix` că să te asiguri că formatarea e corectă
 - Te rugăm să deschizi PR-ul tău cu branch-ul `master` branch la bază
-

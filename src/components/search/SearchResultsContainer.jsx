@@ -20,7 +20,7 @@ const SearchResultsContainer = ({ currentPage, onPageChange, results }) => {
 
   const formattedResults =
     results.items[0] &&
-    results.items.map(item => {
+    results.items.map((item) => {
       const htmlUrl = item.html_url.split('/');
       const userName = htmlUrl[3];
       const repoName = htmlUrl[4];

@@ -1,14 +1,14 @@
 import React from 'react';
 import './Pagination.scss';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 
 const Pagination = ({ totalPages = 1, currentPage = 1, onPageChange }) => {
-  const handleClickPrev = e => {
+  const handleClickPrev = (e) => {
     const pageNum = currentPage > 1 ? currentPage - 1 : 1;
     onPageChange(e, pageNum);
   };
 
-  const handleClickNext = e => {
+  const handleClickNext = (e) => {
     const pageNum = currentPage < totalPages ? currentPage + 1 : totalPages;
     onPageChange(e, pageNum);
   };
