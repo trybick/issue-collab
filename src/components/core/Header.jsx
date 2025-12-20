@@ -1,5 +1,6 @@
 import React from 'react';
-import DarkModeToggle from 'react-dark-mode-toggle';
+import { IconButton } from '@mui/material';
+import { DarkMode, LightMode } from '@mui/icons-material';
 import './Header.scss';
 import githubIcon from '../../images/github-icon.svg';
 import githubIconWhite from '../../images/github-icon-white.svg';
@@ -11,12 +12,13 @@ const Header = ({ onToggleDarkMode, darkMode }) => (
     </h2>
 
     <div className="header-right">
-      <DarkModeToggle
-        checked={darkMode}
-        className="dark-mode-toggle"
-        onChange={onToggleDarkMode}
-        size={42}
-      />
+      <IconButton
+        onClick={onToggleDarkMode}
+        sx={{ color: darkMode ? '#ffd54f' : '#5c6bc0' }}
+        aria-label="toggle dark mode"
+      >
+        {darkMode ? <LightMode /> : <DarkMode />}
+      </IconButton>
       <a
         className="github-link"
         href="https://github.com/trybick/issue-collab"

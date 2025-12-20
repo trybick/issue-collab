@@ -25,16 +25,18 @@
 .header-right {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .github-link {
-  height: 18px;
-  width: 50px;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  margin-left: 2px;
 
   .github-svg {
     cursor: pointer;
-    width: 60%;
+    width: 24px;
+    height: 24px;
   }
 }
 

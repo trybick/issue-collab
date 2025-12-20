@@ -160,15 +160,15 @@ class App extends React.Component {
     }
   };
 
-  onToggleDarkMode = (isEnabled) => {
-    if (isEnabled) {
-      this.setState({ darkMode: true });
-      setLocalStorageItem('dark-mode', 'true');
-    } else {
+  onToggleDarkMode = () => {
+    if (this.state.darkMode) {
       this.setState({ darkMode: false });
       setLocalStorageItem('dark-mode', 'false');
+    } else {
+      this.setState({ darkMode: true });
+      setLocalStorageItem('dark-mode', 'true');
     }
-    this.enableOrDisabledDarkModeStyling(isEnabled);
+    this.enableOrDisabledDarkModeStyling(!this.state.darkMode);
   };
 
   enableOrDisabledDarkModeStyling = (isEnabled) => {
